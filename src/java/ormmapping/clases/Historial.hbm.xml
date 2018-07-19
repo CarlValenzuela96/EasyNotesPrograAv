@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Historial" table="historial" lazy="false">
+		<id name="idHistorial" column="idHistorial" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="semestre" column="semestre" type="integer" length="1" not-null="false" lazy="false"/>
+		<property name="año" column="año" type="integer" length="4" not-null="false" lazy="false"/>
+		<many-to-one name="semestreidSemestre" column="semestreidSemestre" class="clases.Semestre" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<set name="ORM_RamoAprobado" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="HistorialidHistorial" not-null="true"/>
+			<one-to-many class="clases.RamoAprobado"/>
+		</set>
+		<set name="ORM_RamoReprobado" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="HistorialidHistorial" not-null="true"/>
+			<one-to-many class="clases.RamoReprobado"/>
+		</set>
+	</class>
+</hibernate-mapping>

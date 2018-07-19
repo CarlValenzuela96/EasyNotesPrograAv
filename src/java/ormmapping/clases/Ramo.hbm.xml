@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Ramo" table="ramo" lazy="false">
+		<id name="idRamo" column="idRamo" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="nombreRamo" column="nombreRamo" type="string" length="50" not-null="false" lazy="false"/>
+		<property name="codigoRamo" column="codigoRamo" type="integer" length="10" not-null="false" lazy="false"/>
+		<property name="tipoAprobacion" column="tipoAprobacion" type="string" length="30" not-null="false" lazy="false"/>
+		<property name="cantNotasTeoricas" column="cantNotasTeoricas" type="integer" length="2" not-null="false" lazy="false"/>
+		<property name="cantNotasPracticas" column="cantNotasPracticas" type="integer" length="2" not-null="false" lazy="false"/>
+		<property name="ponderacionTeorica" column="ponderacionTeorica" type="double" length="10" not-null="false" lazy="false"/>
+		<property name="poderacionPractica" column="poderacionPractica" type="double" length="10" not-null="false" lazy="false"/>
+		<property name="horasSemanales" column="horasSemanales" type="integer" length="2" not-null="false" lazy="false"/>
+		<many-to-one name="semestreidSemestre" cascade="lock" column="SemestreidSemestre" class="clases.Semestre" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<set name="ORM_Horario" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="RamoidRamo" not-null="true"/>
+			<one-to-many class="clases.Horario"/>
+		</set>
+		<set name="ORM_NotasTeorico" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="RamoidRamo" not-null="true"/>
+			<one-to-many class="clases.NotasTeorico"/>
+		</set>
+		<set name="ORM_NotasPractico" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="RamoidRamo" not-null="true"/>
+			<one-to-many class="clases.NotasPractico"/>
+		</set>
+		<one-to-one name="promedioMixto" class="clases.PromedioMixto" cascade="save-update,lock" property-ref="ramoidRamo" lazy="no-proxy" access="field"/>
+		<one-to-one name="promedioSimple" class="clases.PromedioSimple" cascade="save-update,lock" property-ref="ramoidRamo" lazy="no-proxy" access="field"/>
+		<set name="ORM_Evento" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="RamoidRamo" not-null="true"/>
+			<one-to-many class="clases.Evento"/>
+		</set>
+	</class>
+</hibernate-mapping>

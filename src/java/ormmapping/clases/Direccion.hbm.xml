@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Direccion" table="direccion" lazy="false">
+		<id name="idDireccion" column="idDireccion" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="paisRecidencia" column="paisRecidencia" type="string" length="10" not-null="false" lazy="false"/>
+		<property name="ciudad" column="ciudad" type="string" length="15" not-null="false" lazy="false"/>
+		<property name="comuna" column="comuna" type="string" length="15" not-null="false" lazy="false"/>
+		<many-to-one name="usuarioidUsuario" column="UsuarioidUsuario" class="clases.Usuario" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<one-to-one name="domicilio" class="clases.Domicilio" cascade="save-update,lock" property-ref="direccionidDireccion" lazy="no-proxy" access="field"/>
+	</class>
+</hibernate-mapping>

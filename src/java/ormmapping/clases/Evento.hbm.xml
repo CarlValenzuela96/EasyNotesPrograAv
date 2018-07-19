@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Evento" table="evento" lazy="false">
+		<id name="idEvento" column="idEvento" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="fecha" column="fecha" type="string" length="10" not-null="false" lazy="false"/>
+		<property name="anotacion" column="anotacion" type="string" length="255" not-null="false" lazy="false"/>
+		<many-to-one name="ramoidRamo" cascade="lock" column="RamoidRamo" class="clases.Ramo" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

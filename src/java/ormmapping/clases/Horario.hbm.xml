@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Horario" table="horario" lazy="false">
+		<id name="idHorario" column="idHorario" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="diaImpartido" column="diaImpartido" type="string" length="10" not-null="false" lazy="false"/>
+		<property name="horaInicio" column="horaInicio" type="string" length="5" not-null="false" lazy="false"/>
+		<property name="horaFIn" column="horaFIn" type="string" length="5" not-null="false" lazy="false"/>
+		<property name="sala" column="sala" type="string" length="20" not-null="false" lazy="false"/>
+		<property name="docente" column="docente" type="string" length="50" not-null="false" lazy="false"/>
+		<many-to-one name="ramoidRamo" cascade="lock" column="RamoidRamo" class="clases.Ramo" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

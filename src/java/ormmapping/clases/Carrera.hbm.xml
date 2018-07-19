@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Carrera" table="carrera" lazy="false">
+		<id name="idCarrera" column="idCarrera" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="nombreCarrera" column="nombreCarrera" type="string" length="50" not-null="false" lazy="false"/>
+		<property name="cantSemestres" column="cantSemestres" type="integer" length="2" not-null="false" lazy="false"/>
+		<property name="universidad" column="universidad" type="string" length="50" not-null="false" lazy="false"/>
+		<set name="ORM_Usuario" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="CarreraidCarrera" not-null="true"/>
+			<one-to-many class="clases.Usuario"/>
+		</set>
+	</class>
+</hibernate-mapping>

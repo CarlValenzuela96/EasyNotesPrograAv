@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.Usuario" table="usuario" lazy="false">
+		<id name="idUsuario" column="idUsuario" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="nombre" column="nombre" type="string" length="50" not-null="false" lazy="false"/>
+		<property name="apellido" column="apellido" type="string" length="50" not-null="false" lazy="false"/>
+		<property name="matricula" column="matricula" type="string" length="50" not-null="false" lazy="false"/>
+		<property name="run" column="run" type="string" length="15" not-null="false" lazy="false"/>
+		<property name="pga" column="pga" type="double" not-null="false" lazy="false"/>
+		<property name="sexo" column="sexo" type="string" length="10" not-null="false" lazy="false"/>
+		<property name="edad" column="edad" type="string" length="3" not-null="false" lazy="false"/>
+		<property name="fechaNacimiento" column="fechaNacimiento" type="string" length="10" not-null="false" lazy="false"/>
+		<property name="nacionalidad" column="nacionalidad" type="string" length="30" not-null="false" lazy="false"/>
+		<property name="telefono" column="telefono" type="string" length="11" not-null="false" lazy="false"/>
+		<property name="email" column="email" type="string" length="80" not-null="false" lazy="false"/>
+		<many-to-one name="loginusuario" column="loginusuario" class="clases.Login" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<many-to-one name="carreraidCarrera" cascade="lock" column="CarreraidCarrera" class="clases.Carrera" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<set name="ORM_Semestre" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="UsuarioidUsuario" not-null="true"/>
+			<one-to-many class="clases.Semestre"/>
+		</set>
+		<one-to-one name="direccion" class="clases.Direccion" cascade="save-update,lock" property-ref="usuarioidUsuario" lazy="no-proxy" access="field"/>
+	</class>
+</hibernate-mapping>

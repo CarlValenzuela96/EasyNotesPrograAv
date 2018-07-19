@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidad de La Frontera
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="clases.NotasPractico" table="notasPractico" lazy="false">
+		<id name="idNotaPractica" column="idNotaPractica" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="notaPractica" column="notaPractica" type="double" length="10" not-null="false" lazy="false"/>
+		<property name="pondPractico" column="pondPractico" type="double" not-null="false" lazy="false"/>
+		<many-to-one name="ramoidRamo" cascade="lock" column="RamoidRamo" class="clases.Ramo" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

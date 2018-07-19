@@ -323,8 +323,8 @@ public class EventoDAO {
 	
 	public static boolean deleteAndDissociate(clases.Evento evento)throws PersistentException {
 		try {
-			if (evento.getRamoidRamo() != null) {
-				evento.getRamoidRamo().evento.remove(evento);
+			if (evento.getUsuarioidUsuario() != null) {
+				evento.getUsuarioidUsuario().evento.remove(evento);
 			}
 			
 			return delete(evento);
@@ -337,8 +337,8 @@ public class EventoDAO {
 	
 	public static boolean deleteAndDissociate(clases.Evento evento, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (evento.getRamoidRamo() != null) {
-				evento.getRamoidRamo().evento.remove(evento);
+			if (evento.getUsuarioidUsuario() != null) {
+				evento.getUsuarioidUsuario().evento.remove(evento);
 			}
 			
 			try {

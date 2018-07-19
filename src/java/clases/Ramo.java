@@ -27,9 +27,6 @@ public class Ramo {
 		else if (key == clases.ORMConstants.KEY_RAMO_NOTASPRACTICO) {
 			return ORM_notasPractico;
 		}
-		else if (key == clases.ORMConstants.KEY_RAMO_EVENTO) {
-			return ORM_evento;
-		}
 		
 		return null;
 	}
@@ -88,8 +85,6 @@ public class Ramo {
 	private clases.PromedioMixto promedioMixto;
 	
 	private clases.PromedioSimple promedioSimple;
-	
-	private java.util.Set ORM_evento = new java.util.HashSet();
 	
 	private void setIdRamo(int value) {
 		this.idRamo = value;
@@ -278,16 +273,6 @@ public class Ramo {
 	public clases.PromedioSimple getPromedioSimple() {
 		return promedioSimple;
 	}
-	
-	private void setORM_Evento(java.util.Set value) {
-		this.ORM_evento = value;
-	}
-	
-	private java.util.Set getORM_Evento() {
-		return ORM_evento;
-	}
-	
-	public final clases.EventoSetCollection evento = new clases.EventoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_RAMO_EVENTO, clases.ORMConstants.KEY_EVENTO_RAMOIDRAMO, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdRamo());

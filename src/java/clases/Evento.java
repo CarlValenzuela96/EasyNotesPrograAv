@@ -18,8 +18,8 @@ public class Evento {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_EVENTO_RAMOIDRAMO) {
-			this.ramoidRamo = (clases.Ramo) owner;
+		if (key == clases.ORMConstants.KEY_EVENTO_USUARIOIDUSUARIO) {
+			this.usuarioidUsuario = (clases.Usuario) owner;
 		}
 	}
 	
@@ -32,11 +32,17 @@ public class Evento {
 	
 	private int idEvento;
 	
-	private String fecha;
+	private String content;
 	
-	private String anotacion;
+	private Integer año;
 	
-	private clases.Ramo ramoidRamo;
+	private Integer mes;
+	
+	private Integer dia;
+	
+	private String color;
+	
+	private clases.Usuario usuarioidUsuario;
 	
 	private void setIdEvento(int value) {
 		this.idEvento = value;
@@ -50,44 +56,80 @@ public class Evento {
 		return getIdEvento();
 	}
 	
-	public void setFecha(String value) {
-		this.fecha = value;
+	public void setContent(String value) {
+		this.content = value;
 	}
 	
-	public String getFecha() {
-		return fecha;
+	public String getContent() {
+		return content;
 	}
 	
-	public void setAnotacion(String value) {
-		this.anotacion = value;
+	public void setAño(int value) {
+		setAño(new Integer(value));
 	}
 	
-	public String getAnotacion() {
-		return anotacion;
+	public void setAño(Integer value) {
+		this.año = value;
 	}
 	
-	public void setRamoidRamo(clases.Ramo value) {
-		if (ramoidRamo != null) {
-			ramoidRamo.evento.remove(this);
+	public Integer getAño() {
+		return año;
+	}
+	
+	public void setMes(int value) {
+		setMes(new Integer(value));
+	}
+	
+	public void setMes(Integer value) {
+		this.mes = value;
+	}
+	
+	public Integer getMes() {
+		return mes;
+	}
+	
+	public void setDia(int value) {
+		setDia(new Integer(value));
+	}
+	
+	public void setDia(Integer value) {
+		this.dia = value;
+	}
+	
+	public Integer getDia() {
+		return dia;
+	}
+	
+	public void setColor(String value) {
+		this.color = value;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+	
+	public void setUsuarioidUsuario(clases.Usuario value) {
+		if (usuarioidUsuario != null) {
+			usuarioidUsuario.evento.remove(this);
 		}
 		if (value != null) {
 			value.evento.add(this);
 		}
 	}
 	
-	public clases.Ramo getRamoidRamo() {
-		return ramoidRamo;
+	public clases.Usuario getUsuarioidUsuario() {
+		return usuarioidUsuario;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_RamoidRamo(clases.Ramo value) {
-		this.ramoidRamo = value;
+	public void setORM_UsuarioidUsuario(clases.Usuario value) {
+		this.usuarioidUsuario = value;
 	}
 	
-	private clases.Ramo getORM_RamoidRamo() {
-		return ramoidRamo;
+	private clases.Usuario getORM_UsuarioidUsuario() {
+		return usuarioidUsuario;
 	}
 	
 	public String toString() {

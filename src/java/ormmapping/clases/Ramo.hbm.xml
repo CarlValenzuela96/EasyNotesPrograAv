@@ -34,9 +34,5 @@ License Type: Academic
 		</set>
 		<one-to-one name="promedioMixto" class="clases.PromedioMixto" cascade="save-update,lock" property-ref="ramoidRamo" lazy="no-proxy" access="field"/>
 		<one-to-one name="promedioSimple" class="clases.PromedioSimple" cascade="save-update,lock" property-ref="ramoidRamo" lazy="no-proxy" access="field"/>
-		<set name="ORM_Evento" lazy="true" cascade="save-update,lock" inverse="true">
-			<key column="RamoidRamo" not-null="true"/>
-			<one-to-many class="clases.Evento"/>
-		</set>
 	</class>
 </hibernate-mapping>

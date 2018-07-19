@@ -339,6 +339,10 @@ public class UsuarioDAO {
 				usuario.getDireccion().setUsuarioidUsuario(null);
 			}
 			
+			clases.Evento[] lEventos = usuario.evento.toArray();
+			for(int i = 0; i < lEventos.length; i++) {
+				lEventos[i].setUsuarioidUsuario(null);
+			}
 			return delete(usuario);
 		}
 		catch(Exception e) {
@@ -365,6 +369,10 @@ public class UsuarioDAO {
 				usuario.getDireccion().setUsuarioidUsuario(null);
 			}
 			
+			clases.Evento[] lEventos = usuario.evento.toArray();
+			for(int i = 0; i < lEventos.length; i++) {
+				lEventos[i].setUsuarioidUsuario(null);
+			}
 			try {
 				session.delete(usuario);
 				return true;

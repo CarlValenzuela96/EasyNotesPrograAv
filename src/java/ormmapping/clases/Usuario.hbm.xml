@@ -30,5 +30,9 @@ License Type: Academic
 			<one-to-many class="clases.Semestre"/>
 		</set>
 		<one-to-one name="direccion" class="clases.Direccion" cascade="save-update,lock" property-ref="usuarioidUsuario" lazy="no-proxy" access="field"/>
+		<set name="ORM_Evento" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="usuarioidUsuario" not-null="true"/>
+			<one-to-many class="clases.Evento"/>
+		</set>
 	</class>
 </hibernate-mapping>

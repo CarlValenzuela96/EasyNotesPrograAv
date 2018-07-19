@@ -347,10 +347,6 @@ public class RamoDAO {
 				ramo.getPromedioSimple().setRamoidRamo(null);
 			}
 			
-			clases.Evento[] lEventos = ramo.evento.toArray();
-			for(int i = 0; i < lEventos.length; i++) {
-				lEventos[i].setRamoidRamo(null);
-			}
 			return delete(ramo);
 		}
 		catch(Exception e) {
@@ -385,10 +381,6 @@ public class RamoDAO {
 				ramo.getPromedioSimple().setRamoidRamo(null);
 			}
 			
-			clases.Evento[] lEventos = ramo.evento.toArray();
-			for(int i = 0; i < lEventos.length; i++) {
-				lEventos[i].setRamoidRamo(null);
-			}
 			try {
 				session.delete(ramo);
 				return true;

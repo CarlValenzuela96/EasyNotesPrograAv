@@ -19,7 +19,7 @@ public class CreatePrograAvanzadaData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historial, ramo, usuarioidUsuario
 			clases.SemestreDAO.save(clasesSemestre);
 			clases.Usuario clasesUsuario = clases.UsuarioDAO.createUsuario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : direccion, semestre, carreraidCarrera, loginusuario
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : evento, direccion, semestre, carreraidCarrera, loginusuario
 			clases.UsuarioDAO.save(clasesUsuario);
 			clases.RamoAprobado clasesRamoAprobado = clases.RamoAprobadoDAO.createRamoAprobado();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historialidHistorial
@@ -28,7 +28,7 @@ public class CreatePrograAvanzadaData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario
 			clases.LoginDAO.save(clasesLogin);
 			clases.Ramo clasesRamo = clases.RamoDAO.createRamo();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : evento, promedioSimple, promedioMixto, notasPractico, notasTeorico, horario, semestreidSemestre
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : promedioSimple, promedioMixto, notasPractico, notasTeorico, horario, semestreidSemestre
 			clases.RamoDAO.save(clasesRamo);
 			clases.NotasTeorico clasesNotasTeorico = clases.NotasTeoricoDAO.createNotasTeorico();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
@@ -55,7 +55,7 @@ public class CreatePrograAvanzadaData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
 			clases.NotasPracticoDAO.save(clasesNotasPractico);
 			clases.Evento clasesEvento = clases.EventoDAO.createEvento();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuarioidUsuario
 			clases.EventoDAO.save(clasesEvento);
 			t.commit();
 		}

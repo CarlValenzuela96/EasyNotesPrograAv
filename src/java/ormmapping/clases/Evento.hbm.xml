@@ -10,9 +10,12 @@ License Type: Academic
 			<generator class="native">
 			</generator>
 		</id>
-		<property name="fecha" column="fecha" type="string" length="10" not-null="false" lazy="false"/>
-		<property name="anotacion" column="anotacion" type="string" length="255" not-null="false" lazy="false"/>
-		<many-to-one name="ramoidRamo" cascade="lock" column="RamoidRamo" class="clases.Ramo" not-null="true" lazy="no-proxy" access="field">
+		<property name="content" column="content" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="año" column="año" type="integer" length="4" not-null="false" lazy="false"/>
+		<property name="mes" column="mes" type="integer" length="2" not-null="false" lazy="false"/>
+		<property name="dia" column="dia" type="integer" length="2" not-null="false" lazy="false"/>
+		<property name="color" column="color" type="string" length="10" not-null="false" lazy="false"/>
+		<many-to-one name="usuarioidUsuario" cascade="lock" column="usuarioidUsuario" class="clases.Usuario" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>

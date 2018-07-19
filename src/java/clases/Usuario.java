@@ -21,6 +21,9 @@ public class Usuario {
 		if (key == clases.ORMConstants.KEY_USUARIO_SEMESTRE) {
 			return ORM_semestre;
 		}
+		else if (key == clases.ORMConstants.KEY_USUARIO_EVENTO) {
+			return ORM_evento;
+		}
 		
 		return null;
 	}
@@ -81,6 +84,8 @@ public class Usuario {
 	private java.util.Set ORM_semestre = new java.util.HashSet();
 	
 	private clases.Direccion direccion;
+	
+	private java.util.Set ORM_evento = new java.util.HashSet();
 	
 	private void setIdUsuario(int value) {
 		this.idUsuario = value;
@@ -253,6 +258,16 @@ public class Usuario {
 	public clases.Direccion getDireccion() {
 		return direccion;
 	}
+	
+	private void setORM_Evento(java.util.Set value) {
+		this.ORM_evento = value;
+	}
+	
+	private java.util.Set getORM_Evento() {
+		return ORM_evento;
+	}
+	
+	public final clases.EventoSetCollection evento = new clases.EventoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_USUARIO_EVENTO, clases.ORMConstants.KEY_EVENTO_USUARIOIDUSUARIO, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdUsuario());

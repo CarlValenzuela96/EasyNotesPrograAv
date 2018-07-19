@@ -948,18 +948,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="fecha">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>10</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="anotacion">
+    <Column name="content">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
@@ -970,10 +959,54 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="RamoidRamo">
+    <Column name="año">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>4</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="mes">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>2</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="dia">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>2</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="color">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="usuarioidUsuario">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ramo.idRamo</ReferencedColumn>
+      <ReferencedColumn>usuario.idUsuario</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -1113,14 +1146,14 @@
       <Column>idCarrera</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKevento102772">
+  <ForeignKey name="FKevento386384">
     <ReferenceTable>evento</ReferenceTable>
-    <ReferencedTable>ramo</ReferencedTable>
+    <ReferencedTable>usuario</ReferencedTable>
     <Columns>
-      <Column>RamoidRamo</Column>
+      <Column>usuarioidUsuario</Column>
     </Columns>
     <RefColumns>
-      <Column>idRamo</Column>
+      <Column>idUsuario</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKhistorial186769">

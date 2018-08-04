@@ -13,7 +13,7 @@ License Type: Academic
 		<property name="calle" column="calle" type="string" length="50" not-null="false" lazy="false"/>
 		<property name="numeracion" column="numeracion" type="integer" length="5" not-null="false" lazy="false"/>
 		<property name="depto" column="depto" type="integer" length="4" not-null="false" lazy="false"/>
-		<many-to-one name="direccionidDireccion" column="DireccionidDireccion" class="clases.Direccion" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="direccionidDireccion" column="direccionidDireccion" class="clases.Direccion" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>

@@ -21,7 +21,7 @@ import java.util.List;
 public class NotasTeoricoDAO {
 	public static NotasTeorico loadNotasTeoricoByORMID(int idNotaTeorica) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasTeoricoByORMID(session, idNotaTeorica);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico getNotasTeoricoByORMID(int idNotaTeorica) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getNotasTeoricoByORMID(session, idNotaTeorica);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico loadNotasTeoricoByORMID(int idNotaTeorica, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasTeoricoByORMID(session, idNotaTeorica, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico getNotasTeoricoByORMID(int idNotaTeorica, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getNotasTeoricoByORMID(session, idNotaTeorica, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class NotasTeoricoDAO {
 	
 	public static List queryNotasTeorico(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryNotasTeorico(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class NotasTeoricoDAO {
 	
 	public static List queryNotasTeorico(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryNotasTeorico(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico[] listNotasTeoricoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listNotasTeoricoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico[] listNotasTeoricoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listNotasTeoricoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico loadNotasTeoricoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasTeoricoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class NotasTeoricoDAO {
 	
 	public static NotasTeorico loadNotasTeoricoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasTeoricoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class NotasTeoricoDAO {
 	
 	public static java.util.Iterator iterateNotasTeoricoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateNotasTeoricoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class NotasTeoricoDAO {
 	
 	public static java.util.Iterator iterateNotasTeoricoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateNotasTeoricoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class NotasTeoricoDAO {
 	
 	public static boolean save(clases.NotasTeorico notasTeorico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(notasTeorico);
+			PrograAvanzadaPersistentManager.instance().saveObject(notasTeorico);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class NotasTeoricoDAO {
 	
 	public static boolean delete(clases.NotasTeorico notasTeorico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(notasTeorico);
+			PrograAvanzadaPersistentManager.instance().deleteObject(notasTeorico);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class NotasTeoricoDAO {
 	
 	public static boolean refresh(clases.NotasTeorico notasTeorico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(notasTeorico);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(notasTeorico);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class NotasTeoricoDAO {
 	
 	public static boolean evict(clases.NotasTeorico notasTeorico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(notasTeorico);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(notasTeorico);
 			return true;
 		}
 		catch (Exception e) {

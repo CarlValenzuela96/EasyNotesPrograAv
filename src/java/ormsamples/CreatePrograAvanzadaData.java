@@ -9,54 +9,54 @@ public class CreatePrograAvanzadaData {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			clases.Domicilio clasesDomicilio = clases.DomicilioDAO.createDomicilio();
+			clases.Domicilio lclasesDomicilio = clases.DomicilioDAO.createDomicilio();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : direccionidDireccion
-			clases.DomicilioDAO.save(clasesDomicilio);
-			clases.Historial clasesHistorial = clases.HistorialDAO.createHistorial();
+			clases.DomicilioDAO.save(lclasesDomicilio);
+			clases.Historial lclasesHistorial = clases.HistorialDAO.createHistorial();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoReprobado, ramoAprobado, semestreidSemestre
-			clases.HistorialDAO.save(clasesHistorial);
-			clases.Semestre clasesSemestre = clases.SemestreDAO.createSemestre();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historial, ramo, usuarioidUsuario
-			clases.SemestreDAO.save(clasesSemestre);
-			clases.Usuario clasesUsuario = clases.UsuarioDAO.createUsuario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : evento, direccion, semestre, carreraidCarrera, loginusuario
-			clases.UsuarioDAO.save(clasesUsuario);
-			clases.RamoAprobado clasesRamoAprobado = clases.RamoAprobadoDAO.createRamoAprobado();
+			clases.HistorialDAO.save(lclasesHistorial);
+			clases.Semestre lclasesSemestre = clases.SemestreDAO.createSemestre();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historial, evento, ramo, usuarioidUsuario
+			clases.SemestreDAO.save(lclasesSemestre);
+			clases.Usuario lclasesUsuario = clases.UsuarioDAO.createUsuario();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : direccion, carrera, semestre, loginidLogin
+			clases.UsuarioDAO.save(lclasesUsuario);
+			clases.RamoAprobado lclasesRamoAprobado = clases.RamoAprobadoDAO.createRamoAprobado();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historialidHistorial
-			clases.RamoAprobadoDAO.save(clasesRamoAprobado);
-			clases.Login clasesLogin = clases.LoginDAO.createLogin();
+			clases.RamoAprobadoDAO.save(lclasesRamoAprobado);
+			clases.Login lclasesLogin = clases.LoginDAO.createLogin();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario
-			clases.LoginDAO.save(clasesLogin);
-			clases.Ramo clasesRamo = clases.RamoDAO.createRamo();
+			clases.LoginDAO.save(lclasesLogin);
+			clases.Ramo lclasesRamo = clases.RamoDAO.createRamo();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : promedioSimple, promedioMixto, notasPractico, notasTeorico, horario, semestreidSemestre
-			clases.RamoDAO.save(clasesRamo);
-			clases.NotasTeorico clasesNotasTeorico = clases.NotasTeoricoDAO.createNotasTeorico();
+			clases.RamoDAO.save(lclasesRamo);
+			clases.NotasTeorico lclasesNotasTeorico = clases.NotasTeoricoDAO.createNotasTeorico();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
-			clases.NotasTeoricoDAO.save(clasesNotasTeorico);
-			clases.Horario clasesHorario = clases.HorarioDAO.createHorario();
+			clases.NotasTeoricoDAO.save(lclasesNotasTeorico);
+			clases.Horario lclasesHorario = clases.HorarioDAO.createHorario();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
-			clases.HorarioDAO.save(clasesHorario);
-			clases.PromedioSimple clasesPromedioSimple = clases.PromedioSimpleDAO.createPromedioSimple();
+			clases.HorarioDAO.save(lclasesHorario);
+			clases.PromedioSimple lclasesPromedioSimple = clases.PromedioSimpleDAO.createPromedioSimple();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
-			clases.PromedioSimpleDAO.save(clasesPromedioSimple);
-			clases.Carrera clasesCarrera = clases.CarreraDAO.createCarrera();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario
-			clases.CarreraDAO.save(clasesCarrera);
-			clases.PromedioMixto clasesPromedioMixto = clases.PromedioMixtoDAO.createPromedioMixto();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
-			clases.PromedioMixtoDAO.save(clasesPromedioMixto);
-			clases.RamoReprobado clasesRamoReprobado = clases.RamoReprobadoDAO.createRamoReprobado();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historialidHistorial
-			clases.RamoReprobadoDAO.save(clasesRamoReprobado);
-			clases.Direccion clasesDireccion = clases.DireccionDAO.createDireccion();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : domicilio, usuarioidUsuario
-			clases.DireccionDAO.save(clasesDireccion);
-			clases.NotasPractico clasesNotasPractico = clases.NotasPracticoDAO.createNotasPractico();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
-			clases.NotasPracticoDAO.save(clasesNotasPractico);
-			clases.Evento clasesEvento = clases.EventoDAO.createEvento();
+			clases.PromedioSimpleDAO.save(lclasesPromedioSimple);
+			clases.Carrera lclasesCarrera = clases.CarreraDAO.createCarrera();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuarioidUsuario
-			clases.EventoDAO.save(clasesEvento);
+			clases.CarreraDAO.save(lclasesCarrera);
+			clases.PromedioMixto lclasesPromedioMixto = clases.PromedioMixtoDAO.createPromedioMixto();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
+			clases.PromedioMixtoDAO.save(lclasesPromedioMixto);
+			clases.RamoReprobado lclasesRamoReprobado = clases.RamoReprobadoDAO.createRamoReprobado();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : historialidHistorial
+			clases.RamoReprobadoDAO.save(lclasesRamoReprobado);
+			clases.Direccion lclasesDireccion = clases.DireccionDAO.createDireccion();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : domicilio, usuarioidUsuario
+			clases.DireccionDAO.save(lclasesDireccion);
+			clases.NotasPractico lclasesNotasPractico = clases.NotasPracticoDAO.createNotasPractico();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ramoidRamo
+			clases.NotasPracticoDAO.save(lclasesNotasPractico);
+			clases.Evento lclasesEvento = clases.EventoDAO.createEvento();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : semestreidSemestre
+			clases.EventoDAO.save(lclasesEvento);
 			t.commit();
 		}
 		catch (Exception e) {

@@ -15,7 +15,7 @@ License Type: Academic
 		<property name="mes" column="mes" type="integer" length="2" not-null="false" lazy="false"/>
 		<property name="dia" column="dia" type="integer" length="2" not-null="false" lazy="false"/>
 		<property name="color" column="color" type="string" length="10" not-null="false" lazy="false"/>
-		<many-to-one name="usuarioidUsuario" cascade="lock" column="usuarioidUsuario" class="clases.Usuario" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="semestreidSemestre" cascade="lock" column="semestreidSemestre" class="clases.Semestre" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 	</class>
 </hibernate-mapping>

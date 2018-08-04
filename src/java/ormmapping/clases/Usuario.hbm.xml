@@ -21,18 +21,13 @@ License Type: Academic
 		<property name="nacionalidad" column="nacionalidad" type="string" length="30" not-null="false" lazy="false"/>
 		<property name="telefono" column="telefono" type="string" length="11" not-null="false" lazy="false"/>
 		<property name="email" column="email" type="string" length="80" not-null="false" lazy="false"/>
-		<many-to-one name="loginusuario" column="loginusuario" class="clases.Login" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
-		</many-to-one>
-		<many-to-one name="carreraidCarrera" cascade="lock" column="CarreraidCarrera" class="clases.Carrera" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="loginidLogin" column="loginidLogin" class="clases.Login" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 		<set name="ORM_Semestre" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="UsuarioidUsuario" not-null="true"/>
 			<one-to-many class="clases.Semestre"/>
 		</set>
+		<one-to-one name="carrera" class="clases.Carrera" cascade="save-update,lock" property-ref="usuarioidUsuario" lazy="no-proxy" access="field"/>
 		<one-to-one name="direccion" class="clases.Direccion" cascade="save-update,lock" property-ref="usuarioidUsuario" lazy="no-proxy" access="field"/>
-		<set name="ORM_Evento" lazy="true" cascade="save-update,lock" inverse="true">
-			<key column="usuarioidUsuario" not-null="true"/>
-			<one-to-many class="clases.Evento"/>
-		</set>
 	</class>
 </hibernate-mapping>

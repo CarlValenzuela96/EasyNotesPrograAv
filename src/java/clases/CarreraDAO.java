@@ -21,7 +21,7 @@ import java.util.List;
 public class CarreraDAO {
 	public static Carrera loadCarreraByORMID(int idCarrera) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadCarreraByORMID(session, idCarrera);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class CarreraDAO {
 	
 	public static Carrera getCarreraByORMID(int idCarrera) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getCarreraByORMID(session, idCarrera);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class CarreraDAO {
 	
 	public static Carrera loadCarreraByORMID(int idCarrera, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadCarreraByORMID(session, idCarrera, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class CarreraDAO {
 	
 	public static Carrera getCarreraByORMID(int idCarrera, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getCarreraByORMID(session, idCarrera, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class CarreraDAO {
 	
 	public static List queryCarrera(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryCarrera(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class CarreraDAO {
 	
 	public static List queryCarrera(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryCarrera(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class CarreraDAO {
 	
 	public static Carrera[] listCarreraByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listCarreraByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class CarreraDAO {
 	
 	public static Carrera[] listCarreraByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listCarreraByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class CarreraDAO {
 	
 	public static Carrera loadCarreraByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadCarreraByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class CarreraDAO {
 	
 	public static Carrera loadCarreraByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadCarreraByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class CarreraDAO {
 	
 	public static java.util.Iterator iterateCarreraByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateCarreraByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class CarreraDAO {
 	
 	public static java.util.Iterator iterateCarreraByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateCarreraByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class CarreraDAO {
 	
 	public static boolean save(clases.Carrera carrera) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(carrera);
+			PrograAvanzadaPersistentManager.instance().saveObject(carrera);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class CarreraDAO {
 	
 	public static boolean delete(clases.Carrera carrera) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(carrera);
+			PrograAvanzadaPersistentManager.instance().deleteObject(carrera);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,10 +323,10 @@ public class CarreraDAO {
 	
 	public static boolean deleteAndDissociate(clases.Carrera carrera)throws PersistentException {
 		try {
-			clases.Usuario[] lUsuarios = carrera.usuario.toArray();
-			for(int i = 0; i < lUsuarios.length; i++) {
-				lUsuarios[i].setCarreraidCarrera(null);
+			if (carrera.getUsuarioidUsuario() != null) {
+				carrera.getUsuarioidUsuario().setCarrera(null);
 			}
+			
 			return delete(carrera);
 		}
 		catch(Exception e) {
@@ -337,10 +337,10 @@ public class CarreraDAO {
 	
 	public static boolean deleteAndDissociate(clases.Carrera carrera, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			clases.Usuario[] lUsuarios = carrera.usuario.toArray();
-			for(int i = 0; i < lUsuarios.length; i++) {
-				lUsuarios[i].setCarreraidCarrera(null);
+			if (carrera.getUsuarioidUsuario() != null) {
+				carrera.getUsuarioidUsuario().setCarrera(null);
 			}
+			
 			try {
 				session.delete(carrera);
 				return true;
@@ -356,7 +356,7 @@ public class CarreraDAO {
 	
 	public static boolean refresh(clases.Carrera carrera) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(carrera);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(carrera);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class CarreraDAO {
 	
 	public static boolean evict(clases.Carrera carrera) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(carrera);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(carrera);
 			return true;
 		}
 		catch (Exception e) {

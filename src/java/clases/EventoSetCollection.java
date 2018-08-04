@@ -101,7 +101,7 @@ public class EventoSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return clases.PrograAvanzadaPersistentManager.instance();
+		return PrograAvanzadaPersistentManager.instance();
 	}
 	
 }

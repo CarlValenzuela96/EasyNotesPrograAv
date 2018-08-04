@@ -18,7 +18,7 @@ public class RamoReprobado {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_RAMOREPROBADO_HISTORIALIDHISTORIAL) {
+		if (key == ORMConstants.KEY_RAMOREPROBADO_HISTORIALIDHISTORIAL) {
 			this.historialidHistorial = (clases.Historial) owner;
 		}
 	}

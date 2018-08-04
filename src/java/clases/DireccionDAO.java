@@ -21,7 +21,7 @@ import java.util.List;
 public class DireccionDAO {
 	public static Direccion loadDireccionByORMID(int idDireccion) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDireccionByORMID(session, idDireccion);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class DireccionDAO {
 	
 	public static Direccion getDireccionByORMID(int idDireccion) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getDireccionByORMID(session, idDireccion);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class DireccionDAO {
 	
 	public static Direccion loadDireccionByORMID(int idDireccion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDireccionByORMID(session, idDireccion, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class DireccionDAO {
 	
 	public static Direccion getDireccionByORMID(int idDireccion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getDireccionByORMID(session, idDireccion, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class DireccionDAO {
 	
 	public static List queryDireccion(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryDireccion(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class DireccionDAO {
 	
 	public static List queryDireccion(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryDireccion(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class DireccionDAO {
 	
 	public static Direccion[] listDireccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listDireccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class DireccionDAO {
 	
 	public static Direccion[] listDireccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listDireccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class DireccionDAO {
 	
 	public static Direccion loadDireccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDireccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class DireccionDAO {
 	
 	public static Direccion loadDireccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDireccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class DireccionDAO {
 	
 	public static java.util.Iterator iterateDireccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateDireccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class DireccionDAO {
 	
 	public static java.util.Iterator iterateDireccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateDireccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class DireccionDAO {
 	
 	public static boolean save(clases.Direccion direccion) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(direccion);
+			PrograAvanzadaPersistentManager.instance().saveObject(direccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class DireccionDAO {
 	
 	public static boolean delete(clases.Direccion direccion) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(direccion);
+			PrograAvanzadaPersistentManager.instance().deleteObject(direccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -364,7 +364,7 @@ public class DireccionDAO {
 	
 	public static boolean refresh(clases.Direccion direccion) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(direccion);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(direccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -375,7 +375,7 @@ public class DireccionDAO {
 	
 	public static boolean evict(clases.Direccion direccion) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(direccion);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(direccion);
 			return true;
 		}
 		catch (Exception e) {

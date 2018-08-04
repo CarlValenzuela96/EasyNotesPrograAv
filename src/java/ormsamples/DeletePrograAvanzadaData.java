@@ -9,54 +9,54 @@ public class DeletePrograAvanzadaData {
 	public void deleteTestData() throws PersistentException {
 		PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			clases.Domicilio clasesDomicilio = clases.DomicilioDAO.loadDomicilioByQuery(null, null);
+			clases.Domicilio lclasesDomicilio = clases.DomicilioDAO.loadDomicilioByQuery(null, null);
 			// Delete the persistent object
-			clases.DomicilioDAO.delete(clasesDomicilio);
-			clases.Historial clasesHistorial = clases.HistorialDAO.loadHistorialByQuery(null, null);
+			clases.DomicilioDAO.delete(lclasesDomicilio);
+			clases.Historial lclasesHistorial = clases.HistorialDAO.loadHistorialByQuery(null, null);
 			// Delete the persistent object
-			clases.HistorialDAO.delete(clasesHistorial);
-			clases.Semestre clasesSemestre = clases.SemestreDAO.loadSemestreByQuery(null, null);
+			clases.HistorialDAO.delete(lclasesHistorial);
+			clases.Semestre lclasesSemestre = clases.SemestreDAO.loadSemestreByQuery(null, null);
 			// Delete the persistent object
-			clases.SemestreDAO.delete(clasesSemestre);
-			clases.Usuario clasesUsuario = clases.UsuarioDAO.loadUsuarioByQuery(null, null);
+			clases.SemestreDAO.delete(lclasesSemestre);
+			clases.Usuario lclasesUsuario = clases.UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Delete the persistent object
-			clases.UsuarioDAO.delete(clasesUsuario);
-			clases.RamoAprobado clasesRamoAprobado = clases.RamoAprobadoDAO.loadRamoAprobadoByQuery(null, null);
+			clases.UsuarioDAO.delete(lclasesUsuario);
+			clases.RamoAprobado lclasesRamoAprobado = clases.RamoAprobadoDAO.loadRamoAprobadoByQuery(null, null);
 			// Delete the persistent object
-			clases.RamoAprobadoDAO.delete(clasesRamoAprobado);
-			clases.Login clasesLogin = clases.LoginDAO.loadLoginByQuery(null, null);
+			clases.RamoAprobadoDAO.delete(lclasesRamoAprobado);
+			clases.Login lclasesLogin = clases.LoginDAO.loadLoginByQuery(null, null);
 			// Delete the persistent object
-			clases.LoginDAO.delete(clasesLogin);
-			clases.Ramo clasesRamo = clases.RamoDAO.loadRamoByQuery(null, null);
+			clases.LoginDAO.delete(lclasesLogin);
+			clases.Ramo lclasesRamo = clases.RamoDAO.loadRamoByQuery(null, null);
 			// Delete the persistent object
-			clases.RamoDAO.delete(clasesRamo);
-			clases.NotasTeorico clasesNotasTeorico = clases.NotasTeoricoDAO.loadNotasTeoricoByQuery(null, null);
+			clases.RamoDAO.delete(lclasesRamo);
+			clases.NotasTeorico lclasesNotasTeorico = clases.NotasTeoricoDAO.loadNotasTeoricoByQuery(null, null);
 			// Delete the persistent object
-			clases.NotasTeoricoDAO.delete(clasesNotasTeorico);
-			clases.Horario clasesHorario = clases.HorarioDAO.loadHorarioByQuery(null, null);
+			clases.NotasTeoricoDAO.delete(lclasesNotasTeorico);
+			clases.Horario lclasesHorario = clases.HorarioDAO.loadHorarioByQuery(null, null);
 			// Delete the persistent object
-			clases.HorarioDAO.delete(clasesHorario);
-			clases.PromedioSimple clasesPromedioSimple = clases.PromedioSimpleDAO.loadPromedioSimpleByQuery(null, null);
+			clases.HorarioDAO.delete(lclasesHorario);
+			clases.PromedioSimple lclasesPromedioSimple = clases.PromedioSimpleDAO.loadPromedioSimpleByQuery(null, null);
 			// Delete the persistent object
-			clases.PromedioSimpleDAO.delete(clasesPromedioSimple);
-			clases.Carrera clasesCarrera = clases.CarreraDAO.loadCarreraByQuery(null, null);
+			clases.PromedioSimpleDAO.delete(lclasesPromedioSimple);
+			clases.Carrera lclasesCarrera = clases.CarreraDAO.loadCarreraByQuery(null, null);
 			// Delete the persistent object
-			clases.CarreraDAO.delete(clasesCarrera);
-			clases.PromedioMixto clasesPromedioMixto = clases.PromedioMixtoDAO.loadPromedioMixtoByQuery(null, null);
+			clases.CarreraDAO.delete(lclasesCarrera);
+			clases.PromedioMixto lclasesPromedioMixto = clases.PromedioMixtoDAO.loadPromedioMixtoByQuery(null, null);
 			// Delete the persistent object
-			clases.PromedioMixtoDAO.delete(clasesPromedioMixto);
-			clases.RamoReprobado clasesRamoReprobado = clases.RamoReprobadoDAO.loadRamoReprobadoByQuery(null, null);
+			clases.PromedioMixtoDAO.delete(lclasesPromedioMixto);
+			clases.RamoReprobado lclasesRamoReprobado = clases.RamoReprobadoDAO.loadRamoReprobadoByQuery(null, null);
 			// Delete the persistent object
-			clases.RamoReprobadoDAO.delete(clasesRamoReprobado);
-			clases.Direccion clasesDireccion = clases.DireccionDAO.loadDireccionByQuery(null, null);
+			clases.RamoReprobadoDAO.delete(lclasesRamoReprobado);
+			clases.Direccion lclasesDireccion = clases.DireccionDAO.loadDireccionByQuery(null, null);
 			// Delete the persistent object
-			clases.DireccionDAO.delete(clasesDireccion);
-			clases.NotasPractico clasesNotasPractico = clases.NotasPracticoDAO.loadNotasPracticoByQuery(null, null);
+			clases.DireccionDAO.delete(lclasesDireccion);
+			clases.NotasPractico lclasesNotasPractico = clases.NotasPracticoDAO.loadNotasPracticoByQuery(null, null);
 			// Delete the persistent object
-			clases.NotasPracticoDAO.delete(clasesNotasPractico);
-			clases.Evento clasesEvento = clases.EventoDAO.loadEventoByQuery(null, null);
+			clases.NotasPracticoDAO.delete(lclasesNotasPractico);
+			clases.Evento lclasesEvento = clases.EventoDAO.loadEventoByQuery(null, null);
 			// Delete the persistent object
-			clases.EventoDAO.delete(clasesEvento);
+			clases.EventoDAO.delete(lclasesEvento);
 			t.commit();
 		}
 		catch (Exception e) {

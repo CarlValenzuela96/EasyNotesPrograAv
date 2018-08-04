@@ -18,8 +18,8 @@ public class Evento {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_EVENTO_USUARIOIDUSUARIO) {
-			this.usuarioidUsuario = (clases.Usuario) owner;
+		if (key == ORMConstants.KEY_EVENTO_SEMESTREIDSEMESTRE) {
+			this.semestreidSemestre = (clases.Semestre) owner;
 		}
 	}
 	
@@ -42,9 +42,9 @@ public class Evento {
 	
 	private String color;
 	
-	private clases.Usuario usuarioidUsuario;
+	private clases.Semestre semestreidSemestre;
 	
-	private void setIdEvento(int value) {
+	public void setIdEvento(int value) {
 		this.idEvento = value;
 	}
 	
@@ -108,28 +108,28 @@ public class Evento {
 		return color;
 	}
 	
-	public void setUsuarioidUsuario(clases.Usuario value) {
-		if (usuarioidUsuario != null) {
-			usuarioidUsuario.evento.remove(this);
+	public void setSemestreidSemestre(clases.Semestre value) {
+		if (semestreidSemestre != null) {
+			semestreidSemestre.evento.remove(this);
 		}
 		if (value != null) {
 			value.evento.add(this);
 		}
 	}
 	
-	public clases.Usuario getUsuarioidUsuario() {
-		return usuarioidUsuario;
+	public clases.Semestre getSemestreidSemestre() {
+		return semestreidSemestre;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_UsuarioidUsuario(clases.Usuario value) {
-		this.usuarioidUsuario = value;
+	public void setORM_SemestreidSemestre(clases.Semestre value) {
+		this.semestreidSemestre = value;
 	}
 	
-	private clases.Usuario getORM_UsuarioidUsuario() {
-		return usuarioidUsuario;
+	private clases.Semestre getORM_SemestreidSemestre() {
+		return semestreidSemestre;
 	}
 	
 	public String toString() {

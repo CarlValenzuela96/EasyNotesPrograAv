@@ -29,7 +29,7 @@ public class Direccion {
 	
 	private clases.Domicilio domicilio;
 	
-	private void setIdDireccion(int value) {
+	public void setIdDireccion(int value) {
 		this.idDireccion = value;
 	}
 	

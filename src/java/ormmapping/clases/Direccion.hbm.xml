@@ -13,7 +13,7 @@ License Type: Academic
 		<property name="paisRecidencia" column="paisRecidencia" type="string" length="10" not-null="false" lazy="false"/>
 		<property name="ciudad" column="ciudad" type="string" length="15" not-null="false" lazy="false"/>
 		<property name="comuna" column="comuna" type="string" length="15" not-null="false" lazy="false"/>
-		<many-to-one name="usuarioidUsuario" column="UsuarioidUsuario" class="clases.Usuario" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="usuarioidUsuario" column="usuarioidUsuario" class="clases.Usuario" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 		<one-to-one name="domicilio" class="clases.Domicilio" cascade="save-update,lock" property-ref="direccionidDireccion" lazy="no-proxy" access="field"/>
 	</class>

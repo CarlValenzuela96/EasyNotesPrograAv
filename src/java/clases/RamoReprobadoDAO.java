@@ -21,7 +21,7 @@ import java.util.List;
 public class RamoReprobadoDAO {
 	public static RamoReprobado loadRamoReprobadoByORMID(int idRamoReprobacion) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadRamoReprobadoByORMID(session, idRamoReprobacion);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado getRamoReprobadoByORMID(int idRamoReprobacion) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getRamoReprobadoByORMID(session, idRamoReprobacion);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado loadRamoReprobadoByORMID(int idRamoReprobacion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadRamoReprobadoByORMID(session, idRamoReprobacion, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado getRamoReprobadoByORMID(int idRamoReprobacion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getRamoReprobadoByORMID(session, idRamoReprobacion, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class RamoReprobadoDAO {
 	
 	public static List queryRamoReprobado(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryRamoReprobado(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class RamoReprobadoDAO {
 	
 	public static List queryRamoReprobado(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryRamoReprobado(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado[] listRamoReprobadoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listRamoReprobadoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado[] listRamoReprobadoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listRamoReprobadoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado loadRamoReprobadoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadRamoReprobadoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class RamoReprobadoDAO {
 	
 	public static RamoReprobado loadRamoReprobadoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadRamoReprobadoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class RamoReprobadoDAO {
 	
 	public static java.util.Iterator iterateRamoReprobadoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateRamoReprobadoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class RamoReprobadoDAO {
 	
 	public static java.util.Iterator iterateRamoReprobadoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateRamoReprobadoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class RamoReprobadoDAO {
 	
 	public static boolean save(clases.RamoReprobado ramoReprobado) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(ramoReprobado);
+			PrograAvanzadaPersistentManager.instance().saveObject(ramoReprobado);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class RamoReprobadoDAO {
 	
 	public static boolean delete(clases.RamoReprobado ramoReprobado) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(ramoReprobado);
+			PrograAvanzadaPersistentManager.instance().deleteObject(ramoReprobado);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class RamoReprobadoDAO {
 	
 	public static boolean refresh(clases.RamoReprobado ramoReprobado) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(ramoReprobado);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(ramoReprobado);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class RamoReprobadoDAO {
 	
 	public static boolean evict(clases.RamoReprobado ramoReprobado) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(ramoReprobado);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(ramoReprobado);
 			return true;
 		}
 		catch (Exception e) {

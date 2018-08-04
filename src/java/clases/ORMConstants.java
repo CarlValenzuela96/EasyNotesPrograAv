@@ -14,7 +14,7 @@
 package clases;
 
 public interface ORMConstants extends org.orm.util.ORMBaseConstants {
-	final int KEY_CARRERA_USUARIO = -160674491;
+	final int KEY_CARRERA_USUARIOIDUSUARIO = 825911790;
 	
 	final int KEY_DIRECCION_DOMICILIO = 1130933494;
 	
@@ -22,7 +22,7 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_DOMICILIO_DIRECCIONIDDIRECCION = 408424927;
 	
-	final int KEY_EVENTO_USUARIOIDUSUARIO = 364339183;
+	final int KEY_EVENTO_SEMESTREIDSEMESTRE = 293679489;
 	
 	final int KEY_HISTORIAL_RAMOAPROBADO = 901518231;
 	
@@ -58,19 +58,19 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_RAMO_SEMESTREIDSEMESTRE = -1726151419;
 	
+	final int KEY_SEMESTRE_EVENTO = -1068527210;
+	
 	final int KEY_SEMESTRE_HISTORIAL = -798108786;
 	
 	final int KEY_SEMESTRE_RAMO = 285288658;
 	
 	final int KEY_SEMESTRE_USUARIOIDUSUARIO = -604168858;
 	
-	final int KEY_USUARIO_CARRERAIDCARRERA = -825065418;
+	final int KEY_USUARIO_CARRERA = -1343548091;
 	
 	final int KEY_USUARIO_DIRECCION = 511105343;
 	
-	final int KEY_USUARIO_EVENTO = 171468646;
-	
-	final int KEY_USUARIO_LOGINUSUARIO = -174304970;
+	final int KEY_USUARIO_LOGINIDLOGIN = 1593657622;
 	
 	final int KEY_USUARIO_SEMESTRE = -1779808049;
 	

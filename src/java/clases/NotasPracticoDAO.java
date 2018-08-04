@@ -21,7 +21,7 @@ import java.util.List;
 public class NotasPracticoDAO {
 	public static NotasPractico loadNotasPracticoByORMID(int idNotaPractica) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasPracticoByORMID(session, idNotaPractica);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico getNotasPracticoByORMID(int idNotaPractica) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getNotasPracticoByORMID(session, idNotaPractica);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico loadNotasPracticoByORMID(int idNotaPractica, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasPracticoByORMID(session, idNotaPractica, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico getNotasPracticoByORMID(int idNotaPractica, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getNotasPracticoByORMID(session, idNotaPractica, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class NotasPracticoDAO {
 	
 	public static List queryNotasPractico(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryNotasPractico(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class NotasPracticoDAO {
 	
 	public static List queryNotasPractico(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryNotasPractico(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico[] listNotasPracticoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listNotasPracticoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico[] listNotasPracticoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listNotasPracticoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico loadNotasPracticoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasPracticoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class NotasPracticoDAO {
 	
 	public static NotasPractico loadNotasPracticoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadNotasPracticoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class NotasPracticoDAO {
 	
 	public static java.util.Iterator iterateNotasPracticoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateNotasPracticoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class NotasPracticoDAO {
 	
 	public static java.util.Iterator iterateNotasPracticoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateNotasPracticoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class NotasPracticoDAO {
 	
 	public static boolean save(clases.NotasPractico notasPractico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(notasPractico);
+			PrograAvanzadaPersistentManager.instance().saveObject(notasPractico);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class NotasPracticoDAO {
 	
 	public static boolean delete(clases.NotasPractico notasPractico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(notasPractico);
+			PrograAvanzadaPersistentManager.instance().deleteObject(notasPractico);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class NotasPracticoDAO {
 	
 	public static boolean refresh(clases.NotasPractico notasPractico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(notasPractico);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(notasPractico);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class NotasPracticoDAO {
 	
 	public static boolean evict(clases.NotasPractico notasPractico) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(notasPractico);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(notasPractico);
 			return true;
 		}
 		catch (Exception e) {

@@ -18,19 +18,22 @@ public class Semestre {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == clases.ORMConstants.KEY_SEMESTRE_RAMO) {
+		if (key == ORMConstants.KEY_SEMESTRE_RAMO) {
 			return ORM_ramo;
+		}
+		else if (key == ORMConstants.KEY_SEMESTRE_EVENTO) {
+			return ORM_evento;
 		}
 		
 		return null;
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_SEMESTRE_USUARIOIDUSUARIO) {
+		if (key == ORMConstants.KEY_SEMESTRE_USUARIOIDUSUARIO) {
 			this.usuarioidUsuario = (clases.Usuario) owner;
 		}
 		
-		else if (key == clases.ORMConstants.KEY_SEMESTRE_HISTORIAL) {
+		else if (key == ORMConstants.KEY_SEMESTRE_HISTORIAL) {
 			this.historial = (clases.Historial) owner;
 		}
 	}
@@ -56,13 +59,17 @@ public class Semestre {
 	
 	private Integer cantHorasSemanalesTotales;
 	
+	private Integer estadoSemestre;
+	
 	private clases.Usuario usuarioidUsuario;
 	
 	private java.util.Set ORM_ramo = new java.util.HashSet();
 	
+	private java.util.Set ORM_evento = new java.util.HashSet();
+	
 	private clases.Historial historial;
 	
-	private void setIdSemestre(int value) {
+	public void setIdSemestre(int value) {
 		this.idSemestre = value;
 	}
 	
@@ -122,6 +129,18 @@ public class Semestre {
 		return cantHorasSemanalesTotales;
 	}
 	
+	public void setEstadoSemestre(int value) {
+		setEstadoSemestre(new Integer(value));
+	}
+	
+	public void setEstadoSemestre(Integer value) {
+		this.estadoSemestre = value;
+	}
+	
+	public Integer getEstadoSemestre() {
+		return estadoSemestre;
+	}
+	
 	public void setUsuarioidUsuario(clases.Usuario value) {
 		if (usuarioidUsuario != null) {
 			usuarioidUsuario.semestre.remove(this);
@@ -154,7 +173,17 @@ public class Semestre {
 		return ORM_ramo;
 	}
 	
-	public final clases.RamoSetCollection ramo = new clases.RamoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_SEMESTRE_RAMO, clases.ORMConstants.KEY_RAMO_SEMESTREIDSEMESTRE, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final clases.RamoSetCollection ramo = new clases.RamoSetCollection(this, _ormAdapter, ORMConstants.KEY_SEMESTRE_RAMO, ORMConstants.KEY_RAMO_SEMESTREIDSEMESTRE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Evento(java.util.Set value) {
+		this.ORM_evento = value;
+	}
+	
+	private java.util.Set getORM_Evento() {
+		return ORM_evento;
+	}
+	
+	public final clases.EventoSetCollection evento = new clases.EventoSetCollection(this, _ormAdapter, ORMConstants.KEY_SEMESTRE_EVENTO, ORMConstants.KEY_EVENTO_SEMESTREIDSEMESTRE, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public void setHistorial(clases.Historial value) {
 		if (this.historial != value) {

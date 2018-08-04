@@ -18,10 +18,10 @@ public class Historial {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == clases.ORMConstants.KEY_HISTORIAL_RAMOAPROBADO) {
+		if (key == ORMConstants.KEY_HISTORIAL_RAMOAPROBADO) {
 			return ORM_ramoAprobado;
 		}
-		else if (key == clases.ORMConstants.KEY_HISTORIAL_RAMOREPROBADO) {
+		else if (key == ORMConstants.KEY_HISTORIAL_RAMOREPROBADO) {
 			return ORM_ramoReprobado;
 		}
 		
@@ -47,7 +47,7 @@ public class Historial {
 	
 	private java.util.Set ORM_ramoReprobado = new java.util.HashSet();
 	
-	private void setIdHistorial(int value) {
+	public void setIdHistorial(int value) {
 		this.idHistorial = value;
 	}
 	
@@ -108,7 +108,7 @@ public class Historial {
 		return ORM_ramoAprobado;
 	}
 	
-	public final clases.RamoAprobadoSetCollection ramoAprobado = new clases.RamoAprobadoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_HISTORIAL_RAMOAPROBADO, clases.ORMConstants.KEY_RAMOAPROBADO_HISTORIALIDHISTORIAL, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final clases.RamoAprobadoSetCollection ramoAprobado = new clases.RamoAprobadoSetCollection(this, _ormAdapter, ORMConstants.KEY_HISTORIAL_RAMOAPROBADO, ORMConstants.KEY_RAMOAPROBADO_HISTORIALIDHISTORIAL, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_RamoReprobado(java.util.Set value) {
 		this.ORM_ramoReprobado = value;
@@ -118,7 +118,7 @@ public class Historial {
 		return ORM_ramoReprobado;
 	}
 	
-	public final clases.RamoReprobadoSetCollection ramoReprobado = new clases.RamoReprobadoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_HISTORIAL_RAMOREPROBADO, clases.ORMConstants.KEY_RAMOREPROBADO_HISTORIALIDHISTORIAL, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final clases.RamoReprobadoSetCollection ramoReprobado = new clases.RamoReprobadoSetCollection(this, _ormAdapter, ORMConstants.KEY_HISTORIAL_RAMOREPROBADO, ORMConstants.KEY_RAMOREPROBADO_HISTORIALIDHISTORIAL, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdHistorial());

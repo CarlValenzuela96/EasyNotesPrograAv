@@ -21,7 +21,7 @@ import java.util.List;
 public class DomicilioDAO {
 	public static Domicilio loadDomicilioByORMID(int idDomicilio) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDomicilioByORMID(session, idDomicilio);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio getDomicilioByORMID(int idDomicilio) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getDomicilioByORMID(session, idDomicilio);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio loadDomicilioByORMID(int idDomicilio, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDomicilioByORMID(session, idDomicilio, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio getDomicilioByORMID(int idDomicilio, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getDomicilioByORMID(session, idDomicilio, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class DomicilioDAO {
 	
 	public static List queryDomicilio(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryDomicilio(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class DomicilioDAO {
 	
 	public static List queryDomicilio(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryDomicilio(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio[] listDomicilioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listDomicilioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio[] listDomicilioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listDomicilioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio loadDomicilioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDomicilioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class DomicilioDAO {
 	
 	public static Domicilio loadDomicilioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadDomicilioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class DomicilioDAO {
 	
 	public static java.util.Iterator iterateDomicilioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateDomicilioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class DomicilioDAO {
 	
 	public static java.util.Iterator iterateDomicilioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateDomicilioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class DomicilioDAO {
 	
 	public static boolean save(clases.Domicilio domicilio) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(domicilio);
+			PrograAvanzadaPersistentManager.instance().saveObject(domicilio);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class DomicilioDAO {
 	
 	public static boolean delete(clases.Domicilio domicilio) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(domicilio);
+			PrograAvanzadaPersistentManager.instance().deleteObject(domicilio);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class DomicilioDAO {
 	
 	public static boolean refresh(clases.Domicilio domicilio) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(domicilio);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(domicilio);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class DomicilioDAO {
 	
 	public static boolean evict(clases.Domicilio domicilio) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(domicilio);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(domicilio);
 			return true;
 		}
 		catch (Exception e) {

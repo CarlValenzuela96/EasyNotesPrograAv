@@ -21,7 +21,7 @@ import java.util.List;
 public class PromedioSimpleDAO {
 	public static PromedioSimple loadPromedioSimpleByORMID(int idPromedioSimple) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioSimpleByORMID(session, idPromedioSimple);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple getPromedioSimpleByORMID(int idPromedioSimple) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getPromedioSimpleByORMID(session, idPromedioSimple);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple loadPromedioSimpleByORMID(int idPromedioSimple, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioSimpleByORMID(session, idPromedioSimple, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple getPromedioSimpleByORMID(int idPromedioSimple, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getPromedioSimpleByORMID(session, idPromedioSimple, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class PromedioSimpleDAO {
 	
 	public static List queryPromedioSimple(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryPromedioSimple(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class PromedioSimpleDAO {
 	
 	public static List queryPromedioSimple(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryPromedioSimple(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple[] listPromedioSimpleByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listPromedioSimpleByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple[] listPromedioSimpleByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listPromedioSimpleByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple loadPromedioSimpleByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioSimpleByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class PromedioSimpleDAO {
 	
 	public static PromedioSimple loadPromedioSimpleByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioSimpleByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class PromedioSimpleDAO {
 	
 	public static java.util.Iterator iteratePromedioSimpleByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iteratePromedioSimpleByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class PromedioSimpleDAO {
 	
 	public static java.util.Iterator iteratePromedioSimpleByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iteratePromedioSimpleByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class PromedioSimpleDAO {
 	
 	public static boolean save(clases.PromedioSimple promedioSimple) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(promedioSimple);
+			PrograAvanzadaPersistentManager.instance().saveObject(promedioSimple);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class PromedioSimpleDAO {
 	
 	public static boolean delete(clases.PromedioSimple promedioSimple) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(promedioSimple);
+			PrograAvanzadaPersistentManager.instance().deleteObject(promedioSimple);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class PromedioSimpleDAO {
 	
 	public static boolean refresh(clases.PromedioSimple promedioSimple) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(promedioSimple);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(promedioSimple);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class PromedioSimpleDAO {
 	
 	public static boolean evict(clases.PromedioSimple promedioSimple) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(promedioSimple);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(promedioSimple);
 			return true;
 		}
 		catch (Exception e) {

@@ -21,7 +21,7 @@ import java.util.List;
 public class HorarioDAO {
 	public static Horario loadHorarioByORMID(int idHorario) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHorarioByORMID(session, idHorario);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class HorarioDAO {
 	
 	public static Horario getHorarioByORMID(int idHorario) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getHorarioByORMID(session, idHorario);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class HorarioDAO {
 	
 	public static Horario loadHorarioByORMID(int idHorario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHorarioByORMID(session, idHorario, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class HorarioDAO {
 	
 	public static Horario getHorarioByORMID(int idHorario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getHorarioByORMID(session, idHorario, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class HorarioDAO {
 	
 	public static List queryHorario(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryHorario(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class HorarioDAO {
 	
 	public static List queryHorario(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryHorario(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class HorarioDAO {
 	
 	public static Horario[] listHorarioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listHorarioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class HorarioDAO {
 	
 	public static Horario[] listHorarioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listHorarioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class HorarioDAO {
 	
 	public static Horario loadHorarioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHorarioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class HorarioDAO {
 	
 	public static Horario loadHorarioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHorarioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class HorarioDAO {
 	
 	public static java.util.Iterator iterateHorarioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateHorarioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class HorarioDAO {
 	
 	public static java.util.Iterator iterateHorarioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateHorarioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class HorarioDAO {
 	
 	public static boolean save(clases.Horario horario) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(horario);
+			PrograAvanzadaPersistentManager.instance().saveObject(horario);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class HorarioDAO {
 	
 	public static boolean delete(clases.Horario horario) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(horario);
+			PrograAvanzadaPersistentManager.instance().deleteObject(horario);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class HorarioDAO {
 	
 	public static boolean refresh(clases.Horario horario) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(horario);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(horario);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class HorarioDAO {
 	
 	public static boolean evict(clases.Horario horario) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(horario);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(horario);
 			return true;
 		}
 		catch (Exception e) {

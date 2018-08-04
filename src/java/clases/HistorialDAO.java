@@ -21,7 +21,7 @@ import java.util.List;
 public class HistorialDAO {
 	public static Historial loadHistorialByORMID(int idHistorial) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHistorialByORMID(session, idHistorial);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class HistorialDAO {
 	
 	public static Historial getHistorialByORMID(int idHistorial) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getHistorialByORMID(session, idHistorial);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class HistorialDAO {
 	
 	public static Historial loadHistorialByORMID(int idHistorial, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHistorialByORMID(session, idHistorial, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class HistorialDAO {
 	
 	public static Historial getHistorialByORMID(int idHistorial, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getHistorialByORMID(session, idHistorial, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class HistorialDAO {
 	
 	public static List queryHistorial(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryHistorial(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class HistorialDAO {
 	
 	public static List queryHistorial(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryHistorial(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class HistorialDAO {
 	
 	public static Historial[] listHistorialByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listHistorialByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class HistorialDAO {
 	
 	public static Historial[] listHistorialByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listHistorialByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class HistorialDAO {
 	
 	public static Historial loadHistorialByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHistorialByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class HistorialDAO {
 	
 	public static Historial loadHistorialByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadHistorialByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class HistorialDAO {
 	
 	public static java.util.Iterator iterateHistorialByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateHistorialByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class HistorialDAO {
 	
 	public static java.util.Iterator iterateHistorialByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateHistorialByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class HistorialDAO {
 	
 	public static boolean save(clases.Historial historial) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(historial);
+			PrograAvanzadaPersistentManager.instance().saveObject(historial);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class HistorialDAO {
 	
 	public static boolean delete(clases.Historial historial) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(historial);
+			PrograAvanzadaPersistentManager.instance().deleteObject(historial);
 			return true;
 		}
 		catch (Exception e) {
@@ -372,7 +372,7 @@ public class HistorialDAO {
 	
 	public static boolean refresh(clases.Historial historial) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(historial);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(historial);
 			return true;
 		}
 		catch (Exception e) {
@@ -383,7 +383,7 @@ public class HistorialDAO {
 	
 	public static boolean evict(clases.Historial historial) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(historial);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(historial);
 			return true;
 		}
 		catch (Exception e) {

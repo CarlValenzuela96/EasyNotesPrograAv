@@ -21,7 +21,7 @@ import java.util.List;
 public class EventoDAO {
 	public static Evento loadEventoByORMID(int idEvento) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadEventoByORMID(session, idEvento);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class EventoDAO {
 	
 	public static Evento getEventoByORMID(int idEvento) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getEventoByORMID(session, idEvento);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class EventoDAO {
 	
 	public static Evento loadEventoByORMID(int idEvento, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadEventoByORMID(session, idEvento, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class EventoDAO {
 	
 	public static Evento getEventoByORMID(int idEvento, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getEventoByORMID(session, idEvento, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class EventoDAO {
 	
 	public static List queryEvento(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryEvento(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class EventoDAO {
 	
 	public static List queryEvento(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryEvento(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class EventoDAO {
 	
 	public static Evento[] listEventoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listEventoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class EventoDAO {
 	
 	public static Evento[] listEventoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listEventoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class EventoDAO {
 	
 	public static Evento loadEventoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadEventoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class EventoDAO {
 	
 	public static Evento loadEventoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadEventoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class EventoDAO {
 	
 	public static java.util.Iterator iterateEventoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateEventoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class EventoDAO {
 	
 	public static java.util.Iterator iterateEventoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateEventoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class EventoDAO {
 	
 	public static boolean save(clases.Evento evento) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(evento);
+			PrograAvanzadaPersistentManager.instance().saveObject(evento);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class EventoDAO {
 	
 	public static boolean delete(clases.Evento evento) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(evento);
+			PrograAvanzadaPersistentManager.instance().deleteObject(evento);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,8 +323,8 @@ public class EventoDAO {
 	
 	public static boolean deleteAndDissociate(clases.Evento evento)throws PersistentException {
 		try {
-			if (evento.getUsuarioidUsuario() != null) {
-				evento.getUsuarioidUsuario().evento.remove(evento);
+			if (evento.getSemestreidSemestre() != null) {
+				evento.getSemestreidSemestre().evento.remove(evento);
 			}
 			
 			return delete(evento);
@@ -337,8 +337,8 @@ public class EventoDAO {
 	
 	public static boolean deleteAndDissociate(clases.Evento evento, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (evento.getUsuarioidUsuario() != null) {
-				evento.getUsuarioidUsuario().evento.remove(evento);
+			if (evento.getSemestreidSemestre() != null) {
+				evento.getSemestreidSemestre().evento.remove(evento);
 			}
 			
 			try {
@@ -356,7 +356,7 @@ public class EventoDAO {
 	
 	public static boolean refresh(clases.Evento evento) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(evento);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(evento);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class EventoDAO {
 	
 	public static boolean evict(clases.Evento evento) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(evento);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(evento);
 			return true;
 		}
 		catch (Exception e) {

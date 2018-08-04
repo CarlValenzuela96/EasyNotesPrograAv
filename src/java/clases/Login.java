@@ -48,10 +48,10 @@ public class Login {
 			clases.Usuario lusuario = this.usuario;
 			this.usuario = value;
 			if (value != null) {
-				usuario.setLoginusuario(this);
+				usuario.setLoginidLogin(this);
 			}
-			if (lusuario != null && lusuario.getLoginusuario() == this) {
-				lusuario.setLoginusuario(null);
+			if (lusuario != null && lusuario.getLoginidLogin() == this) {
+				lusuario.setLoginidLogin(null);
 			}
 		}
 	}

@@ -46,7 +46,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="DireccionidDireccion">
+    <Column name="direccionidDireccion">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>direccion.idDireccion</ReferencedColumn>
@@ -156,6 +156,17 @@
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
       <Length>2</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="estadoSemestre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>1</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -308,24 +319,12 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="loginusuario">
+    <Column name="loginidLogin">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>login.idLogin</ReferencedColumn>
       <Type>27</Type>
       <Length>15</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="CarreraidCarrera">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>carrera.idCarrera</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -725,6 +724,18 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="usuarioidUsuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>usuario.idUsuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
   </Entity>
   <Entity name="promedioMixto" Unlogged="false" PKClustered="0">
     <Column name="idPromedioMixto">
@@ -876,7 +887,7 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="UsuarioidUsuario">
+    <Column name="usuarioidUsuario">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>usuario.idUsuario</ReferencedColumn>
@@ -1003,10 +1014,10 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="usuarioidUsuario">
+    <Column name="semestreidSemestre">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>usuario.idUsuario</ReferencedColumn>
+      <ReferencedColumn>semestre.idSemestre</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -1086,36 +1097,6 @@
       <Column>idRamo</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKusuario99817">
-    <ReferenceTable>usuario</ReferenceTable>
-    <ReferencedTable>login</ReferencedTable>
-    <Columns>
-      <Column>loginusuario</Column>
-    </Columns>
-    <RefColumns>
-      <Column>idLogin</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKdireccion930455">
-    <ReferenceTable>direccion</ReferenceTable>
-    <ReferencedTable>usuario</ReferencedTable>
-    <Columns>
-      <Column>UsuarioidUsuario</Column>
-    </Columns>
-    <RefColumns>
-      <Column>idUsuario</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKdomicilio364696">
-    <ReferenceTable>domicilio</ReferenceTable>
-    <ReferencedTable>direccion</ReferencedTable>
-    <Columns>
-      <Column>DireccionidDireccion</Column>
-    </Columns>
-    <RefColumns>
-      <Column>idDireccion</Column>
-    </RefColumns>
-  </ForeignKey>
   <ForeignKey name="FKpromedioMi983906">
     <ReferenceTable>promedioMixto</ReferenceTable>
     <ReferencedTable>ramo</ReferencedTable>
@@ -1136,24 +1117,14 @@
       <Column>idRamo</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKusuario274347">
-    <ReferenceTable>usuario</ReferenceTable>
-    <ReferencedTable>carrera</ReferencedTable>
-    <Columns>
-      <Column>CarreraidCarrera</Column>
-    </Columns>
-    <RefColumns>
-      <Column>idCarrera</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKevento386384">
+  <ForeignKey name="FKevento963474">
     <ReferenceTable>evento</ReferenceTable>
-    <ReferencedTable>usuario</ReferencedTable>
+    <ReferencedTable>semestre</ReferencedTable>
     <Columns>
-      <Column>usuarioidUsuario</Column>
+      <Column>semestreidSemestre</Column>
     </Columns>
     <RefColumns>
-      <Column>idUsuario</Column>
+      <Column>idSemestre</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKhistorial186769">
@@ -1164,6 +1135,46 @@
     </Columns>
     <RefColumns>
       <Column>idSemestre</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKcarrera301830">
+    <ReferenceTable>carrera</ReferenceTable>
+    <ReferencedTable>usuario</ReferencedTable>
+    <Columns>
+      <Column>usuarioidUsuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>idUsuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKdireccion154093">
+    <ReferenceTable>direccion</ReferenceTable>
+    <ReferencedTable>usuario</ReferencedTable>
+    <Columns>
+      <Column>usuarioidUsuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>idUsuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKdomicilio108813">
+    <ReferenceTable>domicilio</ReferenceTable>
+    <ReferencedTable>direccion</ReferencedTable>
+    <Columns>
+      <Column>direccionidDireccion</Column>
+    </Columns>
+    <RefColumns>
+      <Column>idDireccion</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKusuario864542">
+    <ReferenceTable>usuario</ReferenceTable>
+    <ReferencedTable>login</ReferencedTable>
+    <Columns>
+      <Column>loginidLogin</Column>
+    </Columns>
+    <RefColumns>
+      <Column>idLogin</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

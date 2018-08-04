@@ -18,7 +18,7 @@ public class Horario {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_HORARIO_RAMOIDRAMO) {
+		if (key == ORMConstants.KEY_HORARIO_RAMOIDRAMO) {
 			this.ramoidRamo = (clases.Ramo) owner;
 		}
 	}

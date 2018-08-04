@@ -21,7 +21,7 @@ import java.util.List;
 public class SemestreDAO {
 	public static Semestre loadSemestreByORMID(int idSemestre) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadSemestreByORMID(session, idSemestre);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class SemestreDAO {
 	
 	public static Semestre getSemestreByORMID(int idSemestre) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getSemestreByORMID(session, idSemestre);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class SemestreDAO {
 	
 	public static Semestre loadSemestreByORMID(int idSemestre, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadSemestreByORMID(session, idSemestre, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class SemestreDAO {
 	
 	public static Semestre getSemestreByORMID(int idSemestre, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getSemestreByORMID(session, idSemestre, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class SemestreDAO {
 	
 	public static List querySemestre(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return querySemestre(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class SemestreDAO {
 	
 	public static List querySemestre(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return querySemestre(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class SemestreDAO {
 	
 	public static Semestre[] listSemestreByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listSemestreByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class SemestreDAO {
 	
 	public static Semestre[] listSemestreByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listSemestreByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class SemestreDAO {
 	
 	public static Semestre loadSemestreByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadSemestreByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class SemestreDAO {
 	
 	public static Semestre loadSemestreByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadSemestreByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class SemestreDAO {
 	
 	public static java.util.Iterator iterateSemestreByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateSemestreByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class SemestreDAO {
 	
 	public static java.util.Iterator iterateSemestreByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateSemestreByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class SemestreDAO {
 	
 	public static boolean save(clases.Semestre semestre) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(semestre);
+			PrograAvanzadaPersistentManager.instance().saveObject(semestre);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class SemestreDAO {
 	
 	public static boolean delete(clases.Semestre semestre) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(semestre);
+			PrograAvanzadaPersistentManager.instance().deleteObject(semestre);
 			return true;
 		}
 		catch (Exception e) {
@@ -330,6 +330,10 @@ public class SemestreDAO {
 			clases.Ramo[] lRamos = semestre.ramo.toArray();
 			for(int i = 0; i < lRamos.length; i++) {
 				lRamos[i].setSemestreidSemestre(null);
+			}
+			clases.Evento[] lEventos = semestre.evento.toArray();
+			for(int i = 0; i < lEventos.length; i++) {
+				lEventos[i].setSemestreidSemestre(null);
 			}
 			if (semestre.getHistorial() != null) {
 				semestre.getHistorial().setSemestreidSemestre(null);
@@ -353,6 +357,10 @@ public class SemestreDAO {
 			for(int i = 0; i < lRamos.length; i++) {
 				lRamos[i].setSemestreidSemestre(null);
 			}
+			clases.Evento[] lEventos = semestre.evento.toArray();
+			for(int i = 0; i < lEventos.length; i++) {
+				lEventos[i].setSemestreidSemestre(null);
+			}
 			if (semestre.getHistorial() != null) {
 				semestre.getHistorial().setSemestreidSemestre(null);
 			}
@@ -372,7 +380,7 @@ public class SemestreDAO {
 	
 	public static boolean refresh(clases.Semestre semestre) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(semestre);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(semestre);
 			return true;
 		}
 		catch (Exception e) {
@@ -383,7 +391,7 @@ public class SemestreDAO {
 	
 	public static boolean evict(clases.Semestre semestre) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(semestre);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(semestre);
 			return true;
 		}
 		catch (Exception e) {

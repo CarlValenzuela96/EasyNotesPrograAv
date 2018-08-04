@@ -75,6 +75,7 @@ public class SemestreSetCollection extends org.orm.util.ORMSet {
 	 * <li>añoSemestre</li>
 	 * <li>cantRamos</li>
 	 * <li>cantHorasSemanalesTotales</li>
+	 * <li>estadoSemestre</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -90,6 +91,7 @@ public class SemestreSetCollection extends org.orm.util.ORMSet {
 	 * <li>añoSemestre</li>
 	 * <li>cantRamos</li>
 	 * <li>cantHorasSemanalesTotales</li>
+	 * <li>estadoSemestre</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array
@@ -99,7 +101,7 @@ public class SemestreSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return clases.PrograAvanzadaPersistentManager.instance();
+		return PrograAvanzadaPersistentManager.instance();
 	}
 	
 }

@@ -17,21 +17,6 @@ public class Carrera {
 	public Carrera() {
 	}
 	
-	private java.util.Set this_getSet (int key) {
-		if (key == clases.ORMConstants.KEY_CARRERA_USUARIO) {
-			return ORM_usuario;
-		}
-		
-		return null;
-	}
-	
-	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
-		public java.util.Set getSet(int key) {
-			return this_getSet(key);
-		}
-		
-	};
-	
 	private int idCarrera;
 	
 	private String nombreCarrera;
@@ -40,7 +25,7 @@ public class Carrera {
 	
 	private String universidad;
 	
-	private java.util.Set ORM_usuario = new java.util.HashSet();
+	private clases.Usuario usuarioidUsuario;
 	
 	private void setIdCarrera(int value) {
 		this.idCarrera = value;
@@ -82,15 +67,22 @@ public class Carrera {
 		return universidad;
 	}
 	
-	private void setORM_Usuario(java.util.Set value) {
-		this.ORM_usuario = value;
+	public void setUsuarioidUsuario(clases.Usuario value) {
+		if (this.usuarioidUsuario != value) {
+			clases.Usuario lusuarioidUsuario = this.usuarioidUsuario;
+			this.usuarioidUsuario = value;
+			if (value != null) {
+				usuarioidUsuario.setCarrera(this);
+			}
+			if (lusuarioidUsuario != null && lusuarioidUsuario.getCarrera() == this) {
+				lusuarioidUsuario.setCarrera(null);
+			}
+		}
 	}
 	
-	private java.util.Set getORM_Usuario() {
-		return ORM_usuario;
+	public clases.Usuario getUsuarioidUsuario() {
+		return usuarioidUsuario;
 	}
-	
-	public final clases.UsuarioSetCollection usuario = new clases.UsuarioSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_CARRERA_USUARIO, clases.ORMConstants.KEY_USUARIO_CARRERAIDCARRERA, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getIdCarrera());

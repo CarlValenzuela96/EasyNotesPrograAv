@@ -21,7 +21,7 @@ import java.util.List;
 public class PromedioMixtoDAO {
 	public static PromedioMixto loadPromedioMixtoByORMID(int idPromedioMixto) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioMixtoByORMID(session, idPromedioMixto);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto getPromedioMixtoByORMID(int idPromedioMixto) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getPromedioMixtoByORMID(session, idPromedioMixto);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto loadPromedioMixtoByORMID(int idPromedioMixto, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioMixtoByORMID(session, idPromedioMixto, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto getPromedioMixtoByORMID(int idPromedioMixto, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getPromedioMixtoByORMID(session, idPromedioMixto, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class PromedioMixtoDAO {
 	
 	public static List queryPromedioMixto(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryPromedioMixto(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class PromedioMixtoDAO {
 	
 	public static List queryPromedioMixto(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryPromedioMixto(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto[] listPromedioMixtoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listPromedioMixtoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto[] listPromedioMixtoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listPromedioMixtoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto loadPromedioMixtoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioMixtoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class PromedioMixtoDAO {
 	
 	public static PromedioMixto loadPromedioMixtoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadPromedioMixtoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class PromedioMixtoDAO {
 	
 	public static java.util.Iterator iteratePromedioMixtoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iteratePromedioMixtoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class PromedioMixtoDAO {
 	
 	public static java.util.Iterator iteratePromedioMixtoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iteratePromedioMixtoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class PromedioMixtoDAO {
 	
 	public static boolean save(clases.PromedioMixto promedioMixto) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(promedioMixto);
+			PrograAvanzadaPersistentManager.instance().saveObject(promedioMixto);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class PromedioMixtoDAO {
 	
 	public static boolean delete(clases.PromedioMixto promedioMixto) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(promedioMixto);
+			PrograAvanzadaPersistentManager.instance().deleteObject(promedioMixto);
 			return true;
 		}
 		catch (Exception e) {
@@ -356,7 +356,7 @@ public class PromedioMixtoDAO {
 	
 	public static boolean refresh(clases.PromedioMixto promedioMixto) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(promedioMixto);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(promedioMixto);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class PromedioMixtoDAO {
 	
 	public static boolean evict(clases.PromedioMixto promedioMixto) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(promedioMixto);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(promedioMixto);
 			return true;
 		}
 		catch (Exception e) {

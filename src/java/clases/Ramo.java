@@ -18,13 +18,13 @@ public class Ramo {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == clases.ORMConstants.KEY_RAMO_HORARIO) {
+		if (key == ORMConstants.KEY_RAMO_HORARIO) {
 			return ORM_horario;
 		}
-		else if (key == clases.ORMConstants.KEY_RAMO_NOTASTEORICO) {
+		else if (key == ORMConstants.KEY_RAMO_NOTASTEORICO) {
 			return ORM_notasTeorico;
 		}
-		else if (key == clases.ORMConstants.KEY_RAMO_NOTASPRACTICO) {
+		else if (key == ORMConstants.KEY_RAMO_NOTASPRACTICO) {
 			return ORM_notasPractico;
 		}
 		
@@ -32,15 +32,15 @@ public class Ramo {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_RAMO_SEMESTREIDSEMESTRE) {
+		if (key == ORMConstants.KEY_RAMO_SEMESTREIDSEMESTRE) {
 			this.semestreidSemestre = (clases.Semestre) owner;
 		}
 		
-		else if (key == clases.ORMConstants.KEY_RAMO_PROMEDIOMIXTO) {
+		else if (key == ORMConstants.KEY_RAMO_PROMEDIOMIXTO) {
 			this.promedioMixto = (clases.PromedioMixto) owner;
 		}
 		
-		else if (key == clases.ORMConstants.KEY_RAMO_PROMEDIOSIMPLE) {
+		else if (key == ORMConstants.KEY_RAMO_PROMEDIOSIMPLE) {
 			this.promedioSimple = (clases.PromedioSimple) owner;
 		}
 	}
@@ -86,7 +86,7 @@ public class Ramo {
 	
 	private clases.PromedioSimple promedioSimple;
 	
-	private void setIdRamo(int value) {
+	public void setIdRamo(int value) {
 		this.idRamo = value;
 	}
 	
@@ -218,7 +218,7 @@ public class Ramo {
 		return ORM_horario;
 	}
 	
-	public final clases.HorarioSetCollection horario = new clases.HorarioSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_RAMO_HORARIO, clases.ORMConstants.KEY_HORARIO_RAMOIDRAMO, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final clases.HorarioSetCollection horario = new clases.HorarioSetCollection(this, _ormAdapter, ORMConstants.KEY_RAMO_HORARIO, ORMConstants.KEY_HORARIO_RAMOIDRAMO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_NotasTeorico(java.util.Set value) {
 		this.ORM_notasTeorico = value;
@@ -228,7 +228,7 @@ public class Ramo {
 		return ORM_notasTeorico;
 	}
 	
-	public final clases.NotasTeoricoSetCollection notasTeorico = new clases.NotasTeoricoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_RAMO_NOTASTEORICO, clases.ORMConstants.KEY_NOTASTEORICO_RAMOIDRAMO, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final clases.NotasTeoricoSetCollection notasTeorico = new clases.NotasTeoricoSetCollection(this, _ormAdapter, ORMConstants.KEY_RAMO_NOTASTEORICO, ORMConstants.KEY_NOTASTEORICO_RAMOIDRAMO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_NotasPractico(java.util.Set value) {
 		this.ORM_notasPractico = value;
@@ -238,7 +238,7 @@ public class Ramo {
 		return ORM_notasPractico;
 	}
 	
-	public final clases.NotasPracticoSetCollection notasPractico = new clases.NotasPracticoSetCollection(this, _ormAdapter, clases.ORMConstants.KEY_RAMO_NOTASPRACTICO, clases.ORMConstants.KEY_NOTASPRACTICO_RAMOIDRAMO, clases.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final clases.NotasPracticoSetCollection notasPractico = new clases.NotasPracticoSetCollection(this, _ormAdapter, ORMConstants.KEY_RAMO_NOTASPRACTICO, ORMConstants.KEY_NOTASPRACTICO_RAMOIDRAMO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public void setPromedioMixto(clases.PromedioMixto value) {
 		if (this.promedioMixto != value) {

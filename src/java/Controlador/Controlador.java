@@ -5,7 +5,12 @@
  */
 package Controlador;
 
-
+import clases.Evento;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 //import org.jfree.chart.ChartFactory;
 //import org.jfree.chart.JFreeChart;
@@ -74,4 +79,53 @@ public class Controlador {
 //
 //        return chart;
 //    }
+    public String edadUsuario(String fecha) {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate fechaNac = LocalDate.parse(fecha, fmt);
+        LocalDate ahora = LocalDate.now();
+
+        Period periodo = Period.between(fechaNac, ahora);
+
+        return String.valueOf(periodo.getYears());
+    }
+
+    public String generarJsonFechas(ArrayList<Evento> a) {
+        Gson g = new Gson();
+        String json ;
+        String jsonTotal = "";
+        //            FileWriter file = new FileWriter("C:\\Users\\Carlos\\Desktop\\EasyNotes\\web\\assets\\js\\fechas.js");
+        if (!a.isEmpty()) {
+
+            for (int i = 0; i < a.size(); i++) {
+                if (i != (a.size() - 1)) {
+                    JsonObject object = new JsonObject();
+                    object.addProperty("color", a.get(i).getColor());
+                    object.addProperty("anio", a.get(i).getAño());
+                    object.addProperty("mes", a.get(i).getMes());
+                    object.addProperty("dia", a.get(i).getDia());
+                    object.addProperty("content", a.get(i).getContent());
+
+                    json =object.toString();
+                    jsonTotal = jsonTotal + json + ",";
+
+                } else {
+                    JsonObject object = new JsonObject();
+                    object.addProperty("color", a.get(i).getColor());
+                    object.addProperty("anio", a.get(i).getAño());
+                    object.addProperty("mes", a.get(i).getMes());
+                    object.addProperty("dia", a.get(i).getDia());
+                    object.addProperty("content", a.get(i).getContent());
+
+                    json = object.toString();
+                    jsonTotal = jsonTotal + json;
+
+                }
+
+            }
+        } else {
+            jsonTotal = "{}";
+        }
+        return jsonTotal;
+    }
+
 }

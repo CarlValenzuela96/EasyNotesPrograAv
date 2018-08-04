@@ -21,7 +21,7 @@ import java.util.List;
 public class LoginDAO {
 	public static Login loadLoginByORMID(String idLogin) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadLoginByORMID(session, idLogin);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class LoginDAO {
 	
 	public static Login getLoginByORMID(String idLogin) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getLoginByORMID(session, idLogin);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class LoginDAO {
 	
 	public static Login loadLoginByORMID(String idLogin, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadLoginByORMID(session, idLogin, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class LoginDAO {
 	
 	public static Login getLoginByORMID(String idLogin, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return getLoginByORMID(session, idLogin, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class LoginDAO {
 	
 	public static List queryLogin(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryLogin(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class LoginDAO {
 	
 	public static List queryLogin(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return queryLogin(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class LoginDAO {
 	
 	public static Login[] listLoginByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listLoginByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class LoginDAO {
 	
 	public static Login[] listLoginByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return listLoginByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class LoginDAO {
 	
 	public static Login loadLoginByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadLoginByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class LoginDAO {
 	
 	public static Login loadLoginByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return loadLoginByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class LoginDAO {
 	
 	public static java.util.Iterator iterateLoginByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateLoginByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class LoginDAO {
 	
 	public static java.util.Iterator iterateLoginByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = clases.PrograAvanzadaPersistentManager.instance().getSession();
+			PersistentSession session = PrograAvanzadaPersistentManager.instance().getSession();
 			return iterateLoginByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class LoginDAO {
 	
 	public static boolean save(clases.Login login) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().saveObject(login);
+			PrograAvanzadaPersistentManager.instance().saveObject(login);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class LoginDAO {
 	
 	public static boolean delete(clases.Login login) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().deleteObject(login);
+			PrograAvanzadaPersistentManager.instance().deleteObject(login);
 			return true;
 		}
 		catch (Exception e) {
@@ -324,7 +324,7 @@ public class LoginDAO {
 	public static boolean deleteAndDissociate(clases.Login login)throws PersistentException {
 		try {
 			if (login.getUsuario() != null) {
-				login.getUsuario().setLoginusuario(null);
+				login.getUsuario().setLoginidLogin(null);
 			}
 			
 			return delete(login);
@@ -338,7 +338,7 @@ public class LoginDAO {
 	public static boolean deleteAndDissociate(clases.Login login, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (login.getUsuario() != null) {
-				login.getUsuario().setLoginusuario(null);
+				login.getUsuario().setLoginidLogin(null);
 			}
 			
 			try {
@@ -356,7 +356,7 @@ public class LoginDAO {
 	
 	public static boolean refresh(clases.Login login) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().refresh(login);
+			PrograAvanzadaPersistentManager.instance().getSession().refresh(login);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +367,7 @@ public class LoginDAO {
 	
 	public static boolean evict(clases.Login login) throws PersistentException {
 		try {
-			clases.PrograAvanzadaPersistentManager.instance().getSession().evict(login);
+			PrograAvanzadaPersistentManager.instance().getSession().evict(login);
 			return true;
 		}
 		catch (Exception e) {

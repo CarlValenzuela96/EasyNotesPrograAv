@@ -13,9 +13,7 @@ License Type: Academic
 		<property name="nombreCarrera" column="nombreCarrera" type="string" length="50" not-null="false" lazy="false"/>
 		<property name="cantSemestres" column="cantSemestres" type="integer" length="2" not-null="false" lazy="false"/>
 		<property name="universidad" column="universidad" type="string" length="50" not-null="false" lazy="false"/>
-		<set name="ORM_Usuario" lazy="true" cascade="save-update,lock" inverse="true">
-			<key column="CarreraidCarrera" not-null="true"/>
-			<one-to-many class="clases.Usuario"/>
-		</set>
+		<many-to-one name="usuarioidUsuario" column="usuarioidUsuario" class="clases.Usuario" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
 	</class>
 </hibernate-mapping>

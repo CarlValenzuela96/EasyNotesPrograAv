@@ -14,11 +14,16 @@ License Type: Academic
 		<property name="añoSemestre" column="añoSemestre" type="integer" length="4" not-null="false" lazy="false"/>
 		<property name="cantRamos" column="cantRamos" type="integer" length="2" not-null="false" lazy="false"/>
 		<property name="cantHorasSemanalesTotales" column="cantHorasSemanalesTotales" type="integer" length="2" not-null="false" lazy="false"/>
+		<property name="estadoSemestre" column="estadoSemestre" type="integer" length="1" not-null="false" lazy="false"/>
 		<many-to-one name="usuarioidUsuario" cascade="lock" column="UsuarioidUsuario" class="clases.Usuario" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 		<set name="ORM_Ramo" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="SemestreidSemestre" not-null="true"/>
 			<one-to-many class="clases.Ramo"/>
+		</set>
+		<set name="ORM_Evento" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="semestreidSemestre" not-null="true"/>
+			<one-to-many class="clases.Evento"/>
 		</set>
 		<one-to-one name="historial" class="clases.Historial" cascade="save-update,lock" property-ref="semestreidSemestre" lazy="no-proxy" access="field"/>
 	</class>

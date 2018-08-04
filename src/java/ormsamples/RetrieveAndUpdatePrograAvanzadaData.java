@@ -9,54 +9,54 @@ public class RetrieveAndUpdatePrograAvanzadaData {
 	public void retrieveAndUpdateTestData() throws PersistentException {
 		PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
 		try {
-			clases.Domicilio clasesDomicilio = clases.DomicilioDAO.loadDomicilioByQuery(null, null);
+			clases.Domicilio lclasesDomicilio = clases.DomicilioDAO.loadDomicilioByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.DomicilioDAO.save(clasesDomicilio);
-			clases.Historial clasesHistorial = clases.HistorialDAO.loadHistorialByQuery(null, null);
+			clases.DomicilioDAO.save(lclasesDomicilio);
+			clases.Historial lclasesHistorial = clases.HistorialDAO.loadHistorialByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.HistorialDAO.save(clasesHistorial);
-			clases.Semestre clasesSemestre = clases.SemestreDAO.loadSemestreByQuery(null, null);
+			clases.HistorialDAO.save(lclasesHistorial);
+			clases.Semestre lclasesSemestre = clases.SemestreDAO.loadSemestreByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.SemestreDAO.save(clasesSemestre);
-			clases.Usuario clasesUsuario = clases.UsuarioDAO.loadUsuarioByQuery(null, null);
+			clases.SemestreDAO.save(lclasesSemestre);
+			clases.Usuario lclasesUsuario = clases.UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.UsuarioDAO.save(clasesUsuario);
-			clases.RamoAprobado clasesRamoAprobado = clases.RamoAprobadoDAO.loadRamoAprobadoByQuery(null, null);
+			clases.UsuarioDAO.save(lclasesUsuario);
+			clases.RamoAprobado lclasesRamoAprobado = clases.RamoAprobadoDAO.loadRamoAprobadoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.RamoAprobadoDAO.save(clasesRamoAprobado);
-			clases.Login clasesLogin = clases.LoginDAO.loadLoginByQuery(null, null);
+			clases.RamoAprobadoDAO.save(lclasesRamoAprobado);
+			clases.Login lclasesLogin = clases.LoginDAO.loadLoginByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.LoginDAO.save(clasesLogin);
-			clases.Ramo clasesRamo = clases.RamoDAO.loadRamoByQuery(null, null);
+			clases.LoginDAO.save(lclasesLogin);
+			clases.Ramo lclasesRamo = clases.RamoDAO.loadRamoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.RamoDAO.save(clasesRamo);
-			clases.NotasTeorico clasesNotasTeorico = clases.NotasTeoricoDAO.loadNotasTeoricoByQuery(null, null);
+			clases.RamoDAO.save(lclasesRamo);
+			clases.NotasTeorico lclasesNotasTeorico = clases.NotasTeoricoDAO.loadNotasTeoricoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.NotasTeoricoDAO.save(clasesNotasTeorico);
-			clases.Horario clasesHorario = clases.HorarioDAO.loadHorarioByQuery(null, null);
+			clases.NotasTeoricoDAO.save(lclasesNotasTeorico);
+			clases.Horario lclasesHorario = clases.HorarioDAO.loadHorarioByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.HorarioDAO.save(clasesHorario);
-			clases.PromedioSimple clasesPromedioSimple = clases.PromedioSimpleDAO.loadPromedioSimpleByQuery(null, null);
+			clases.HorarioDAO.save(lclasesHorario);
+			clases.PromedioSimple lclasesPromedioSimple = clases.PromedioSimpleDAO.loadPromedioSimpleByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.PromedioSimpleDAO.save(clasesPromedioSimple);
-			clases.Carrera clasesCarrera = clases.CarreraDAO.loadCarreraByQuery(null, null);
+			clases.PromedioSimpleDAO.save(lclasesPromedioSimple);
+			clases.Carrera lclasesCarrera = clases.CarreraDAO.loadCarreraByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.CarreraDAO.save(clasesCarrera);
-			clases.PromedioMixto clasesPromedioMixto = clases.PromedioMixtoDAO.loadPromedioMixtoByQuery(null, null);
+			clases.CarreraDAO.save(lclasesCarrera);
+			clases.PromedioMixto lclasesPromedioMixto = clases.PromedioMixtoDAO.loadPromedioMixtoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.PromedioMixtoDAO.save(clasesPromedioMixto);
-			clases.RamoReprobado clasesRamoReprobado = clases.RamoReprobadoDAO.loadRamoReprobadoByQuery(null, null);
+			clases.PromedioMixtoDAO.save(lclasesPromedioMixto);
+			clases.RamoReprobado lclasesRamoReprobado = clases.RamoReprobadoDAO.loadRamoReprobadoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.RamoReprobadoDAO.save(clasesRamoReprobado);
-			clases.Direccion clasesDireccion = clases.DireccionDAO.loadDireccionByQuery(null, null);
+			clases.RamoReprobadoDAO.save(lclasesRamoReprobado);
+			clases.Direccion lclasesDireccion = clases.DireccionDAO.loadDireccionByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.DireccionDAO.save(clasesDireccion);
-			clases.NotasPractico clasesNotasPractico = clases.NotasPracticoDAO.loadNotasPracticoByQuery(null, null);
+			clases.DireccionDAO.save(lclasesDireccion);
+			clases.NotasPractico lclasesNotasPractico = clases.NotasPracticoDAO.loadNotasPracticoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.NotasPracticoDAO.save(clasesNotasPractico);
-			clases.Evento clasesEvento = clases.EventoDAO.loadEventoByQuery(null, null);
+			clases.NotasPracticoDAO.save(lclasesNotasPractico);
+			clases.Evento lclasesEvento = clases.EventoDAO.loadEventoByQuery(null, null);
 			// Update the properties of the persistent object
-			clases.EventoDAO.save(clasesEvento);
+			clases.EventoDAO.save(lclasesEvento);
 			t.commit();
 		}
 		catch (Exception e) {

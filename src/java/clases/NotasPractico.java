@@ -18,7 +18,7 @@ public class NotasPractico {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == clases.ORMConstants.KEY_NOTASPRACTICO_RAMOIDRAMO) {
+		if (key == ORMConstants.KEY_NOTASPRACTICO_RAMOIDRAMO) {
 			this.ramoidRamo = (clases.Ramo) owner;
 		}
 	}

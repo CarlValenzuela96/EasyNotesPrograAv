@@ -68,36 +68,43 @@ public class ControladorCalendario extends HttpServlet {
         String ruta = request.getServletPath();
         switch (ruta) {
             case "/agregarFecha":
-                c = new Controlador();
-                g = new GetDatos();
+                String opcAdd = request.getParameter("opc");
 
-                session = (HttpSession) request.getSession();
+                if (opcAdd.equals("0")) {
+                    response.sendRedirect("Principal.jsp");
+                } else {
+                    c = new Controlador();
+                    g = new GetDatos();
 
-                String color = request.getParameter("color");
-                String anotacion = request.getParameter("asunt");
-                String fecha = request.getParameter("fecha");
+                    session = (HttpSession) request.getSession();
 
-                Evento f = new Evento();
+                    String color = request.getParameter("color");
+                    String anotacion = request.getParameter("asunt");
+                    String fecha = request.getParameter("fecha");
 
-                f.setColor(color);
-                f.setContent(anotacion);
-                f.setAño(Integer.valueOf(fecha.substring(0, 4)));
-                f.setMes(Integer.valueOf(fecha.substring(5, 7)));
-                f.setDia(Integer.valueOf(fecha.substring(8, 10)));
+                    Evento f = new Evento();
 
-                semestre = (Semestre) session.getAttribute("semestreActivo");
-                 {
-                    try {
-                        agregarEvento(semestre, f);
+                    f.setColor(color);
+                    f.setContent(anotacion);
+                    f.setAño(Integer.valueOf(fecha.substring(0, 4)));
+                    f.setMes(Integer.valueOf(fecha.substring(5, 7)));
+                    f.setDia(Integer.valueOf(fecha.substring(8, 10)));
 
-                        eUser = g.getEventosUser(semestre.getIdSemestre());
-                        String fechas = c.generarJsonFechas(eUser);
+                    semestre = (Semestre) session.getAttribute("semestreActivo");
+                    {
+                        try {
+                            agregarEvento(semestre, f);
 
-                        session.setAttribute("jsonFechas", fechas);
-                        response.sendRedirect("Principal.jsp");
-                    } catch (PersistentException ex) {
-                        Logger.getLogger(ControladorCalendario.class.getName()).log(Level.SEVERE, null, ex);
+                            eUser = g.getEventosUser(semestre.getIdSemestre());
+                            String fechas = c.generarJsonFechas(eUser);
+
+                            session.setAttribute("jsonFechas", fechas);
+                            response.sendRedirect("Principal.jsp");
+                        } catch (PersistentException ex) {
+                            Logger.getLogger(ControladorCalendario.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
+
                 }
 
                 break;
@@ -115,7 +122,7 @@ public class ControladorCalendario extends HttpServlet {
                 eUser = g.getEventosUser(semestre.getIdSemestre());
 
                 String fechas = c.generarJsonFechas(eUser);
-                
+
                 session.setAttribute("jsonFechas", fechas);
                 response.sendRedirect("Principal.jsp");
                 ;

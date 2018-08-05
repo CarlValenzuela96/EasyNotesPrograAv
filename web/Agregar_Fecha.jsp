@@ -56,7 +56,10 @@
                 <div class="form-group"><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Ingrese asunto</span><input class="form-control" type="text" name="asunt" required="" placeholder="Ingresar asunto"></div>
                 <div
                     class="form-group"><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Seleccione color</span><input type="color" name="color"></div>
-                <div class="form-group"><button class="btn btn-primary" type="submit">Aceptar</button></div>
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit" style="margin:15px 10px 0px;"name="opc" value="0">Volver</button>
+                    <button class="btn btn-primary" type="submit"name="opc" value="1">Agregar</button></div>
             </form>
         </div>
         <div class="footer-basic" style="background-color:rgb(58,59,61);color:rgb(255,255,255);">

@@ -136,7 +136,7 @@ public class ControladorSemestre extends HttpServlet {
                 session = (HttpSession) request.getSession();
 
                 sem = (Semestre) session.getAttribute("semestreActivo");
-                System.out.println("a");
+               
                  {
                     try {
                         archivarSem(sem);
@@ -144,7 +144,7 @@ public class ControladorSemestre extends HttpServlet {
                         Logger.getLogger(ControladorSemestre.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                 System.out.println("b");
+                 
                 listaAños = listaAños();
                 listaHoras = listaHoras();
                 request.setAttribute("años", listaAños);

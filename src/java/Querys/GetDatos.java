@@ -17,6 +17,10 @@ import clases.Historial;
 import clases.HistorialDAO;
 import clases.Login;
 import clases.LoginDAO;
+import clases.NotasPractico;
+import clases.NotasPracticoDAO;
+import clases.NotasTeorico;
+import clases.NotasTeoricoDAO;
 import clases.Ramo;
 import clases.RamoDAO;
 import clases.Semestre;
@@ -86,7 +90,7 @@ public class GetDatos {
             }
 
         } catch (PersistentException ex) {
-            Logger.getLogger(ListData.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (usuarios == null) {
@@ -95,6 +99,38 @@ public class GetDatos {
             return usuario;
         }
 
+    }
+
+    public Ramo getRamoPorNombre(int idSemestre, String nombre) {
+        Ramo ramo = new Ramo();
+        Ramo ramos = null;
+
+        try {
+            String query = "semestreidSemestre='" + idSemestre + "' and nombreRamo='" + nombre + "'";
+            ramos = RamoDAO.loadRamoByQuery(query, null);
+            if (ramos != null) {
+                ramo.setNombreRamo(ramos.getNombreRamo());
+                ramo.setCodigoRamo(ramos.getCodigoRamo());
+                ramo.setTipoAprobacion(ramos.getTipoAprobacion());
+                ramo.setCantNotasTeoricas(ramos.getCantNotasTeoricas());
+                ramo.setCantNotasPracticas(ramos.getCantNotasPracticas());
+                ramo.setPonderacionTeorica(ramos.getPonderacionTeorica());
+                ramo.setPoderacionPractica(ramos.getPoderacionPractica());
+                ramo.setHorasSemanales(ramos.getHorasSemanales());
+                ramo.setSemestreidSemestre(ramos.getSemestreidSemestre());
+                ramo.setIdRamo(ramos.getIdRamo());
+
+            }
+
+        } catch (PersistentException ex) {
+            Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         if (ramos == null) {
+            return null;
+        } else {
+            return ramo;
+        }
     }
 
     public ArrayList<Ramo> getRamosUser(int idSemestre) {
@@ -286,5 +322,53 @@ public class GetDatos {
         return h;
     }
 
+    public ArrayList<NotasPractico> getNotasPracticas(int idRamo) {
+        ArrayList<NotasPractico> np = new ArrayList<>();
+        NotasPractico n[];
+        try {
+            String query = "ramoidRamo='" + idRamo + "'";
+            n = NotasPracticoDAO.listNotasPracticoByQuery(query, null);
+            if (n != null) {
+
+                for (int i = 0; i < n.length; i++) {
+                    NotasPractico notaP = new NotasPractico();
+                    notaP.setNotaPractica(n[i].getNotaPractica());
+                    notaP.setPondPractico(n[i].getPondPractico());
+                    notaP.setRamoidRamo(n[i].getRamoidRamo());
+                    notaP.setIdNotaPractica(n[i].getIdNotaPractica());
+                    np.add(notaP);
+                }
+
+            }
+        } catch (PersistentException ex) {
+            Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return np;
+    }
+
+    public ArrayList<NotasTeorico> getNotasTeorica(int idRamo) {
+        ArrayList<NotasTeorico> nT = new ArrayList<>();
+        NotasTeorico n[];
+        try {
+            String query = "ramoidRamo='" + idRamo + "'";
+            
+            n = NotasTeoricoDAO.listNotasTeoricoByQuery(query, null);
+            if (n != null) {
+
+                for (int i = 0; i < n.length; i++) {
+                    NotasTeorico notaT = new NotasTeorico();
+                    notaT.setNotaTeorica(n[i].getNotaTeorica());
+                    notaT.setPondTeorica(n[i].getPondTeorica());
+                    notaT.setRamoidRamo(n[i].getRamoidRamo());
+                    notaT.setIdNotaTeorica(n[i].getIdNotaTeorica());
+                    nT.add(notaT);
+                }
+
+            }
+        } catch (PersistentException ex) {
+            Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nT;
+    }
 
 }

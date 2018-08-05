@@ -1,11 +1,10 @@
 <%-- 
-    Document   : EliminarFecha
-    Created on : 31-07-2018, 10:10:55
+    Document   : Ramos
+    Created on : 04-08-2018, 14:12:19
     Author     : Carlos
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -16,17 +15,19 @@
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
         <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+        <link rel="stylesheet" href="assets/css/Article-List.css">
         <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
         <link rel="stylesheet" href="assets/css/Features-Blue.css">
         <link rel="stylesheet" href="assets/css/Footer-Basic.css">
         <link rel="stylesheet" href="assets/css/Footer-Clean.css">
         <link rel="stylesheet" href="assets/css/Header-Blue.css">
         <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-        <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
         <link rel="stylesheet" href="assets/css/Pretty-Header.css">
+        <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
         <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
         <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
         <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
@@ -51,30 +52,19 @@
             </div>
         </nav>
         <div class="contact-clean">
-            
-            <form method="post" action="BorrarFecha">
-                <h2 class="text-center"><strong>Eliminar Fecha</strong><br></h2>
-                <div class="form-group"><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Elegir fecha</span>
-                    <select class="form-control" name="fechas" id="fechas">
-                        <optgroup label="Seleccione fecha a borrar">
-                        
-                        <c:forEach items="${fechas}" var="i" >
-                            <option value="${i.getIdEvento()}"> ${i.getAño()}-${i.getMes()}-${i.getDia()}:${i.getContent()}  </option>
-                            
-                        </c:forEach>
+            <form method="post" action="infoRamos">
+                <h2 class="text-center"><strong>Asignaturas</strong><br></h2>
+                <div class="form-group"><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Elegir asignatura</span><select class="form-control" name="ramo"><optgroup label="This is a group">
+                        <c:forEach items="${verRamos}" var="i" >
+                            <option value="${i.getIdRamo()}"> ${i.getNombreRamo()}  </option>
+                        </c:forEach>       
 
-<!--                        <option value="12" selected="">This is item 1</option>
-                        <option value="13">This is item 2</option>
-                        <option value="14">This is item 3</option>-->
-                        </optgroup>
-                    </select>
-                </div>
+
+                        </optgroup></select></div>
                 <div
                     class="form-group"></div>
                 <div class="form-group"></div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit" style="margin:15px 10px 0px;">Volver</button>
-                    <button class="btn btn-primary" type="submit">Borrar</button></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit" name="opcRamo" value="0" style="margin:15px 10px 0px;">Volver</button><button class="btn btn-primary" type="submit" name="opcRamo" value="1">Aceptar</button></div>
             </form>
         </div>
         <div class="footer-basic" style="background-color:rgb(58,59,61);color:rgb(255,255,255);">

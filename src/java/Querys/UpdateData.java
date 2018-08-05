@@ -184,6 +184,7 @@ public class UpdateData {
                 }
                 EventoDAO.save(evento);
                 t.commit();
+                
             } catch (PersistentException ex) {
                 t.rollback();
             }
@@ -322,12 +323,12 @@ public class UpdateData {
         }
     }
     
-    public void updateNotasTeorico(String idNotasTeorico, String notaTeorico, String pondTeorico, Ramo ramo) {
+    public void updateNotasTeorico(int idNotasTeorico, String notaTeorico, String pondTeorico, Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
             try {
                 t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
-                NotasTeorico notasT = NotasTeoricoDAO.loadNotasTeoricoByORMID(Integer.parseInt(idNotasTeorico));
+                NotasTeorico notasT = NotasTeoricoDAO.loadNotasTeoricoByORMID(idNotasTeorico);
                 if (notaTeorico != null) {
                     notasT.setNotaTeorica(Double.parseDouble(notaTeorico));
                 }
@@ -338,21 +339,25 @@ public class UpdateData {
                     notasT.setRamoidRamo(ramo);
                 }
                 NotasTeoricoDAO.save(notasT);
+                
                 t.commit();
+                
             } catch (PersistentException ex) {
                 t.rollback();
             }
+            
+            
         } catch (PersistentException ex) {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void updateNotasPractica(String idNotasPractica, String notaPractica, String pondPractico, Ramo ramo) {
+    public void updateNotasPractica(int idNotasPractica, String notaPractica, String pondPractico, Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
             try {
                 t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
-                NotasPractico notasP = NotasPracticoDAO.loadNotasPracticoByORMID(Integer.parseInt(idNotasPractica));
+                NotasPractico notasP = NotasPracticoDAO.loadNotasPracticoByORMID(idNotasPractica);
                 if (notaPractica != null) {
                     notasP.setNotaPractica(Double.parseDouble(notaPractica));
                 }

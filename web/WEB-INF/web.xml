@@ -24,6 +24,10 @@
         <servlet-name>ControladorHistorial</servlet-name>
         <servlet-class>Controlador.ControladorHistorial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorNotas</servlet-name>
+        <servlet-class>Controlador.ControladorNotas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorCalendario</servlet-name>
         <url-pattern>/ControladorCalendario</url-pattern>
@@ -66,6 +70,12 @@
         <url-pattern>/mostrarHistorial</url-pattern>
         <url-pattern>/convertirPDF</url-pattern>
         <url-pattern>/graficar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorNotas</servlet-name>
+        <url-pattern>/ControladorNotas</url-pattern>
+        <url-pattern>/guardarNotas</url-pattern>
+        <url-pattern>/calcularProm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -38,7 +38,7 @@ public class NotasPractico {
 	
 	private clases.Ramo ramoidRamo;
 	
-	private void setIdNotaPractica(int value) {
+	public void setIdNotaPractica(int value) {
 		this.idNotaPractica = value;
 	}
 	

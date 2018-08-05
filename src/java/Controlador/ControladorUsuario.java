@@ -236,7 +236,19 @@ public class ControladorUsuario extends HttpServlet {
                 String opc = request.getParameter("opcMain");
 
                 switch (opc) {
-                    case "1":;
+                    case "1":
+                        session = (HttpSession) request.getSession();
+                        g = new GetDatos();
+
+                        semestre = (Semestre) session.getAttribute("semestreActivo");
+
+                        ramos = g.getRamosUser(semestre.getIdSemestre());
+
+                        request.setAttribute("verRamos", ramos);
+                        dispatcher = request.getRequestDispatcher("Ramos.jsp");
+                        dispatcher.forward(request, response);
+
+                        ;
                         break;
                     case "2":
                         dispatcher = request.getRequestDispatcher("Agregar_Asignatura.jsp");
@@ -267,9 +279,9 @@ public class ControladorUsuario extends HttpServlet {
                         session = (HttpSession) request.getSession();
                         g = new GetDatos();
                         user = (Usuario) session.getAttribute("usuario");
-                        
-                        ArrayList<Historial> historial= g.getHistorialUser(user.getIdUsuario());
-                        
+
+                        ArrayList<Historial> historial = g.getHistorialUser(user.getIdUsuario());
+
                         request.setAttribute("hist", historial);
                         dispatcher = request.getRequestDispatcher("selectHistorial.jsp");
                         dispatcher.forward(request, response);

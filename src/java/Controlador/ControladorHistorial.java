@@ -56,7 +56,7 @@ public class ControladorHistorial extends HttpServlet {
         String ruta = request.getServletPath();
         RequestDispatcher dispatcher;
         GetDatos g;
-        
+
         switch (ruta) {
             case "/mostrarHistorial":
                 String pos = request.getParameter("pos");
@@ -68,8 +68,9 @@ public class ControladorHistorial extends HttpServlet {
                         Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                g= new GetDatos();
-                ArrayList<Ramo> r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
+                g = new GetDatos();
+//                ArrayList<Ramo> r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
+                Ramo[] r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
                 
                 request.setAttribute("año", hist.getAño());
                 request.setAttribute("sem", hist.getSemestre());

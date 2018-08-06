@@ -62,7 +62,8 @@ public class ControladorCalendario extends HttpServlet {
         GetDatos g;
         Controlador c;
         Usuario user;
-        ArrayList<Evento> eUser;
+//        ArrayList<Evento> eUser;
+        Evento[] eUser;
         Semestre semestre;
 
         String ruta = request.getServletPath();

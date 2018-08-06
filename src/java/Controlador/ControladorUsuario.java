@@ -75,7 +75,8 @@ public class ControladorUsuario extends HttpServlet {
         Usuario user;
         Login log;
         String matLog;
-        ArrayList<Ramo> ramos;
+//        ArrayList<Ramo> ramos;
+        Ramo[] ramos;
         Semestre semestre;
 
         switch (ruta) {
@@ -280,7 +281,8 @@ public class ControladorUsuario extends HttpServlet {
                         g = new GetDatos();
                         user = (Usuario) session.getAttribute("usuario");
 
-                        ArrayList<Historial> historial = g.getHistorialUser(user.getIdUsuario());
+//                        ArrayList<Historial> historial = g.getHistorialUser(user.getIdUsuario());
+                        Historial[] historial = g.getHistorialUser(user.getIdUsuario());
 
                         request.setAttribute("hist", historial);
                         dispatcher = request.getRequestDispatcher("selectHistorial.jsp");
@@ -373,8 +375,8 @@ public class ControladorUsuario extends HttpServlet {
                     dispatcher.forward(request, response);
 
                 } else {
-                    ArrayList<Evento> eUser = g.getEventosUser(sem.getIdSemestre());
-
+//                    ArrayList<Evento> eUser = g.getEventosUser(sem.getIdSemestre());
+                   Evento[] eUser = g.getEventosUser(sem.getIdSemestre());
                     String fechas = c.generarJsonFechas(eUser);
                     session.setAttribute("semestreActivo", sem);
                     session.setAttribute("jsonFechas", fechas);

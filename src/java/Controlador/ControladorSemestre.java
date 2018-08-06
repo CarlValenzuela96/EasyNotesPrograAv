@@ -67,10 +67,13 @@ public class ControladorSemestre extends HttpServlet {
         Usuario user;
         GetDatos g;
         Semestre sem;
-        ArrayList<Evento> eUser;
+
+//        ArrayList<Evento> eUser;
+        Evento[] eUser;
         ArrayList<String> listaAños;
         ArrayList<String> listaHoras;
-        ArrayList<Ramo> ramos;
+        //ArrayList<Ramo> ramos;
+        Ramo[] ramos;
 
         switch (ruta) {
             case "/agregarSemestre":
@@ -125,7 +128,6 @@ public class ControladorSemestre extends HttpServlet {
                 ramos = g.getRamosUser(sem.getIdSemestre());
                 eUser = g.getEventosUser(sem.getIdSemestre());
 
-               
                 borrarRamos(ramos);
                 borrarEventos(eUser);
 
@@ -136,7 +138,7 @@ public class ControladorSemestre extends HttpServlet {
                 session = (HttpSession) request.getSession();
 
                 sem = (Semestre) session.getAttribute("semestreActivo");
-               
+
                  {
                     try {
                         archivarSem(sem);
@@ -144,7 +146,7 @@ public class ControladorSemestre extends HttpServlet {
                         Logger.getLogger(ControladorSemestre.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                 
+
                 listaAños = listaAños();
                 listaHoras = listaHoras();
                 request.setAttribute("años", listaAños);
@@ -167,12 +169,13 @@ public class ControladorSemestre extends HttpServlet {
     }
 
     public void archivarSem(Semestre sem) throws PersistentException {
+
         UpdateData u = new UpdateData();
         u.updateSemestre(sem.getIdSemestre(), null, null, null, null, "0", null);
-        
+
         InsertarDatos i = new InsertarDatos();
         i.addHistorial(sem.getNumeroSemestre(), sem.getAñoSemestre(), SemestreDAO.getSemestreByORMID(sem.getIdSemestre()));
-       
+
     }
 
     public ArrayList<String> listaAños() {
@@ -195,19 +198,34 @@ public class ControladorSemestre extends HttpServlet {
         return list;
     }
 
-    public void borrarRamos(ArrayList<Ramo> ramos) {
+//    public void borrarRamos(ArrayList<Ramo> ramos) {
+//        DropByID drop = new DropByID();
+//        for (int i = 0; i < ramos.size(); i++) {
+//            System.out.println(String.valueOf(ramos.get(i).getIdRamo()));
+//           // drop.dropRamo(String.valueOf(ramos.get(i).getIdRamo()));
+//        }
+//
+//    }
+    public void borrarRamos(Ramo[] ramos) {
         DropByID drop = new DropByID();
-        for (int i = 0; i < ramos.size(); i++) {
-            System.out.println(String.valueOf(ramos.get(i).getIdRamo()));
-           // drop.dropRamo(String.valueOf(ramos.get(i).getIdRamo()));
+        for (int i = 0; i < ramos.length; i++) {
+            System.out.println(String.valueOf(ramos[i].getIdRamo()));
+             drop.dropRamo(String.valueOf(ramos[i].getIdRamo()));
         }
 
     }
 
-    public void borrarEventos(ArrayList<Evento> eUser) {
+//    public void borrarEventos(ArrayList<Evento> eUser) {
+//        DropByID drop = new DropByID();
+//        for (int i = 0; i < eUser.size(); i++) {
+//            drop.dropEvento(String.valueOf(eUser.get(i).getIdEvento()));
+//        }
+//    }
+
+    public void borrarEventos(Evento[] eUser) {
         DropByID drop = new DropByID();
-        for (int i = 0; i < eUser.size(); i++) {
-            drop.dropEvento(String.valueOf(eUser.get(i).getIdEvento()));
+        for (int i = 0; i < eUser.length; i++) {
+            drop.dropEvento(String.valueOf(eUser[i].getIdEvento()));
         }
     }
 

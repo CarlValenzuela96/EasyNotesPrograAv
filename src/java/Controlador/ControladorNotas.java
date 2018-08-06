@@ -69,8 +69,8 @@ public class ControladorNotas extends HttpServlet {
         RequestDispatcher dispatcher;
         GetDatos g;
 
-        ArrayList<NotasTeorico> nt;
-        ArrayList<NotasPractico> np;
+        NotasTeorico[] nt;
+        NotasPractico[] np;
 
         Ramo r;
         switch (ruta) {
@@ -84,41 +84,38 @@ public class ControladorNotas extends HttpServlet {
                     response.sendRedirect("Principal.jsp");
                 } else {
 
-                    
-
                     if (r.getTipoAprobacion().equals("Solo Teórico")) {
 
                         nt = g.getNotasTeorica(r.getIdRamo());
-                        for (int i = 0; i < nt.size(); i++) {
-                            System.out.println(nt.get(i).getIdNotaTeorica());
+                        for (int i = 0; i < nt.length; i++) {
+                            System.out.println(nt[i].getIdNotaTeorica());
 
-                            try {
-                                guardarNotaT(NotasTeoricoDAO.loadNotasTeoricoByORMID(nt.get(i).getIdNotaTeorica()), request.getParameter("nota" + i), request.getParameter("pond" + i));
-                                    
-                            } catch (PersistentException ex) {
-                                Logger.getLogger(ControladorNotas.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            guardarNotaT(nt[i], request.getParameter("nota" + i), request.getParameter("pond" + i));
 
                         }
+                    } else if (r.getTipoAprobacion().equals("Solo Práctico")) {
+                        np = g.getNotasPracticas(r.getIdRamo());
+                        for (int i = 0; i < np.length; i++) {
+                            guardarNotaP(np[i], request.getParameter("nota" + i), request.getParameter("pond" + i));
+
+                        }
+                    } else if (r.getTipoAprobacion().equals("Teórico - Práctico en conjunto") || r.getTipoAprobacion().equals("Teórico - Práctico por separado")) {
+                        nt = g.getNotasTeorica(r.getIdRamo());
+                        for (int i = 0; i < nt.length; i++) {
+                            System.out.println(request.getParameter("notaT" + i));
+                            guardarNotaT(nt[i], request.getParameter("notaT" + i), request.getParameter("pondT" + i));
+
+                        }
+                        np = g.getNotasPracticas(r.getIdRamo());
+                        for (int i = 0; i < np.length; i++) {
+                            guardarNotaP(np[i], request.getParameter("notaP" + i), request.getParameter("pondP" + i));
+                            
+                        }
+
                     }
 
-                    for (int i = 0; i < r.getCantNotasTeoricas(); i++) {
-                        System.out.println(request.getParameter("nota" + i));
+                    response.sendRedirect("Principal.jsp");
 
-//                        ListaNotas.add(Double.valueOf(request.getParameter("nota" + i)));
-//                        ListaPond.add(Double.valueOf(request.getParameter("pond" + i)));
-                    }
-
-//                    ArrayList<NotasTeorico> nt = g.getNotasTeorica(r.getIdRamo());
-//                    ArrayList<NotasPractico> np = g.getNotasPracticas(r.getIdRamo());
-//
-//                    for (int i = 0; i < nt.size(); i++) {
-//                        guardarNotaT(nt.get(i), ruta, pos);
-//                    }
-//                    for (int i = 0; i < np.size(); i++) {
-//                        guardarNotaP(np.get(i), ruta, pos);
-//                    }
-                    //System.out.println(pos);
                 }
 
                 ;

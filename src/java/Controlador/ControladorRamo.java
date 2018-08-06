@@ -174,15 +174,17 @@ public class ControladorRamo extends HttpServlet {
 
                     request.setAttribute("asign", r);
                     session.setAttribute("asign", r);
-                    ArrayList<NotasPractico> np;
-                    ArrayList<NotasTeorico> nt;
+//                    ArrayList<NotasPractico> np;
+//                    ArrayList<NotasTeorico> nt;
 
+                    NotasPractico np[];
+                    NotasTeorico nt[];
                     if (r.getTipoAprobacion().equals("Teórico - Práctico en conjunto") || r.getTipoAprobacion().equals("Teórico - Práctico por separado")) {
                         nt = g.getNotasTeorica(r.getIdRamo());
 
-                        for (int i = 0; i < nt.size(); i++) {
-                            listaNotasT.add(nt.get(i).getNotaTeorica());
-                            listaPondT.add(nt.get(i).getPondTeorica());
+                        for (int i = 0; i < nt.length; i++) {
+                            listaNotasT.add(nt[i].getNotaTeorica());
+                            listaPondT.add(nt[i].getPondTeorica());
                         }
 
                         request.setAttribute("notasT", listaNotasT);
@@ -190,9 +192,9 @@ public class ControladorRamo extends HttpServlet {
 
                         np = g.getNotasPracticas(r.getIdRamo());
 
-                        for (int i = 0; i < np.size(); i++) {
-                            listaNotasP.add(np.get(i).getNotaPractica());
-                            listaPondP.add(np.get(i).getPondPractico());
+                        for (int i = 0; i < np.length; i++) {
+                            listaNotasP.add(np[i].getNotaPractica());
+                            listaPondP.add(np[i].getPondPractico());
                         }
 
                         request.setAttribute("notasP", listaNotasP);
@@ -213,9 +215,9 @@ public class ControladorRamo extends HttpServlet {
 
                             nt = g.getNotasTeorica(r.getIdRamo());
 
-                            for (int i = 0; i < nt.size(); i++) {
-                                listaNotas.add(nt.get(i).getNotaTeorica());
-                                listaPond.add(nt.get(i).getPondTeorica());
+                            for (int i = 0; i < nt.length; i++) {
+                                listaNotas.add(nt[i].getNotaTeorica());
+                                listaPond.add(nt[i].getPondTeorica());
                             }
 
                             request.setAttribute("notas", listaNotas);
@@ -228,9 +230,9 @@ public class ControladorRamo extends HttpServlet {
 
                             np = g.getNotasPracticas(r.getIdRamo());
 
-                            for (int i = 0; i < np.size(); i++) {
-                                listaNotas.add(np.get(i).getNotaPractica());
-                                listaPond.add(np.get(i).getPondPractico());
+                            for (int i = 0; i < np.length; i++) {
+                                listaNotas.add(np[i].getNotaPractica());
+                                listaPond.add(np[i].getPondPractico());
                             }
 
                             request.setAttribute("notas", listaNotas);

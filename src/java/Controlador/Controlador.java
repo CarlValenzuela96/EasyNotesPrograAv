@@ -88,33 +88,34 @@ public class Controlador {
 
         return String.valueOf(periodo.getYears());
     }
-
-    public String generarJsonFechas(ArrayList<Evento> a) {
+    
+//    public String generarJsonFechas(ArrayList<Evento> a) {
+    public String generarJsonFechas(Evento[] a) {
         Gson g = new Gson();
         String json ;
         String jsonTotal = "";
         //            FileWriter file = new FileWriter("C:\\Users\\Carlos\\Desktop\\EasyNotes\\web\\assets\\js\\fechas.js");
-        if (!a.isEmpty()) {
+        if (a!=null) {
 
-            for (int i = 0; i < a.size(); i++) {
-                if (i != (a.size() - 1)) {
+            for (int i = 0; i < a.length; i++) {
+                if (i != (a.length - 1)) {
                     JsonObject object = new JsonObject();
-                    object.addProperty("color", a.get(i).getColor());
-                    object.addProperty("anio", a.get(i).getAño());
-                    object.addProperty("mes", a.get(i).getMes());
-                    object.addProperty("dia", a.get(i).getDia());
-                    object.addProperty("content", a.get(i).getContent());
+                    object.addProperty("color", a[i].getColor());
+                    object.addProperty("anio", a[i].getAño());
+                    object.addProperty("mes", a[i].getMes());
+                    object.addProperty("dia", a[i].getDia());
+                    object.addProperty("content", a[i].getContent());
 
                     json =object.toString();
                     jsonTotal = jsonTotal + json + ",";
 
                 } else {
                     JsonObject object = new JsonObject();
-                    object.addProperty("color", a.get(i).getColor());
-                    object.addProperty("anio", a.get(i).getAño());
-                    object.addProperty("mes", a.get(i).getMes());
-                    object.addProperty("dia", a.get(i).getDia());
-                    object.addProperty("content", a.get(i).getContent());
+                    object.addProperty("color", a[i].getColor());
+                    object.addProperty("anio", a[i].getAño());
+                    object.addProperty("mes", a[i].getMes());
+                    object.addProperty("dia", a[i].getDia());
+                    object.addProperty("content", a[i].getContent());
 
                     json = object.toString();
                     jsonTotal = jsonTotal + json;

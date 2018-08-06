@@ -130,6 +130,12 @@ public class ControladorRamo extends HttpServlet {
                             Logger.getLogger(ControladorRamo.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
+                    InsertarDatos ins = new InsertarDatos();
+                    if (tipo.equals("Solo Teórico") || tipo.equals("Solo Práctico")) {
+                        ins.addPromedioSimple(1.0, notasRamo);
+                    } else if (tipo.equals("Teórico - Práctico en conjunto") || tipo.equals("Teórico - Práctico por separado")) {
+                        ins.addPromedioMixto(1.0, 1.0, 1.0, notasRamo);
+                    }
 
                     response.sendRedirect("Principal.jsp");
                 } else {

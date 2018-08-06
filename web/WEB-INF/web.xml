@@ -68,8 +68,7 @@
         <servlet-name>ControladorHistorial</servlet-name>
         <url-pattern>/ControladorHistorial</url-pattern>
         <url-pattern>/mostrarHistorial</url-pattern>
-        <url-pattern>/convertirPDF</url-pattern>
-        <url-pattern>/graficar</url-pattern>
+        <url-pattern>/funcHistorial</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControladorNotas</servlet-name>

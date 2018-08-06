@@ -109,7 +109,7 @@ public class ControladorNotas extends HttpServlet {
                         np = g.getNotasPracticas(r.getIdRamo());
                         for (int i = 0; i < np.length; i++) {
                             guardarNotaP(np[i], request.getParameter("notaP" + i), request.getParameter("pondP" + i));
-                            
+
                         }
 
                     }
@@ -169,7 +169,7 @@ public class ControladorNotas extends HttpServlet {
 
                     String promT = request.getParameter("promTeo");
                     String promP = request.getParameter("promPra");
-
+                    
                     System.out.println(promT);
                     System.out.println(promP);
 

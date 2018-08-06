@@ -3,6 +3,7 @@
     Created on : 03-08-2018, 21:32:36
     Author     : Carlos
 --%>
+<%@page import="clases.Ramo"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,7 +63,7 @@
                 <div class="row">
                     <div class="col-md-12" style="margin:10px;"></div>
                 </div>-->
-            <form method="post" action="mostrarHistorial">
+            <form method="post" action="funcHistorial">
                 <div class="form-group"><h2 class="text-center">Historial</h2><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Año:${año}</span><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Semestre:${sem}</span></div>
                 <div
                     class="form-group">
@@ -76,21 +77,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${ramosHist}" var="i" >
-                                    <tr>
-                                        <td>${i.getNombreRamo()}</td>
-                                        <td>1</td>
-                                        <td>2</td>
-                                    </tr>
-                                </c:forEach>    
+                            
+                                            <%
+                                                Ramo[] r = (Ramo[]) request.getAttribute("ramosHist");
+                                                for (int i = 0; i < r.length; i++) {
+                                                    String nombreR = r[i].getNombreRamo();
+                                                    String tipoR = r[i].getTipoAprobacion();
+                                                    
+                                                    double prom;
+                                                    if (tipoR.equals("Solo Teórico") || tipoR.equals("Solo Práctico")) {
+                                                        prom = r[i].getPromedioSimple().getPromFinal();
+                                                    } else {
+                                                        prom = r[i].getPromedioMixto().getPromFinal();
+                                                    }
+                                                    
+                                                    String estado="";
+                                                    if (prom >= 3.96) {
+                                                        estado = "Aprobado";
+                                                    }else{
+                                                        estado = "Reprobado";
+                                                    }
+                                                    out.print("<tr>");
+                                                    out.print("<td>"+nombreR+"</td>");
+                                                    out.print("<td>"+estado+"</td>");
+                                                    out.print("<td>"+prom+"</td>");
+                                                    out.print("</tr>");
+                                                }
+                                            %>   
 
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="form-group"><button class="btn btn-primary" type="submit" style="margin:15px 10px 0px;height:56px;">Volver</button><button class="btn btn-primary" type="submit"><i class="fa fa-file-pdf-o" style="font-size:24px;"></i></button><button class="btn btn-primary"
-                                                                                                                                                                                                        type="submit" style="margin:15px 10px 0px;font-size:24px;"><i class="fa fa-bar-chart"></i></button></div>
-            </form>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit" name="opc" value="0" style="margin:15px 10px 0px;height:56px;">Volver</button>
+                    <button class="btn btn-primary" type="submit" name="opc" value="1"><i class="fa fa-file-pdf-o" style="font-size:24px;"></i></button>
+                    <button class="btn btn-primary" type="submit" name="opc" value="2" style="margin:15px 10px 0px;font-size:24px;"><i class="fa fa-bar-chart"></i></button></div>
+                </form>
         </div>
         <div class="footer-basic" style="background-color:rgb(58,59,61);color:rgb(255,255,255);">
             <footer>

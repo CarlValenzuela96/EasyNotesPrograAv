@@ -9,6 +9,7 @@ import Querys.GetDatos;
 import clases.Historial;
 import clases.HistorialDAO;
 import clases.Ramo;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -19,6 +20,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import org.orm.PersistentException;
 
 /**
@@ -52,13 +56,16 @@ public class ControladorHistorial extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, FileNotFoundException {
         String ruta = request.getServletPath();
         RequestDispatcher dispatcher;
         GetDatos g;
-
+        Ramo[] r;
+        Controlador c;
+        HttpSession session;
         switch (ruta) {
             case "/mostrarHistorial":
+                session = (HttpSession) request.getSession();
                 String pos = request.getParameter("pos");
                 Historial hist = null;
                  {
@@ -69,18 +76,61 @@ public class ControladorHistorial extends HttpServlet {
                     }
                 }
                 g = new GetDatos();
-//                ArrayList<Ramo> r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
-                Ramo[] r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
-                
+
+                r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
+
                 request.setAttribute("año", hist.getAño());
                 request.setAttribute("sem", hist.getSemestre());
                 request.setAttribute("ramosHist", r);
+
+                session.setAttribute("hist", hist);
+
                 dispatcher = request.getRequestDispatcher("Historial.jsp");
                 dispatcher.forward(request, response);
                 break;
-            case "/convertirPDF":;
-                break;
-            case "/graficar":;
+            case "/funcHistorial":
+                String opc = request.getParameter("opc");
+                g = new GetDatos();
+
+                c = new Controlador();
+                session = (HttpSession) request.getSession();
+                hist = (Historial) session.getAttribute("hist");
+
+                switch (opc) {
+                    case "0":
+                        response.sendRedirect("Principal.jsp");
+                        break;
+                    case "1":
+                        r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
+                         {
+                            try {
+                                c.crearXMLHistorial("Historial", r);
+                            } catch (ParserConfigurationException ex) {
+                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (TransformerException ex) {
+                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                         {
+                            try {
+                                c.transformInforme("C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\FormatoPDF.xsl",
+                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\Historial.xml",
+                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\web\\Historial.pdf");
+                            } catch (TransformerException ex) {
+                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        response.sendRedirect("Historial.pdf");
+                        break;
+                    case "2":
+                        response.sendRedirect("Grafico.jsp");
+                        ;
+                        break;
+                }
+
+                ;
                 break;
         }
     }

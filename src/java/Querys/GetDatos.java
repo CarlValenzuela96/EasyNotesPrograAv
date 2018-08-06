@@ -21,6 +21,10 @@ import clases.NotasPractico;
 import clases.NotasPracticoDAO;
 import clases.NotasTeorico;
 import clases.NotasTeoricoDAO;
+import clases.PromedioMixto;
+import clases.PromedioMixtoDAO;
+import clases.PromedioSimple;
+import clases.PromedioSimpleDAO;
 import clases.Ramo;
 import clases.RamoDAO;
 import clases.Semestre;
@@ -30,6 +34,7 @@ import clases.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.hibernate.LockMode;
 import org.orm.PersistentException;
 
 /**
@@ -233,7 +238,7 @@ public class GetDatos {
 
 //public ArrayList<NotasPractico> getNotasPracticas(int idRamo) {
     public NotasPractico[] getNotasPracticas(int idRamo) {
-        
+
         NotasPractico n[] = null;
         try {
             String query = "ramoidRamo='" + idRamo + "'";
@@ -246,17 +251,40 @@ public class GetDatos {
 
 //     public ArrayList<NotasTeorico> getNotasTeorica(int idRamo) {
     public NotasTeorico[] getNotasTeorica(int idRamo) {
-       
-        NotasTeorico n[]=null;
+
+        NotasTeorico n[] = null;
         try {
             String query = "ramoidRamo='" + idRamo + "'";
 
             n = NotasTeoricoDAO.listNotasTeoricoByQuery(query, null);
-          
+
         } catch (PersistentException ex) {
             Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
+    }
+
+    public PromedioSimple getPromSimple(int idRamo) {
+        PromedioSimple ps = null;
+        try {
+            String query = "ramoidRamo=" + idRamo + "";
+            ps = PromedioSimpleDAO.loadPromedioSimpleByQuery(query, null);
+        } catch (PersistentException ex) {
+            Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ps;
+    }
+
+    public PromedioMixto getPromedioMixto(int idRamo) {
+        PromedioMixto pm = null;
+
+        try {
+            String query = "ramoidRamo=" + idRamo + "";
+            pm = PromedioMixtoDAO.loadPromedioMixtoByQuery(query, null);
+        } catch (PersistentException ex) {
+            Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pm;
     }
 
 }

@@ -272,13 +272,13 @@ public class UpdateData {
         }
     }
     
-    public void updatePromedioMixto(String idPromedioMixto, String promPractico, String promTeorico, String promFinal,
+    public void updatePromedioMixto(int idPromedioMixto, String promPractico, String promTeorico, String promFinal,
             Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
             try {
                 t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
-                PromedioMixto promM = PromedioMixtoDAO.loadPromedioMixtoByORMID(Integer.parseInt(idPromedioMixto));
+                PromedioMixto promM = PromedioMixtoDAO.loadPromedioMixtoByORMID(idPromedioMixto);
                 if (promPractico != null) {
                     promM.setPromPractico(Double.parseDouble(promPractico));
                 }
@@ -301,12 +301,12 @@ public class UpdateData {
         }
     }
     
-    public void updatePromedioSimple(String idPromedioSimple, String promFinal, Ramo ramo) {
+    public void updatePromedioSimple(int idPromedioSimple, String promFinal, Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
             try {
                 t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
-                PromedioSimple promS = PromedioSimpleDAO.loadPromedioSimpleByORMID(Integer.parseInt(idPromedioSimple));
+                PromedioSimple promS = PromedioSimpleDAO.loadPromedioSimpleByORMID(idPromedioSimple);
                 if (promFinal != null) {
                     promS.setPromFinal(Double.parseDouble(promFinal));
                 }

@@ -4,6 +4,7 @@
     Author     : Carlos
 --%>
 
+<%@page import="clases.Historial"%>
 <%@page import="clases.Ramo"%>
 <%@page import="clases.Usuario"%>
 <%@page import="Querys.GetDatos"%>
@@ -70,7 +71,7 @@
 
                 </form>
                 <header style="height:50px;margin:0px 100 px 100px;">
-                    <form><button class="btn btn-primary" type="submit" style="font-size:22px;margin:15px 10px 5px;">Volver</button></form>
+                    <a class="btn btn-primary" type="button" href="Principal.jsp" style="font-size:22px;margin:15px 10px 5px;">Volver</a>
                 </header>
             </div>
         </div>
@@ -91,16 +92,18 @@
             <%
                 session = (HttpSession) request.getSession();
                 GetDatos g = new GetDatos();
-                Usuario user = (Usuario) session.getAttribute("usuario");
+                
 
-                Ramo[] r = g.getRamosUser(user.getIdUsuario());
+                Historial hist = (Historial) session.getAttribute("hist");
+
+                Ramo[] r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
 
                 String ramo = "[";
                 for (int i = 0; i < r.length; i++) {
                     if (i != (r.length - 1)) {
                         ramo = ramo + "'" + r[i].getNombreRamo() + "',";
                     } else {
-                        ramo = ramo + "'" + r[i].getNombreRamo()+"'];";
+                        ramo = ramo + "'" + r[i].getNombreRamo() + "'];";
                     }
 
                 }
@@ -116,7 +119,7 @@
                         } else {
                             prom = r[i].getPromedioSimple().getPromFinal();
                         }
-                        notas =notas + prom + ",";
+                        notas = notas + prom + ",";
                     } else {
                         double prom;
                         if (r[i].getTipoAprobacion().equals("Teórico - Práctico en conjunto") || r[i].getTipoAprobacion().equals("Teórico - Práctico por separado")) {
@@ -124,7 +127,7 @@
                         } else {
                             prom = r[i].getPromedioSimple().getPromFinal();
                         }
-                        notas = notas + prom+"];";
+                        notas = notas + prom + "];";
                     }
                 }
 

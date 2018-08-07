@@ -82,58 +82,98 @@
                                 <div class="row" style="margin:0px 0px 0px;">
                                     <div class="col-md-3" style="width:80px;height:50px;"></div>
                                     <div class="col-md-3" style="width:80px;height:50px;"></div>
-                                    <div class="col-md-3" style="width:150px;height:50px;padding:0px;"><button class="btn btn-primary" type="button">Calc. Nota Faltante</button></div>
-                                    <div class="col-md-3" style="width:125px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="tipo" value="teorico">Prom. Teórico</button></div>
+                                    <div class="col-md-3" style="width:150px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="seleccion" value="notaFaltT">Calc. Nota Faltante</button></div>
+                                    <div class="col-md-3" style="width:125px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="seleccion" value="calcPromT">Prom. Teórico</button></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" style="margin:10px 5px 30px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);">${msgNFT}</span></div>
                                 </div>
 
                             </div>
-                        <!--</form>-->
+                            <!--</form>-->
                     </div><span class="label label-default" style="background-color:rgba(119,119,119,0);font-size:18px;margin:0px 5px 20px;">Práctico- Cantidad evaluaciones:&nbsp;${asign.getCantNotasPracticas()}</span>
                     <div class="row">
                         <!--<form method="post" action="calcularProm">-->
-                            <div class="col-md-12">
-                                <div class="row" style="margin:20px 0px 0px;">
-                                    <div class="col-md-3" style="width:80px;height:50px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);margin:20px 10px 20px;">NOTAS</span></div>
-                                    <c:forEach items="${notasP}" var="i" varStatus="loop">
-                                        <div class="col-md-3" style="width:80px;height:50px;"><input type="text" style="width:40px;height:40px;color:rgb(0,0,0);" value="${i}" name="notaP${loop.index}"></div>
-                                        </c:forEach>
+                        <div class="col-md-12">
+                            <div class="row" style="margin:20px 0px 0px;">
+                                <div class="col-md-3" style="width:80px;height:50px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);margin:20px 10px 20px;">NOTAS</span></div>
+                                <c:forEach items="${notasP}" var="i" varStatus="loop">
+                                    <div class="col-md-3" style="width:80px;height:50px;"><input type="text" style="width:40px;height:40px;color:rgb(0,0,0);" value="${i}" name="notaP${loop.index}"></div>
+                                    </c:forEach>
 
-                                        <div class="col-md-3" style="width:80px;height:50px;"><input type="text" disabled="" style="width:40px;height:40px;color:rgb(0,0,0);" name="promPra" value="${promP}" ></div>
-                                </div>
-                                <div class="row" style="margin:0px 0px 0px;">
-                                    <div class="col-md-3" style="width:80px;height:50px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);margin:20px 10px 20px;">POND</span></div>
-                                    <c:forEach items="${pondP}" var="i" varStatus="loop">
-                                        <div class="col-md-3" style="width:80px;height:50px;"><input type="text" style="width:40px;height:40px;color:rgb(0,0,0);" value="${i}" name="pondP${loop.index}"></div>
-                                        </c:forEach> 
-
-                                    <div class="col-md-3" style="width:80px;height:50px;padding:0px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);margin:10px 10px 20px;">PROMEDIO</span></div>
-                                </div>
-                                <div class="row" style="margin:0px 0px 0px;">
-                                    <div class="col-md-3" style="width:80px;height:50px;"></div>
-                                    <div class="col-md-3" style="width:80px;height:50px;"></div>
-                                    <div class="col-md-3" style="width:150px;height:50px;padding:0px;"><button class="btn btn-primary" type="button">Calc. Nota Faltante</button></div>
-                                    <div class="col-md-3" style="width:125px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="tipo" value="practico">Prom. Práctico</button></div>
-                                </div>
-                                <div class="row" style="margin:0px 0px 0px;">
-                                    <div class="col-md-3" style="width:200px;height:50px;"></div>
-                                    <div class="col-md-3" style="width:200px;height:50px;"></div>
-                                    <div class="col-md-3" style="width:200px;height:50px;"></div>
-                                    <div class="col-md-3" style="width:200px;height:50px;"></div>
-                                </div>
+                                <div class="col-md-3" style="width:80px;height:50px;"><input type="text" disabled="" style="width:40px;height:40px;color:rgb(0,0,0);" name="promPra" value="${promP}" ></div>
                             </div>
+                            <div class="row" style="margin:0px 0px 0px;">
+                                <div class="col-md-3" style="width:80px;height:50px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);margin:20px 10px 20px;">POND</span></div>
+                                <c:forEach items="${pondP}" var="i" varStatus="loop">
+                                    <div class="col-md-3" style="width:80px;height:50px;"><input type="text" style="width:40px;height:40px;color:rgb(0,0,0);" value="${i}" name="pondP${loop.index}"></div>
+                                    </c:forEach> 
+
+                                <div class="col-md-3" style="width:80px;height:50px;padding:0px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);margin:10px 10px 20px;">PROMEDIO</span></div>
+                            </div>
+                            <div class="row" style="margin:0px 0px 0px;">
+                                <div class="col-md-3" style="width:80px;height:50px;"></div>
+                                <div class="col-md-3" style="width:80px;height:50px;"></div>
+                                <div class="col-md-3" style="width:150px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="seleccion" value="notaFaltP">Calc. Nota Faltante</button></div>
+                                <div class="col-md-3" style="width:125px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="seleccion" value="calcPromP">Prom. Práctico</button></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="margin:10px 5px 30px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);">${msgNFP}</span></div>
+                            </div>
+
+                            <div class="row" style="margin:0px 0px 0px;">
+                                <div class="col-md-3" style="width:200px;height:50px;"></div>
+                                <div class="col-md-3" style="width:200px;height:50px;"></div>
+                                <div class="col-md-3" style="width:200px;height:50px;"></div>
+                                <div class="col-md-3" style="width:200px;height:50px;"></div>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-12"><input type="text" disabled="" style="width:60px;height:60px;margin:100px 25px 1px;${visible}"></div>
-                        <div class="col-md-12" style="margin:0px 0px 10px;"><span class="label label-default" style="font-size:14px;background-color:rgba(119,119,119,0);${visible}">Prom. General</span></div>
-                        <div class="col-md-12"><button class="btn btn-primary" type="button" style="margin:0px 0px 100px;${visible}">Prom. General</button></div>
+                        <form method="post" action="calcPromFinal">
+                            <c:forEach items="${notasT}" var="i" varStatus="loop" >
+                                <input type="hidden" value="${i}" name="notaT${loop.index}">
+                            </c:forEach>
+                            <c:forEach items="${pondT}" var="i" varStatus="loop">
+                                <input type="hidden" value="${i}" name="pondT${loop.index}">
+                            </c:forEach> 
+                            <c:forEach items="${notasP}" var="i" varStatus="loop">
+                                <input type="hidden" value="${i}" name="notaP${loop.index}">
+                            </c:forEach>
+                            <c:forEach items="${pondP}" var="i" varStatus="loop">
+                                <input type="hidden" value="${i}" name="pondP${loop.index}">
+                            </c:forEach>
+                            <input type="hidden" name="promTeo" value="${promT}">
+                            <input type="hidden" name="promPra" value="${promP}">
 
+
+                            <div class="col-md-12"><input type="text" disabled="" style="width:60px;height:60px;margin:100px 25px 1px;color:rgb(0,0,0);${visible}" value="${promFinal}"></div>
+                            <div class="col-md-12" style="margin:0px 0px 10px;"><span class="label label-default" style="font-size:14px;background-color:rgba(119,119,119,0);${visible}">Prom. General</span></div>
+                            <div class="col-md-12"><button class="btn btn-primary" type="submit" style="margin:0px 0px 100px;${visible}">Prom. General</button></div>
+                        </form>
 
                         <div class="col-md-12">
                             <div class="row">
                                 <form method="post" action="guardarNotas">
+                                    <c:forEach items="${notasT}" var="i" varStatus="loop" >
+                                        <input type="hidden" value="${i}" name="notaT${loop.index}">
+                                    </c:forEach>
+                                    <c:forEach items="${pondT}" var="i" varStatus="loop">
+                                        <input type="hidden" value="${i}" name="pondT${loop.index}">
+                                    </c:forEach> 
+                                    <c:forEach items="${notasP}" var="i" varStatus="loop">
+                                        <input type="hidden" value="${i}" name="notaP${loop.index}">
+                                    </c:forEach>
+                                    <c:forEach items="${pondP}" var="i" varStatus="loop">
+                                        <input type="hidden" value="${i}" name="pondP${loop.index}">
+                                    </c:forEach>
+                                    <input type="hidden" name="promTeo" value="${promT}">
+                                    <input type="hidden" name="promPra" value="${promP}">
+                                    <input type="hidden" name="promFinal" value="${promFinal}">
+
                                     <div class="col-md-3" style="width:100px;height:50px;"><button class="btn btn-primary" type="submit" style="color:rgb(255,255,255);height:62px;width:80px;"name="opc" value="0">Volver</button></div>
                                     <div class="col-md-3" style="width:100px;height:50px;"><button class="btn btn-primary" type="submit" style="font-size:34px;width:60px;"name="opc" value="1"><i class="fa fa-save"></i></button></div>
                                 </form>

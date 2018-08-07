@@ -22,7 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
+//import org.apache.fop.apps.FOPException;
 import org.orm.PersistentException;
 
 /**
@@ -101,28 +103,30 @@ public class ControladorHistorial extends HttpServlet {
                         response.sendRedirect("Principal.jsp");
                         break;
                     case "1":
-                        r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
-                         {
-                            try {
-                                c.crearXMLHistorial("Historial", r);
-                            } catch (ParserConfigurationException ex) {
-                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-                            } catch (TransformerException ex) {
-                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
+//                        r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
+//                         {
+//                            try {
+//                                c.crearXMLHistorial("Historial", r);
+//                            } catch (ParserConfigurationException ex) {
+//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+//                            } catch (TransformerException ex) {
+//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+//                            }
+//                        }
+//
+//                         {
+//                            try {
+//                                c.TransformtoPDF("C:/Users/Carlos/Desktop/EasyNotes/src/java/Transformacion/FormatoPDF.xsl",
+//                                        "C:/Users/Carlos/Desktop/EasyNotes/src/java/Transformacion/Historial.xml",
+//                                        "C:/Users/Carlos/Desktop/EasyNotes/web/Historial.pdf");
+//                            } catch (FOPException ex) {
+//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+//                            } catch (TransformerException ex) {
+//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
+//                            }
+//                        }
 
-                         {
-                            try {
-                                c.transformInforme("C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\FormatoPDF.xsl",
-                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\Historial.xml",
-                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\web\\Historial.pdf");
-                            } catch (TransformerException ex) {
-                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-
-                        response.sendRedirect("Historial.pdf");
+                        response.sendRedirect("Principal.jsp");
                         break;
                     case "2":
                         response.sendRedirect("Grafico.jsp");

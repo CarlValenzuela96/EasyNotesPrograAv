@@ -75,6 +75,7 @@
         <url-pattern>/ControladorNotas</url-pattern>
         <url-pattern>/guardarNotas</url-pattern>
         <url-pattern>/calcularProm</url-pattern>
+        <url-pattern>/calcPromFinal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

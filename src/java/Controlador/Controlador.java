@@ -9,31 +9,41 @@ import clases.Evento;
 import clases.Ramo;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
 import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
-
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.transform.Result;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
+//import org.apache.fop.apps.FOPException;
+//import org.apache.fop.apps.FOUserAgent;
+//import org.apache.fop.apps.Fop;
+//import org.apache.fop.apps.FopFactory;
+//import org.apache.fop.apps.MimeConstants;
 
 /**
  *
@@ -154,22 +164,50 @@ public class Controlador {
 
     }
 
-    public void transformInforme(String xslDocS, String xmlDocS, String outputDocS) throws FileNotFoundException, TransformerException {
-        //Se crea transformer factory el cual creara el objeto transformer
-        TransformerFactory tFactory = TransformerFactory.newInstance();
-        //Fuente del archivo xsl
-        Source xslDoc = new StreamSource(xslDocS);
-        //Fuente archivo xml
-        Source xmlDoc = new StreamSource(xmlDocS);
-        //Path del archivo de salida
-        String outputFileName = outputDocS;
-        //Se crea OutputStream con direccion al path de archivo de salida
-        OutputStream htmlFile = new FileOutputStream(outputFileName);
-        //Se crea el transformer respecto al archivo xsl
-        Transformer trasform = tFactory.newTransformer(xslDoc);
-        //Se transforma el documento xsl y se envia al documento de salida
-        trasform.transform(xmlDoc, new StreamResult(htmlFile));
-    }
-
+//    public void transformInforme(String xslDocS, String xmlDocS, String outputDocS) throws FileNotFoundException, TransformerException {
+//        //Se crea transformer factory el cual creara el objeto transformer
+//        TransformerFactory tFactory = TransformerFactory.newInstance();
+//        //Fuente del archivo xsl
+//        Source xslDoc = new StreamSource(xslDocS);
+//        //Fuente archivo xml
+//        Source xmlDoc = new StreamSource(xmlDocS);
+//        //Path del archivo de salida
+//        String outputFileName = outputDocS;
+//        //Se crea OutputStream con direccion al path de archivo de salida
+//        OutputStream htmlFile = new FileOutputStream(outputFileName);
+//        //Se crea el transformer respecto al archivo xsl
+//        Transformer trasform = tFactory.newTransformer(xslDoc);
+//        //Se transforma el documento xsl y se envia al documento de salida
+//        trasform.transform(xmlDoc, new StreamResult(htmlFile));
+//    }
+//    public void TransformtoPDF(String xslPath, String xmlPath, String pdfPath) throws TransformerConfigurationException, FOPException, FileNotFoundException, IOException, TransformerException {
+//        FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+//        FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+//
+//        OutputStream out = new FileOutputStream(pdfPath);
+//
+//        try {
+//            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
+//
+//            // Ubicacion del archivo XSL
+//            File xsltFile = new File(xslPath);
+//            Source xslSource = new StreamSource(xsltFile);
+//            // Transformer a partir del xslt
+//            TransformerFactory factory = TransformerFactory.newInstance();
+//            Transformer transformer = factory.newTransformer(xslSource);
+//
+//            // Resulting SAX events (the generated FO) must be piped through to FOP
+//            Result res = new SAXResult(fop.getDefaultHandler());
+//
+//            // Se convierte a 'Source' el xml
+//            File xmlFile = new File(xmlPath);
+//            Source xmlSource = new StreamSource(xmlFile);
+//
+//            // se crea el PDF
+//            transformer.transform(xmlSource, res);
+//        } finally {
+//            out.close();
+//        }
+//    }
 
 }

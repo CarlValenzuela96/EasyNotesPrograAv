@@ -81,9 +81,13 @@
                         <div class="row" style="margin:0px 0px 0px;">
                             <div class="col-md-3" style="width:80px;height:50px;"></div>
                             <div class="col-md-3" style="width:80px;height:50px;"></div>
-                            <div class="col-md-3" style="width:150px;height:50px;padding:0px;"><button class="btn btn-primary" type="button">Calc. Nota Faltante</button></div>
-                            <div class="col-md-3" style="width:125px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="tipo" value="${tip}" >Calc. Promedio</button></div>
+                            <div class="col-md-3" style="width:150px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="seleccion" value="notaFalt">Calc. Nota Faltante</button></div>
+                            <div class="col-md-3" style="width:125px;height:50px;padding:0px;"><button class="btn btn-primary" type="submit" name="seleccion" value="calcProm" >Calc. Promedio</button></div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12" style="margin:10px 5px 30px;"><span class="label label-default" style="background-color:rgba(119,119,119,0);">${msg}</span></div>
+                        </div>
+
                     </form>
                     <div class="row" style="margin:0px 0px 0px;">
                         <div class="col-md-3" style="width:200px;height:50px;"></div>
@@ -92,13 +96,16 @@
                         <div class="col-md-3" style="width:200px;height:50px;"></div>
 
                         <form method="post" action="guardarNotas">
+                           
                             <c:forEach items="${notas}" var="i"  varStatus="loop">
                                 <input type="hidden" name="nota${loop.index}"  value="${i}">
                             </c:forEach> 
                             <c:forEach items="${pond}" var="i" varStatus="loop">
                                 <input type="hidden" name="pond${loop.index}" value="${i}">
                             </c:forEach> 
-
+                            <input type="hidden" name ="prom" value="${prom}">
+                                
+                                
                             <div class="col-md-3" style="width:100px;height:50px;"><button  class="btn btn-primary" type="submit" style="color:rgb(255,255,255);height:62px;width:80px;" name="opc" value="0">Volver</button></div>
                             <div class="col-md-3" style="width:100px;height:50px;"><button  class="btn btn-primary" type="submit" style="font-size:34px;width:60px;" name="opc" value="1"><i class="fa fa-save" ></i></button></div>
                         </form>

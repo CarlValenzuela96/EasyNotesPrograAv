@@ -75,74 +75,76 @@ public class ControladorRamo extends HttpServlet {
 
         switch (ruta) {
             case "/agregarRamo":
-
-                String nombreR = request.getParameter("nomAsign");
-                String codRamo = request.getParameter("cod");
-                String tipoRamo = request.getParameter("tipoAprob");
-                String pondNT = request.getParameter("pondNT");
-                String pondNP = request.getParameter("pondNP");
-                String cantNT = request.getParameter("cantNT");
-                String cantNP = request.getParameter("cantNP");
-                String horasSem = request.getParameter("horasSem");
-
-                session = (HttpSession) request.getSession();
-                sem = (Semestre) session.getAttribute("semestreActivo");
-                g = new GetDatos();
-                String tipo = "";
-                switch (Integer.valueOf(tipoRamo)) {
-                    case 1:
-                        tipo = "Teórico - Práctico en conjunto";
-                        break;
-                    case 2:
-                        tipo = "Teórico - Práctico por separado";
-                        break;
-                    case 3:
-                        tipo = "Solo Teórico";
-                        break;
-                    case 4:
-                        tipo = "Solo Práctico";
-                        break;
-                }
-
-                Ramo ramoUser = g.getRamoPorNombre(sem.getIdSemestre(), nombreR);
-                boolean exist = false;
-                if (ramoUser != null) {
-                    exist = true;
-                }
-
-                if (!exist) {
-                    agregarRamo(nombreR, codRamo, tipo, cantNT, cantNP, pondNT, pondNP, horasSem, sem);
-
-                    Ramo notasRamo = g.getRamoPorNombre(sem.getIdSemestre(), nombreR);
-
-                    for (int i = 0; i < Integer.valueOf(cantNP); i++) {
-                        try {
-                            agregarNotas("P", 1, 1, notasRamo);
-                        } catch (PersistentException ex) {
-                            Logger.getLogger(ControladorRamo.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-
-                    for (int i = 0; i < Integer.valueOf(cantNT); i++) {
-                        try {
-                            agregarNotas("T", 1, 1, notasRamo);
-                        } catch (PersistentException ex) {
-                            Logger.getLogger(ControladorRamo.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    InsertarDatos ins = new InsertarDatos();
-                    if (tipo.equals("Solo Teórico") || tipo.equals("Solo Práctico")) {
-                        ins.addPromedioSimple(1.0, notasRamo);
-                    } else if (tipo.equals("Teórico - Práctico en conjunto") || tipo.equals("Teórico - Práctico por separado")) {
-                        ins.addPromedioMixto(1.0, 1.0, 1.0, notasRamo);
-                    }
-
+                if (request.getParameter("opc").equals("0")) {
                     response.sendRedirect("Principal.jsp");
                 } else {
-                    //validar que pasa si existe el ramo
-                    response.sendRedirect("Principal.jsp");
-                }
+                    String nombreR = request.getParameter("nomAsign");
+                    String codRamo = request.getParameter("cod");
+                    String tipoRamo = request.getParameter("tipoAprob");
+                    String pondNT = request.getParameter("pondNT");
+                    String pondNP = request.getParameter("pondNP");
+                    String cantNT = request.getParameter("cantNT");
+                    String cantNP = request.getParameter("cantNP");
+                    String horasSem = request.getParameter("horasSem");
 
+                    session = (HttpSession) request.getSession();
+                    sem = (Semestre) session.getAttribute("semestreActivo");
+                    g = new GetDatos();
+                    String tipo = "";
+                    switch (Integer.valueOf(tipoRamo)) {
+                        case 1:
+                            tipo = "Teórico - Práctico en conjunto";
+                            break;
+                        case 2:
+                            tipo = "Teórico - Práctico por separado";
+                            break;
+                        case 3:
+                            tipo = "Solo Teórico";
+                            break;
+                        case 4:
+                            tipo = "Solo Práctico";
+                            break;
+                    }
+
+                    Ramo ramoUser = g.getRamoPorNombre(sem.getIdSemestre(), nombreR);
+                    boolean exist = false;
+                    if (ramoUser != null) {
+                        exist = true;
+                    }
+
+                    if (!exist) {
+                        agregarRamo(nombreR, codRamo, tipo, cantNT, cantNP, pondNT, pondNP, horasSem, sem);
+
+                        Ramo notasRamo = g.getRamoPorNombre(sem.getIdSemestre(), nombreR);
+
+                        for (int i = 0; i < Integer.valueOf(cantNP); i++) {
+                            try {
+                                agregarNotas("P", 1, 1, notasRamo);
+                            } catch (PersistentException ex) {
+                                Logger.getLogger(ControladorRamo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        for (int i = 0; i < Integer.valueOf(cantNT); i++) {
+                            try {
+                                agregarNotas("T", 1, 1, notasRamo);
+                            } catch (PersistentException ex) {
+                                Logger.getLogger(ControladorRamo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                        InsertarDatos ins = new InsertarDatos();
+                        if (tipo.equals("Solo Teórico") || tipo.equals("Solo Práctico")) {
+                            ins.addPromedioSimple(1.0, notasRamo);
+                        } else if (tipo.equals("Teórico - Práctico en conjunto") || tipo.equals("Teórico - Práctico por separado")) {
+                            ins.addPromedioMixto(1.0, 1.0, 1.0, notasRamo);
+                        }
+
+                        response.sendRedirect("Principal.jsp");
+                    } else {
+                        //validar que pasa si existe el ramo
+                        response.sendRedirect("Principal.jsp");
+                    }
+                }
                 ;
                 break;
             case "/borrarRamo":
@@ -195,6 +197,7 @@ public class ControladorRamo extends HttpServlet {
 
                         request.setAttribute("notasT", listaNotasT);
                         request.setAttribute("pondT", listaPondT);
+                        request.setAttribute("promT", r.getPromedioMixto().getPromTeorico());
 
                         np = g.getNotasPracticas(r.getIdRamo());
 
@@ -205,6 +208,9 @@ public class ControladorRamo extends HttpServlet {
 
                         request.setAttribute("notasP", listaNotasP);
                         request.setAttribute("pondP", listaPondP);
+                        request.setAttribute("promP", r.getPromedioMixto().getPromPractico());
+
+                        request.setAttribute("promFinal", r.getPromedioMixto().getPromFinal());
 
                         if (r.getTipoAprobacion().equals("Teórico - Práctico por separado")) {
                             request.setAttribute("visible", "visibility:hidden;");
@@ -232,6 +238,8 @@ public class ControladorRamo extends HttpServlet {
                             request.setAttribute("tip", "Teórico");
                             request.setAttribute("cantN", r.getCantNotasTeoricas());
 
+                            request.setAttribute("prom", r.getPromedioSimple().getPromFinal());
+
                         } else {
 
                             np = g.getNotasPracticas(r.getIdRamo());
@@ -246,7 +254,7 @@ public class ControladorRamo extends HttpServlet {
 
                             request.setAttribute("tip", "Practico");
                             request.setAttribute("cantN", r.getCantNotasPracticas());
-
+                            request.setAttribute("prom", r.getPromedioSimple().getPromFinal());
                         }
 
                         dispatcher = request.getRequestDispatcher("RamoSimple.jsp");

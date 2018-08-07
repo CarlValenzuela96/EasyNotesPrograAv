@@ -72,8 +72,8 @@
                 <div class="form-group"><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Horas semanales</span><input class="form-control" type="number" name="horasSem" required="" placeholder="Ingrese horas semanales de la asignatura"
                                                                                                                                                                                         min="1" max="8"></div>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit" style="margin:15px 10px 0px;">Volver</button>
-                    <button class="btn btn-primary" type="submit">Aceptar</button></div>
+                    <button class="btn btn-primary" type="submit" name="opc" value="0" style="margin:15px 10px 0px;">Volver</button>
+                    <button class="btn btn-primary" type="submit" name="opc" value="1">Aceptar</button></div>
             </form>
         </div>
         <div class="footer-basic" style="background-color:rgb(58,59,61);color:rgb(255,255,255);">

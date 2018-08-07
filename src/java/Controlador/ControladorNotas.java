@@ -127,8 +127,8 @@ public class ControladorNotas extends HttpServlet {
                             guardarPromMixto(g.getPromedioMixto(r.getIdRamo()).getIdPromedioMixto(), request.getParameter("promTeo"),
                                     request.getParameter("promPra"), request.getParameter("promFinal"));
                         } else {
-                            double promF = truncarNum(calcPromFinal(Double.valueOf(request.getParameter("promTeo")), r.getPonderacionTeorica()/100,
-                                    Double.valueOf(request.getParameter("promPra")), r.getPoderacionPractica()/100));
+                            double promF = truncarNum(calcPromFinal(Double.valueOf(request.getParameter("promTeo")), r.getPonderacionTeorica() / 100,
+                                    Double.valueOf(request.getParameter("promPra")), r.getPoderacionPractica() / 100));
 
                             guardarPromMixto(g.getPromedioMixto(r.getIdRamo()).getIdPromedioMixto(), request.getParameter("promTeo"),
                                     request.getParameter("promPra"), String.valueOf(promF));
@@ -355,22 +355,51 @@ public class ControladorNotas extends HttpServlet {
 
     }
 
+    /**
+     * Método que guarda las notas ingresadas por el usuario de la parte teorica
+     *
+     * @param nt objeto notasTeorico
+     * @param nota nota que se desea ingresar
+     * @param pond ponderacion de dicha nota
+     */
     public void guardarNotaT(NotasTeorico nt, String nota, String pond) {
         UpdateData up = new UpdateData();
         up.updateNotasTeorico(nt.getIdNotaTeorica(), nota, pond, null);
 
     }
 
+    /**
+     * Método que guarda promedio de un ramo simple
+     *
+     * @param idProm id del promedio simple
+     * @param promFinal promedio que se desea guardar
+     */
     public void guardarPromSimple(int idProm, String promFinal) {
         UpdateData up = new UpdateData();
         up.updatePromedioSimple(idProm, promFinal, null);
     }
 
+    /**
+     *Método que guarda promedio de un ramo mixto
+     * 
+     * @param idProm id del promedio mixto
+     * @param promT promedio teorico que se desea guardar
+     * @param promP promedio practico que se desea guardar
+     * @param promF promedio final que se desea guardar
+     */
     public void guardarPromMixto(int idProm, String promT, String promP, String promF) {
         UpdateData up = new UpdateData();
         up.updatePromedioMixto(idProm, promP, promT, promF, null);
     }
 
+    /**
+     * Método que guarda las notas ingresadas por el usuario de la parte
+     * practica
+     *
+     * @param np objeto notasPractico
+     * @param nota nota que se desea ingresar
+     * @param pond ponderacion de dicha nota
+     */
     public void guardarNotaP(NotasPractico np, String nota, String pond) {
         UpdateData up = new UpdateData();
         up.updateNotasPractica(np.getIdNotaPractica(), nota, pond, null);
@@ -387,6 +416,13 @@ public class ControladorNotas extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    /**
+     * Método de calculo de promedio proveniente del soap.
+     *
+     * @param listaNotas arreglo objetos doubles, notas para calcular promedio.
+     * @param listaPond arreglo de objetos doubles, ponderaciones de notas.
+     * @return promedio de notas.
+     */
     private double calcProm(java.util.List<java.lang.Double> listaNotas, java.util.List<java.lang.Double> listaPond) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
@@ -394,6 +430,14 @@ public class ControladorNotas extends HttpServlet {
         return port.calcProm(listaNotas, listaPond);
     }
 
+    /**
+     * Método de calculo de nota faltante proveniente del soap.
+     *
+     * @param listaNotas arreglo objetos doubles, notas para calcular nota
+     * faltante para aprobar.
+     * @param listaPond arreglo de objetos doubles, ponderaciones de notas.
+     * @return nota de aprobación.
+     */
     private double calcNotaFaltante(java.util.List<java.lang.Double> listaNotas, java.util.List<java.lang.Double> listaPond) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
@@ -401,6 +445,14 @@ public class ControladorNotas extends HttpServlet {
         return port.calcNotaFaltante(listaNotas, listaPond);
     }
 
+    /**
+     * Método de calculo de nota necesaria para examen proveniente del soap.
+     *
+     * @param listaNotas arreglo objetos doubles, notas para calcular nota
+     * faltante para dar examen.
+     * @param listaPond arreglo de objetos doubles, ponderaciones de notas.
+     * @return nota de necesaria para dar examen.
+     */
     private double calcNotaExamen(java.util.List<java.lang.Double> listaNotas, java.util.List<java.lang.Double> listaPond) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
@@ -408,18 +460,41 @@ public class ControladorNotas extends HttpServlet {
         return port.calcNotaExamen(listaNotas, listaPond);
     }
 
+    /**
+     * Método que calcula promedio final de un ramo mixto
+     *
+     * @param promT promedio teorico
+     * @param pondT ponderacion teorica del ramo
+     * @param promP promedio practico
+     * @param pondP ponderacion pracitica del ramo
+     * @return promedio final del ramo mixto
+     */
     public double calcPromFinal(double promT, double pondT, double promP, double pondP) {
         double pf = (promT * pondT) + (promP * pondP);
 
         return pf;
     }
 
+    /**
+     * Método que trunca numeros en dos decimales
+     *
+     * @param a double que se desea truncar
+     * @return promedio truncado
+     */
     public double truncarNum(double a) {
         double aux = Math.rint(a * 100) / 100;
         a = aux;
         return a;
     }
 
+    /**
+     * Metodo que valida mensaje entregado por la funcionalidad calc. nota
+     * faltante
+     *
+     * @param a nota necesaria para pasar el ramo con nota minima
+     * @param b nota necesaria para rendir examen
+     * @return mensaje utilizado por la funcionalidad calc nota faltante
+     */
     public String msgNf(double a, double b) {
         String msg = "";
         if ((a <= 7 && b <= 7) && (a > 1 && b > 1)) {

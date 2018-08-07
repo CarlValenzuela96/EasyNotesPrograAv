@@ -158,16 +158,39 @@ public class ControladorSemestre extends HttpServlet {
         }
     }
 
+    /**
+     * Método para agregar un nuevo semestre al usuario de la sesión.
+     *
+     * @param user id del usuario de la sesión.
+     * @param numSem número del semestre.
+     * @param año año del semestre.
+     * @param cantRamos cantidad de ramos impartidos en el semestre.
+     * @param cantHoras cantidad de horas semanales del semestre.
+     * @param estado estado del semestre (por defecto = 1).
+     * @throws PersistentException
+     */
     public void agregarSemestre(Usuario user, String numSem, String año, String cantRamos, String cantHoras, int estado) throws PersistentException {
         InsertarDatos ins = new InsertarDatos();
         ins.addSemestre(Integer.valueOf(numSem), Integer.valueOf(año), Integer.valueOf(cantRamos), Integer.valueOf(cantHoras), estado, UsuarioDAO.getUsuarioByORMID(user.getIdUsuario()));
     }
 
+    /**
+     * Método para eliminar semestre por id.
+     *
+     * @param id id del semestre a eliminar.
+     */
     public void borrarSemestre(String id) {
         DropByID d = new DropByID();
         d.dropSemestre(id);
     }
 
+    /**
+     * Método para archivar semestre actual, actualizando el valor actual de su
+     * estado.
+     *
+     * @param sem semestre a archivar.
+     * @throws PersistentException excepción del caso.
+     */
     public void archivarSem(Semestre sem) throws PersistentException {
 
         UpdateData u = new UpdateData();
@@ -178,6 +201,11 @@ public class ControladorSemestre extends HttpServlet {
 
     }
 
+    /**
+     * Método para listar año.
+     *
+     * @return arreglo de años.
+     */
     public ArrayList<String> listaAños() {
         ArrayList<String> list = new ArrayList<>();
         LocalDate ahora = LocalDate.now();
@@ -189,6 +217,11 @@ public class ControladorSemestre extends HttpServlet {
         return list;
     }
 
+    /**
+     * Método para listar horas.
+     *
+     * @return arreglo de horas de ramos.
+     */
     public ArrayList<String> listaHoras() {
         ArrayList<String> list = new ArrayList<>();
 
@@ -197,31 +230,26 @@ public class ControladorSemestre extends HttpServlet {
         }
         return list;
     }
-
-//    public void borrarRamos(ArrayList<Ramo> ramos) {
-//        DropByID drop = new DropByID();
-//        for (int i = 0; i < ramos.size(); i++) {
-//            System.out.println(String.valueOf(ramos.get(i).getIdRamo()));
-//           // drop.dropRamo(String.valueOf(ramos.get(i).getIdRamo()));
-//        }
-//
-//    }
+    
+     /**
+     * Método para borrar ramos del semestre actual.
+     *
+     * @param ramos arreglo de ramos a eliminar.
+     */
     public void borrarRamos(Ramo[] ramos) {
         DropByID drop = new DropByID();
         for (int i = 0; i < ramos.length; i++) {
-            System.out.println(String.valueOf(ramos[i].getIdRamo()));
-             drop.dropRamo(String.valueOf(ramos[i].getIdRamo()));
+
+            drop.dropRamo(String.valueOf(ramos[i].getIdRamo()));
         }
 
     }
-
-//    public void borrarEventos(ArrayList<Evento> eUser) {
-//        DropByID drop = new DropByID();
-//        for (int i = 0; i < eUser.size(); i++) {
-//            drop.dropEvento(String.valueOf(eUser.get(i).getIdEvento()));
-//        }
-//    }
-
+    
+    /**
+     *Método para borrar eventos del semestre actual
+     * 
+     * @param eUser arreglo de eventos a eliminar
+     */
     public void borrarEventos(Evento[] eUser) {
         DropByID drop = new DropByID();
         for (int i = 0; i < eUser.length; i++) {

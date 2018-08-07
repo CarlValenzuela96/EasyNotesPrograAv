@@ -39,17 +39,36 @@
     </head>
 
     <body>
+        <!--        <div>
+                    <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
+                        <div class="container-fluid">
+                            <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                            <div
+                                class="collapse navbar-collapse" id="navbar-collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
+                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <li role="presentation"><a href="index.html">Perfil</a></li>
+                                            <li role="presentation" class="active"><a href="#">Salir</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>-->
+        <!--inicio navbar-->
         <div>
             <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
                 <div class="container-fluid">
-                    <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                    <div class="navbar-header"><a class="navbar-brand" href="Principal.jsp" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
                     <div
                         class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
                                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <li role="presentation"><a href="index.html">Perfil</a></li>
-                                    <li role="presentation" class="active"><a href="#">Salir</a></li>
+                                    <li role="presentation"><form method="post" action="EnviarDatosUsuario"><button class ="btn btn-link" type="submit" >Perfil</button></form></li>
+                                    <li role="presentation" class="active"><a href="index.jsp">Salir</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -57,6 +76,7 @@
                 </div>
             </nav>
         </div>
+        <!--fin navbar-->
         <div class="features-blue">
             <div class="container">
                 <header style="height:50px;margin:0px 100 px 100px;"></header>
@@ -92,7 +112,6 @@
             <%
                 session = (HttpSession) request.getSession();
                 GetDatos g = new GetDatos();
-                
 
                 Historial hist = (Historial) session.getAttribute("hist");
 

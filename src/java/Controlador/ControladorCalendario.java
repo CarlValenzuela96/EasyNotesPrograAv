@@ -154,12 +154,24 @@ public class ControladorCalendario extends HttpServlet {
         }
     }
 
+    /**
+     * Método para agregar eventos al semestre actual.
+     *
+     * @param semestre semestre actual del usuario.
+     * @param f evento a ingresar.
+     * @throws PersistentException excepción del caso.
+     */
     public void agregarEvento(Semestre semestre, Evento f) throws PersistentException {
         InsertarDatos i = new InsertarDatos();
 
         i.addEvento(f.getContent(), f.getAño(), f.getMes(), f.getDia(), f.getColor(), SemestreDAO.getSemestreByORMID(semestre.getIdSemestre()));
     }
 
+    /**
+     * Método para la eliminacion de evento.
+     *
+     * @param pos id de la columna de la tabla evento, a eliminar.
+     */
     public void borrarEvento(String pos) {
         DropByID drop = new DropByID();
         drop.dropEvento(pos);

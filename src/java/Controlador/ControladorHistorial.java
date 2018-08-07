@@ -105,30 +105,12 @@ public class ControladorHistorial extends HttpServlet {
                         break;
                     case "1":
                         r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
-//                         {
-//                            try {
-//                                c.crearXMLHistorial("Historial", r);
-//                            } catch (ParserConfigurationException ex) {
-//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-//                            } catch (TransformerException ex) {
-//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                        }
-//
-//                         {
-//                            try {
-//                                c.convertToPDF("C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\",
-//                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\",
-//                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\");
-//                            } catch (FOPException ex) {
-//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-//                            } catch (TransformerException ex) {
-//                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                        }
+//                      
+                        //tread para crear pdf
                         Thread hilo = new ProcesoPDF("procesoPDF", r);
                         hilo.start();
                         response.sendRedirect("Principal.jsp");
+                       
                         break;
                     case "2":
                         response.sendRedirect("Grafico.jsp");

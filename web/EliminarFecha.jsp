@@ -34,38 +34,59 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
-            <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
-                <div
-                    class="collapse navbar-collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                <li role="presentation"><a href="index.html">Perfil</a></li>
-                                <li role="presentation" class="active"><a href="#">Salir</a></li>
+        <!--        <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
+                    <div class="container-fluid">
+                        <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                        <div
+                            class="collapse navbar-collapse" id="navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li role="presentation"><a href="index.html">Perfil</a></li>
+                                        <li role="presentation" class="active"><a href="#">Salir</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                </nav>-->
+
+        <!--inicio navbar-->
+        <div>
+            <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
+                <div class="container-fluid">
+                    <div class="navbar-header"><a class="navbar-brand" href="Principal.jsp" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                    <div
+                        class="collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li role="presentation"><form method="post" action="EnviarDatosUsuario"><button class ="btn btn-link" type="submit" >Perfil</button></form></li>
+                                    <li role="presentation" class="active"><a href="index.jsp">Salir</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
+        <!--fin navbar-->
         <div class="contact-clean">
-            
+
             <form method="post" action="BorrarFecha">
                 <h2 class="text-center"><strong>Eliminar Fecha</strong><br></h2>
                 <div class="form-group"><span class="label label-default" style="font-size:17px;background-color:rgba(119,119,119,0);color:rgb(58,59,61);">Elegir fecha</span>
                     <select class="form-control" name="fechas" id="fechas">
                         <optgroup label="Seleccione fecha a borrar">
-                        
-                        <c:forEach items="${fechas}" var="i" >
-                            <option value="${i.getIdEvento()}"> ${i.getAño()}-${i.getMes()}-${i.getDia()}:${i.getContent()}  </option>
-                            
-                        </c:forEach>
 
-<!--                        <option value="12" selected="">This is item 1</option>
-                        <option value="13">This is item 2</option>
-                        <option value="14">This is item 3</option>-->
+                            <c:forEach items="${fechas}" var="i" >
+                                <option value="${i.getIdEvento()}"> ${i.getAño()}-${i.getMes()}-${i.getDia()}:${i.getContent()}  </option>
+
+                            </c:forEach>
+
+                            <!--                        <option value="12" selected="">This is item 1</option>
+                                                    <option value="13">This is item 2</option>
+                                                    <option value="14">This is item 3</option>-->
                         </optgroup>
                     </select>
                 </div>

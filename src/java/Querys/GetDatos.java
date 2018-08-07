@@ -46,6 +46,13 @@ public class GetDatos {
     public GetDatos() {
     }
 
+    /**
+     * Metodo que retorna objeto Login.
+     *
+     * @param valorMatricula valor de la id del objeto a buscar.
+     * @param valorPassword valor de la password del objeto a buscar.
+     * @return objeto Login obtenido mediante query.
+     */
     public Login getLogin(String valorMatricula, String valorPassword) {
 
         Login logins = null;
@@ -60,6 +67,13 @@ public class GetDatos {
 
     }
 
+    /**
+     * Metodo que retorna objeto Usuario.
+     *
+     * @param valorMatricula valor de la matricula del objeto a buscar.
+     * @param valorPassword valor de la password del objeto a buscar.
+     * @return objeto Usuario obtenido mediante query.
+     */
     public Usuario getUsuario(String valorMatricula, String valorPassword) {
         Usuario usuarios = null;
         try {
@@ -73,6 +87,14 @@ public class GetDatos {
 
     }
 
+    /**
+     * Metodo que retorna objeto Ramo.
+     *
+     * @param idSemestre id del Semestre al cual recosponde el Ramo que se
+     * busca.
+     * @param nombre nombre del ramo.
+     * @return objeto ramo obtenido mediante query.
+     */
     public Ramo getRamoPorNombre(int idSemestre, String nombre) {
         Ramo ramos = null;
 
@@ -87,7 +109,13 @@ public class GetDatos {
         return ramos;
     }
 
-//    public ArrayList<Ramo> getRamosUser(int idSemestre) {
+    /**
+     * Metodo que regresa arreglo de Ramos.
+     *
+     * @param idSemestre id del Semestre al cual pertenecen los ramos que se
+     * buscan.
+     * @return arreglo de Ramos obtenidos mediante query.
+     */
     public Ramo[] getRamosUser(int idSemestre) {
         ArrayList<Ramo> r = new ArrayList<>();
         Ramo[] ramos = null;
@@ -95,31 +123,18 @@ public class GetDatos {
             String query = "semestreidSemestre='" + idSemestre + "'";
             ramos = RamoDAO.listRamoByQuery(query, null);
 
-//            if (ramos != null) {
-//                for (int i = 0; i < ramos.length; i++) {
-//                    Ramo ramo = new Ramo();
-//                    ramo.setNombreRamo(ramos[i].getNombreRamo());
-//                    ramo.setCodigoRamo(ramos[i].getCodigoRamo());
-//                    ramo.setTipoAprobacion(ramos[i].getTipoAprobacion());
-//                    ramo.setCantNotasTeoricas(ramos[i].getCantNotasTeoricas());
-//                    ramo.setCantNotasPracticas(ramos[i].getCantNotasPracticas());
-//                    ramo.setPonderacionTeorica(ramos[i].getPonderacionTeorica());
-//                    ramo.setPoderacionPractica(ramos[i].getPonderacionTeorica());
-//                    ramo.setHorasSemanales(ramos[i].getHorasSemanales());
-//                    ramo.setIdRamo(ramos[i].getIdRamo());
-//                    ramo.setSemestreidSemestre(ramos[i].getSemestreidSemestre());
-//
-//                    r.add(ramo);
-//
-//                }
-//            }
         } catch (PersistentException ex) {
             Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ramos;
     }
 
-//     public ArrayList<Evento> getEventosUser(int idSemestre) {
+    /**
+     * Metodo que regresa arreglo de Eventos.
+     *
+     * @param idSemestre id del Semestre al cual pertenecen los Eventos.
+     * @return arreglo de Eventos obtenidos mediante query.
+     */
     public Evento[] getEventosUser(int idSemestre) {
         ArrayList<Evento> e = new ArrayList<>();
         Evento[] eventos = null;
@@ -127,22 +142,7 @@ public class GetDatos {
         try {
             String query = "semestreidSemestre='" + idSemestre + "'";
             eventos = EventoDAO.listEventoByQuery(query, null);
-//            if (eventos != null) {
-//
-//                for (int i = 0; i < eventos.length; i++) {
-//                    Evento evento = new Evento();
-//                    evento.setContent(eventos[i].getContent());
-//                    evento.setAño(eventos[i].getAño());
-//                    evento.setMes(eventos[i].getMes());
-//                    evento.setDia(eventos[i].getDia());
-//                    evento.setColor(eventos[i].getColor());
-//                    evento.setSemestreidSemestre(eventos[i].getSemestreidSemestre());
-//                    evento.setIdEvento(eventos[i].getIdEvento());
-//
-//                    e.add(evento);
-//
-//                }
-//            }
+
         } catch (PersistentException ex) {
             Logger.getLogger(ListData.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -150,6 +150,12 @@ public class GetDatos {
         return eventos;
     }
 
+    /**
+     * Metodo que retorna objeto Dirección.
+     *
+     * @param idUsuario id del Usuario relacionado a Dirección.
+     * @return objeto Dirección obtenida mediante query.
+     */
     public Direccion getDireccion(int idUsuario) {
 
         Direccion dir = null;
@@ -166,6 +172,12 @@ public class GetDatos {
         return dir;
     }
 
+    /**
+     * Metodo que retorna objeto Domicilio.
+     *
+     * @param idDireccion id del la Dirección relacinada a Domicilio.
+     * @return objeto Domicilio obtenido mediante query.
+     */
     public Domicilio getDomicilio(int idDireccion) {
 
         Domicilio dom = null;
@@ -181,6 +193,12 @@ public class GetDatos {
         return dom;
     }
 
+    /**
+     * Metodo que retorna objeto Carrera.
+     *
+     * @param idUser id(matricula) del Usuario relacionado al objeto Carrera.
+     * @return objeto Carrera obtenido mediante query.
+     */
     public Carrera getCarrera(int idUser) {
         Carrera car = null;
 
@@ -195,6 +213,13 @@ public class GetDatos {
         return car;
     }
 
+    /**
+     * Metodo que retorna objeto Semestre.
+     *
+     * @param idUser id(matricula) del Usuario relacionado al objeto Semestre
+     * actual.
+     * @return objeto Semestre obtenido mediante query.
+     */
     public Semestre getSemActivo(int idUser) {
         Semestre sem = null;
         try {
@@ -208,26 +233,19 @@ public class GetDatos {
         return sem;
 
     }
-//public ArrayList<Historial> getHistorialUser(int idUser) {
 
+    /**
+     * Metodo que retorna arreglo de objetos Historial.
+     *
+     * @param idUser id(matricula) del Usuario relacion con el Historial.
+     * @return arreglo de objetos Historial obtenidos mediante query.
+     */
     public Historial[] getHistorialUser(int idUser) {
-        ArrayList<Historial> h = new ArrayList<Historial>();
+
         Historial hist[] = null;
         try {
             String query = "semestreidSemestre.usuarioidUsuario.idUsuario='" + idUser + "'";
             hist = HistorialDAO.listHistorialByQuery(query, null);
-//            if (hist != null) {
-//                for (int i = 0; i < hist.length; i++) {
-//
-//                    Historial historial = new Historial();
-//                    historial.setAño(hist[i].getAño());
-//                    historial.setSemestre(hist[i].getSemestre());
-//                    historial.setSemestreidSemestre(hist[i].getSemestreidSemestre());
-//                    historial.setIdHistorial(hist[i].getIdHistorial());
-//
-//                    h.add(historial);
-//                }
-//            }
 
         } catch (PersistentException ex) {
             Logger.getLogger(GetDatos.class.getName()).log(Level.SEVERE, null, ex);
@@ -236,7 +254,12 @@ public class GetDatos {
         return hist;
     }
 
-//public ArrayList<NotasPractico> getNotasPracticas(int idRamo) {
+    /**
+     * Metodod que retorna arreglo de objetos NotasPractico.
+     *
+     * @param idRamo id del Ramo relacionado a NotasPractico.
+     * @return arreglo de objetos NotasPractico obtenidos mediante query.
+     */
     public NotasPractico[] getNotasPracticas(int idRamo) {
 
         NotasPractico n[] = null;
@@ -249,7 +272,13 @@ public class GetDatos {
         return n;
     }
 
-//     public ArrayList<NotasTeorico> getNotasTeorica(int idRamo) {
+    
+      /**
+     * Metodo que retorna arreglo de NotasTeorico.
+     *
+     * @param idRamo id del Ramo relacionado a NotasTeorico.
+     * @return arreglo de objetos NotasTeorico obtenidos mediante query.
+     */
     public NotasTeorico[] getNotasTeorica(int idRamo) {
 
         NotasTeorico n[] = null;
@@ -263,7 +292,14 @@ public class GetDatos {
         }
         return n;
     }
-
+    
+    
+    /**
+     * Metodo que retorna el promedio de un ramo simple
+     * 
+     * @param idRamo
+     * @return objeto PromedioSimple obtenido por query
+     */
     public PromedioSimple getPromSimple(int idRamo) {
         PromedioSimple ps = null;
         try {
@@ -274,7 +310,14 @@ public class GetDatos {
         }
         return ps;
     }
-
+    
+    
+    /**
+     * Metodo que retorna el promedio de un ramo mixto
+     * 
+     * @param idRamo
+     * @return objeto PromedioMixto obtenido por query
+     */
     public PromedioMixto getPromedioMixto(int idRamo) {
         PromedioMixto pm = null;
 

@@ -47,10 +47,17 @@ import org.orm.PersistentTransaction;
  * @author Sebastian Gonzalez
  */
 public class UpdateData {
-    
+
     public UpdateData() {
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Login. Se le ingresaran los nuevos
+     * datos, ingresados mediante parametros.
+     *
+     * @param idLogin parametro id del objeto Login a actualizar.
+     * @param password nueva password a ingresar.
+     */
     public void updateLogin(String idLogin, String password) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -69,7 +76,25 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Usuario. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idUsuario parametro id del objeto Usuario a actualizar.
+     * @param nombre nuevo nombre a ingresar.
+     * @param apellido nuevo apellido a ingresar.
+     * @param matricula nueva matricula a ingresar.
+     * @param run nuevo run a ingresar.
+     * @param pga nuevo pga(promedio general acumulado) a ingresar.
+     * @param sexo nuevo parametro de género a ingresar.
+     * @param edad nueva edad a ingresar.
+     * @param fechaNacimiento nueva fecha de nacimiento a ingresar.
+     * @param nacionalidad nueva nacionalidad a ingresar.
+     * @param telefono nuevo número de telefono a ingresar.
+     * @param email nuevo correo electrónico a ingresasr.
+     * @param login nueva id de objeto Login relacionado a Usuario.
+     */
     public void updateUsuario(String idUsuario, String nombre, String apellido, String matricula, String run,
             String pga, String sexo, String edad, String fechaNacimiento, String nacionalidad, String telefono,
             String email, Login login) {
@@ -113,7 +138,7 @@ public class UpdateData {
                 }
                 if (login != null) {
                     user.setLoginidLogin(login);
-                   
+
                 }
                 UsuarioDAO.save(user);
                 t.commit();
@@ -124,9 +149,21 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Semestre. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idSemestre id del objeto Semestre a actualizar.
+     * @param numeroSemestre nuevo número del semestre a ingresar.
+     * @param añoSemestre nuevo año al cual pertenecera el semestre.
+     * @param cantRamos nueva cantidad de ramos que tendra el semestre.
+     * @param cantHorasSem nueva cantidad de horas a ingresar.
+     * @param estado nuevo estado de semestre a ingresar.
+     * @param user nueva id del Usuario relacionado a Semestre a modificar.
+     */
     public void updateSemestre(int idSemestre, String numeroSemestre, String añoSemestre, String cantRamos,
-            String cantHorasSem,String estado, Usuario user) {
+            String cantHorasSem, String estado, Usuario user) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
             try {
@@ -144,7 +181,7 @@ public class UpdateData {
                 if (cantHorasSem != null) {
                     semestre.setCantHorasSemanalesTotales(Integer.parseInt(cantHorasSem));
                 }
-                if (estado !=null) {
+                if (estado != null) {
                     semestre.setEstadoSemestre(Integer.parseInt(estado));
                 }
                 if (user != null) {
@@ -159,7 +196,19 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Evento. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idEvento id del Evento a actualizar.
+     * @param content nuevo contenido a actualizar.
+     * @param año nuevo año al que pertencera el evento.
+     * @param mes nuevo mes al que pertenecera el evento.
+     * @param dia nuevo día al que pertenecera el evento.
+     * @param color nuevo color a ingresar.
+     * @param semestre nueva id del Semestre relacionado al Evento.
+     */
     public void updateEvento(String idEvento, String content, String año, String mes, String dia, String color,
             Semestre semestre) {
         try {
@@ -184,7 +233,7 @@ public class UpdateData {
                 }
                 EventoDAO.save(evento);
                 t.commit();
-                
+
             } catch (PersistentException ex) {
                 t.rollback();
             }
@@ -192,7 +241,22 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Ramo. Se le ingresaran los nuevos
+     * datos, ingresados mediante parametros.
+     *
+     * @param idRamo id del Ramo a actualizar.
+     * @param nombre nuevo nombre del ramo.
+     * @param codigo nuevo código del ramo.
+     * @param tipoAproba nuevo tipo de aprobación del ramo.
+     * @param cantNotasTeoricas nueva cantidad de notas teóricas a ingresar.
+     * @param cantNotasPracticas nueva cantidad de notas prácticas a ingresar.
+     * @param pondTeorica nueva ponderación teórica a ingresar.
+     * @param pondPractica nueva ponderación práctica a ingresar.
+     * @param horasSeman nueva canidad de horas semenales del ramo a actualizar.
+     * @param semestre nueva id del Semestre relacionado a Ramo.
+     */
     public void updateRamo(String idRamo, String nombre, String codigo, String tipoAproba, String cantNotasTeoricas,
             String cantNotasPracticas, String pondTeorica, String pondPractica, String horasSeman, Semestre semestre) {
         try {
@@ -236,7 +300,19 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Horario. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idHorario id del Horario a actualizar.
+     * @param dia nuevo día que tendra el horario.
+     * @param horaInicio nueva hora de incio del horario.
+     * @param horaFin nueva hora de fin del horario.
+     * @param sala nueva sala a ingresar.
+     * @param docente nuevo docente a ingresar.
+     * @param ramo nueva id del Ramo relacionado a Horario.
+     */
     public void updateHorario(String idHorario, String dia, String horaInicio, String horaFin, String sala, String docente,
             Ramo ramo) {
         try {
@@ -271,7 +347,17 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto PromedioMixto. Se le ingresaran
+     * los nuevos datos, ingresados mediante parametros.
+     *
+     * @param idPromedioMixto id del PromedioMixto a actualizar.
+     * @param promPractico nuevo promedio práctico del promedio.
+     * @param promTeorico nuevo promedio teórico del promedio.
+     * @param promFinal nuevo promedio final del promedio mixto.
+     * @param ramo nueva id del Ramo relacionado al PromedioMixto.
+     */
     public void updatePromedioMixto(int idPromedioMixto, String promPractico, String promTeorico, String promFinal,
             Ramo ramo) {
         try {
@@ -300,7 +386,15 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto PromedioSimple. Se le ingresaran
+     * los nuevos datos, ingresados mediante parametros.
+     *
+     * @param idPromedioSimple id del PromedioSimple a actualizar.
+     * @param promFinal nuevo promedio final a ingresar.
+     * @param ramo nueva id del Ramo relacionado a PromedioSimple.
+     */
     public void updatePromedioSimple(int idPromedioSimple, String promFinal, Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -322,7 +416,16 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto NotasTeorico. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idNotasTeorico id de objeto NotasTeorico a actualizar.
+     * @param notaTeorico nueva nota a ingresar.
+     * @param pondTeorico nueva ponderación a ingresar.
+     * @param ramo nueva id del Ramos relacionado a NotasTeorico.
+     */
     public void updateNotasTeorico(int idNotasTeorico, String notaTeorico, String pondTeorico, Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -339,19 +442,27 @@ public class UpdateData {
                     notasT.setRamoidRamo(ramo);
                 }
                 NotasTeoricoDAO.save(notasT);
-                
+
                 t.commit();
-                
+
             } catch (PersistentException ex) {
                 t.rollback();
             }
-            
-            
+
         } catch (PersistentException ex) {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto NotasPractica. Se le ingresaran
+     * los nuevos datos, ingresados mediante parametros.
+     *
+     * @param idNotasPractica id del objeto NotasPracticas a actualizar.
+     * @param notaPractica nueva nota a ingresar.
+     * @param pondPractico nueva ponderación a ingresar.
+     * @param ramo nueva id del objeto Ramo relacionado a NotasPracticas.
+     */
     public void updateNotasPractica(int idNotasPractica, String notaPractica, String pondPractico, Ramo ramo) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -376,7 +487,18 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Carrera. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idCarrera id de objeto Carrera a actualizar.
+     * @param nombre nuevo nombre de la carrera.
+     * @param cantSemestre nueva cantidad de semestres, de duracion que tiene la
+     * carrera.
+     * @param universidad nuevo nombre de la universidad de la carrera.
+     * @param user nueva id del objeto Usuario relacionado a Carrera.
+     */
     public void updateCarrera(String idCarrera, String nombre, String cantSemestre, String universidad, Usuario user) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -404,7 +526,17 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Direccion. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idDireccion id del objeto Direccion a actualizar.
+     * @param pais nuevo país a ingresar.
+     * @param ciudad nueva ciudad a ingresar.
+     * @param comuna nueva comuna a ingresar.
+     * @param user nueva id del objeto Usuario relacionado a Direccion.
+     */
     public void updateDireccion(String idDireccion, String pais, String ciudad, String comuna, Usuario user) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -432,7 +564,17 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Domicilio. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idDomicilio id del objeto Domicilio a actualizar.
+     * @param calle nueva calle a ingresar.
+     * @param numeracion nueva numeración a ingresar.
+     * @param depto nuevo número de departamento a ingresar.
+     * @param direccion nueva id del objeto Direccion relacionado a Domicilio.
+     */
     public void updateDomicilio(String idDomicilio, String calle, String numeracion, String depto, Direccion direccion) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -460,7 +602,16 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto Historial. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idHistorial id del objeto Historial a actualizar.
+     * @param semestre nuevo semestre a ingresar.
+     * @param año nuevo año a ingresar.
+     * @param semes nueva id del objeto Semestre relacionado con Historial.
+     */
     public void updateHistorial(String idHistorial, String semestre, String año, Semestre semes) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -485,7 +636,17 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto RamoAprobado. Se le ingresaran los
+     * nuevos datos, ingresados mediante parametros.
+     *
+     * @param idRamoAprobado id del objeto RamoAprobado a actualizar.
+     * @param nombre nuevo nombre del ramo.
+     * @param nota nueva nota del ramo.
+     * @param historial nueva id del objeto Historial relacionado con
+     * RamoAprobado.
+     */
     public void updateRamoAprobado(String idRamoAprobado, String nombre, String nota, Historial historial) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -510,7 +671,17 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    /**
+     * Método que carga mediante id un objeto RamoReprobado. Se le ingresaran
+     * los nuevos datos, ingresados mediante parametros.
+     *
+     * @param idRamoReprobado id del objeto RamoReprobado a actualizar.
+     * @param nombre nuevo nombre del ramo.
+     * @param nota nueva nota del ramo.
+     * @param historial nueva id del objeto Historial relacionado con
+     * RamoAprobado.
+     */
     public void updateRamoReprobado(String idRamoReprobado, String nombre, String nota, Historial historial) {
         try {
             PersistentTransaction t = clases.PrograAvanzadaPersistentManager.instance().getSession().beginTransaction();
@@ -535,5 +706,5 @@ public class UpdateData {
             Logger.getLogger(UpdateData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

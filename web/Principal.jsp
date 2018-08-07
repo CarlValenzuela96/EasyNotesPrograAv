@@ -35,10 +35,11 @@
     </head>
 
     <body>
+        <!--inicio navbar-->
         <div>
             <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
                 <div class="container-fluid">
-                    <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                    <div class="navbar-header"><a class="navbar-brand" href="Principal.jsp" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
                     <div
                         class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -53,6 +54,7 @@
                 </div>
             </nav>
         </div>
+        <!--fin navbar-->
         <div class="features-blue">
             <div class="container">
                 <div class="row" style="margin:30px 30px 30px;">

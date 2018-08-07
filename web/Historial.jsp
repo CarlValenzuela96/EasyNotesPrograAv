@@ -37,22 +37,42 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
-            <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
-                <div
-                    class="collapse navbar-collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                <li role="presentation"><a href="index.html">Perfil</a></li>
-                                <li role="presentation" class="active"><a href="#">Salir</a></li>
+        <!--        <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
+                    <div class="container-fluid">
+                        <div class="navbar-header"><a class="navbar-brand" href="index.html" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                        <div
+                            class="collapse navbar-collapse" id="navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li role="presentation"><a href="index.html">Perfil</a></li>
+                                        <li role="presentation" class="active"><a href="#">Salir</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                </nav>-->
+        <!--inicio navbar-->
+        <div>
+            <nav class="navbar navbar-default custom-header" style="margin:0px;background-color:rgb(58,59,61);">
+                <div class="container-fluid">
+                    <div class="navbar-header"><a class="navbar-brand" href="Principal.jsp" style="background-color:rgb(58,59,61);color:rgb(255,255,255);font-family:Abel, sans-serif;">EasyNotes</a><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+                    <div
+                        class="collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span><img src="assets/img/avatar.jpg" class="dropdown-image"></a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li role="presentation"><form method="post" action="EnviarDatosUsuario"><button class ="btn btn-link" type="submit" >Perfil</button></form></li>
+                                    <li role="presentation" class="active"><a href="index.jsp">Salir</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
+        <!--fin navbar-->
         <div class="contact-clean">
             <!--        <form method="post">
                         <h2 class="text-center">Historial</h2>
@@ -77,33 +97,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            
-                                            <%
-                                                Ramo[] r = (Ramo[]) request.getAttribute("ramosHist");
-                                                for (int i = 0; i < r.length; i++) {
-                                                    String nombreR = r[i].getNombreRamo();
-                                                    String tipoR = r[i].getTipoAprobacion();
-                                                    
-                                                    double prom;
-                                                    if (tipoR.equals("Solo Teórico") || tipoR.equals("Solo Práctico")) {
-                                                        prom = r[i].getPromedioSimple().getPromFinal();
-                                                    } else {
-                                                        prom = r[i].getPromedioMixto().getPromFinal();
-                                                    }
-                                                    
-                                                    String estado="";
-                                                    if (prom >= 3.96) {
-                                                        estado = "Aprobado";
-                                                    }else{
-                                                        estado = "Reprobado";
-                                                    }
-                                                    out.print("<tr>");
-                                                    out.print("<td>"+nombreR+"</td>");
-                                                    out.print("<td>"+estado+"</td>");
-                                                    out.print("<td>"+prom+"</td>");
-                                                    out.print("</tr>");
-                                                }
-                                            %>   
+
+                                <%
+                                    Ramo[] r = (Ramo[]) request.getAttribute("ramosHist");
+                                    for (int i = 0; i < r.length; i++) {
+                                        String nombreR = r[i].getNombreRamo();
+                                        String tipoR = r[i].getTipoAprobacion();
+
+                                        double prom;
+                                        if (tipoR.equals("Solo Teórico") || tipoR.equals("Solo Práctico")) {
+                                            prom = r[i].getPromedioSimple().getPromFinal();
+                                        } else {
+                                            prom = r[i].getPromedioMixto().getPromFinal();
+                                        }
+
+                                        String estado = "";
+                                        if (prom >= 3.96) {
+                                            estado = "Aprobado";
+                                        } else {
+                                            estado = "Reprobado";
+                                        }
+                                        out.print("<tr>");
+                                        out.print("<td>" + nombreR + "</td>");
+                                        out.print("<td>" + estado + "</td>");
+                                        out.print("<td>" + prom + "</td>");
+                                        out.print("</tr>");
+                                    }
+                                %>   
 
                             </tbody>
                         </table>
@@ -113,7 +133,7 @@
                     <button class="btn btn-primary" type="submit" name="opc" value="0" style="margin:15px 10px 0px;height:56px;">Volver</button>
                     <button class="btn btn-primary" type="submit" name="opc" value="1"><i class="fa fa-file-pdf-o" style="font-size:24px;"></i></button>
                     <button class="btn btn-primary" type="submit" name="opc" value="2" style="margin:15px 10px 0px;font-size:24px;"><i class="fa fa-bar-chart"></i></button></div>
-                </form>
+            </form>
         </div>
         <div class="footer-basic" style="background-color:rgb(58,59,61);color:rgb(255,255,255);">
             <footer>

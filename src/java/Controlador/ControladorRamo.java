@@ -266,12 +266,34 @@ public class ControladorRamo extends HttpServlet {
 
     }
 
+    /**
+     * Método para agregar un nuevo ramo al semestre actual del usuario.
+     *
+     * @param nombre nombre del ramo.
+     * @param cod codigo del ramo.
+     * @param tipo tipo de aprobación del ramo.
+     * @param cantNT cantidad de notas teóricas del ramo.
+     * @param cantNP cantidad de notas prácticas del ramo.
+     * @param pondNT ponderación teórica del ramo.
+     * @param pondNP ponderación práctica del ramo.
+     * @param horasSem cantidad de horas semanales del ramo.
+     * @param sem id del Semestre relacionado al ramo.
+     */
     public void agregarRamo(String nombre, String cod, String tipo, String cantNT, String cantNP, String pondNT, String pondNP, String horasSem, Semestre sem) {
         InsertarDatos ins = new InsertarDatos();
         ins.addRamo(nombre, Integer.parseInt(cod), tipo, Integer.parseInt(cantNT), Integer.parseInt(cantNP), Double.parseDouble(pondNT),
                 Double.parseDouble(pondNP), Integer.parseInt(horasSem), sem);
     }
 
+    /**
+     * Método para agregar notas a un ramo del semestre actual del usuario.
+     *
+     * @param tipo tipo de nota a ingresar, teórica o práctica.
+     * @param nota valor de nota a ingresar.
+     * @param pond ponderación de la nota.
+     * @param ramo id del ramo actual al que se le ingresara la nota.
+     * @throws PersistentException excepción del caso.
+     */
     public void agregarNotas(String tipo, double nota, double pond, Ramo ramo) throws PersistentException {
         InsertarDatos ins = new InsertarDatos();
         if (tipo.equals("T")) {
@@ -282,6 +304,11 @@ public class ControladorRamo extends HttpServlet {
 
     }
 
+    /**
+     * Método para borrar un ramo por su id.
+     *
+     * @param idRamo id del ramo a eliminar.
+     */
     public void borrarRamo(String idRamo) {
         DropByID drop = new DropByID();
         drop.dropRamo(idRamo);

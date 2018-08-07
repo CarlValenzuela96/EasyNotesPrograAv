@@ -302,6 +302,19 @@ public class ControladorUsuario extends HttpServlet {
 
     }
 
+    /**
+     * Método para registrar un nuevo usuario.
+     *
+     * @param g variable de la clase GetDatos, para obtener valores del login.
+     * del usuario.
+     * @param matricula id (matricula usuario) del login.
+     * @param pass password del login.
+     * @param request
+     * @param response
+     * @throws PersistentException
+     * @throws ServletException
+     * @throws IOException
+     */
     public void registrarUsuario(GetDatos g, String matricula, String pass, HttpServletRequest request, HttpServletResponse response) throws PersistentException, ServletException, IOException {
 
         Login log = g.getLogin(matricula, pass);
@@ -324,6 +337,19 @@ public class ControladorUsuario extends HttpServlet {
 
     }
 
+    /**
+     * Método de ingreso(log) del usuario.
+     *
+     * @param g variable de la clase GetDatos, para obtener valores del login.
+     * @param c variable de la clase Controlador, para hacer uso de métodos.
+     * @param matricula matricula (id) del log del usuario.
+     * @param pass password del login.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws PersistentException
+     */
     public void LoginUser(GetDatos g, Controlador c, String matricula, String pass, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, PersistentException {
         HttpSession session = request.getSession(true);
 
@@ -376,7 +402,7 @@ public class ControladorUsuario extends HttpServlet {
 
                 } else {
 //                    ArrayList<Evento> eUser = g.getEventosUser(sem.getIdSemestre());
-                   Evento[] eUser = g.getEventosUser(sem.getIdSemestre());
+                    Evento[] eUser = g.getEventosUser(sem.getIdSemestre());
                     String fechas = c.generarJsonFechas(eUser);
                     session.setAttribute("semestreActivo", sem);
                     session.setAttribute("jsonFechas", fechas);
@@ -392,16 +418,43 @@ public class ControladorUsuario extends HttpServlet {
         }
     }
 
+    /**
+     * Método para el ingreso de los datos del usuario.
+     *
+     * @param userLogin valor de la id del login del usuario.
+     * @param nombre nombre del usuario.
+     * @param apellido apellido del usuario.
+     * @param matricula matricula del usuario.
+     * @param run run del usuario.
+     * @param pga pag (promedio general acumulado) del usuario.
+     * @param sexo género del usuario.
+     * @param nacionalidad nacionalidad del usuario.
+     * @param telefono teléfono del usuario.
+     * @param edad edad del usuario.
+     * @param fechaNac fecha de nacimiento del usuario, con la cual se calculara
+     * su edad.
+     * @param email correo electrónico del usuario.
+     * @throws ServletException
+     * @throws PersistentException
+     */
     public void datosUser(Login userLogin, String nombre, String apellido, String matricula, String run, String pga, String sexo, String nacionalidad, String telefono, String edad, String fechaNac, String email) throws ServletException, PersistentException {
 
-//        ListData l = new ListData();
-//        Login userLogin = c.buscarUserLogin(l.listLogin(), log.getIdLogin());
         InsertarDatos ins = new InsertarDatos();
         //agrega usuario
         ins.addUsuario(nombre, apellido, matricula, run, Double.parseDouble(pga), sexo, edad, fechaNac, nacionalidad, telefono, email, LoginDAO.getLoginByORMID(userLogin.getIdLogin()));
 
     }
 
+    /**
+     * Método para ingresar datos de la carrera del usuario.
+     *
+     * @param user valor Usuario del cual se obtendra su id (usuario actual de
+     * la sesión).
+     * @param nomUniv nombre de la universidad de la carrera del usuario.
+     * @param nomCarr nombre de la carrera.
+     * @param cantSem cantidad de semestres de la carrera.
+     * @throws PersistentException
+     */
     public void datosAcademicos(Usuario user, String nomUniv, String nomCarr, String cantSem) throws PersistentException {
         InsertarDatos ins = new InsertarDatos();
         //agrega carrera al usuario
@@ -409,6 +462,19 @@ public class ControladorUsuario extends HttpServlet {
 
     }
 
+    /**
+     * Método para ingresar dirección y domicilio del usuario de la sesión
+     *
+     * @param user valor Usuario del cual se obtendra su id.
+     * @param g objeto de la clase GetDatos, para utilización de métodos.
+     * @param paisResidencia país de residencia de la dirección.
+     * @param ciudad ciudad de la dirección.
+     * @param comuna comuna de la dirección.
+     * @param calle calle del domicilio.
+     * @param tipoDom tipo de domiclio a ingresar.
+     * @param num número de domicilio.
+     * @throws PersistentException
+     */
     public void datosDomicilio(Usuario user, GetDatos g, String paisResidencia, String ciudad, String comuna, String calle, String tipoDom, String num) throws PersistentException {
         InsertarDatos ins = new InsertarDatos();
         //agrega direccion al usuario
@@ -427,6 +493,11 @@ public class ControladorUsuario extends HttpServlet {
         ins.addDomicilio(calle, numCasa, numDpto, DireccionDAO.getDireccionByORMID(dir.getIdDireccion()));
     }
 
+    /**
+     * Método para listar años.
+     *
+     * @return arreglo de String con años.
+     */
     public ArrayList<String> listaAños() {
         ArrayList<String> list = new ArrayList<>();
         LocalDate ahora = LocalDate.now();
@@ -438,6 +509,11 @@ public class ControladorUsuario extends HttpServlet {
         return list;
     }
 
+    /**
+     * Métodos para listar horas.
+     *
+     * @return arreglo de String con horas.
+     */
     public ArrayList<String> listaHoras() {
         ArrayList<String> list = new ArrayList<>();
 

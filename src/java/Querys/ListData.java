@@ -40,7 +40,6 @@ import clases.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.hibernate.LockMode;
 import org.orm.PersistentException;
 
 /**
@@ -55,8 +54,9 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos Login.
      *
-     * @return
+     * @return ArrayList de todos los objetos Login del sistema (base de datos).
      */
     public ArrayList<Login> listLogin() {
         ArrayList<Login> log = new ArrayList<>();
@@ -76,8 +76,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos Usuario.
      *
-     * @return
+     * @return ArrayList de todos los objetos Usuario del sistema (base de
+     * datos).
      */
     public ArrayList<Usuario> listUsuario() {
         ArrayList<Usuario> usu = new ArrayList<>();
@@ -112,8 +114,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos Semestre.
      *
-     * @return
+     * @return ArrayList de todos los objetos Semestre del sistema (base de
+     * datos).
      */
     public ArrayList<Semestre> listSemestre() {
         ArrayList<Semestre> s = new ArrayList<>();
@@ -137,8 +141,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos Evento.
      *
-     * @return
+     * @return ArrayList de todos los objetos Evento del sistema (base de
+     * datos).
      */
     public ArrayList<Evento> listEvento() {
         ArrayList<Evento> e = new ArrayList<>();
@@ -165,8 +171,9 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos Ramos.
      *
-     * @return
+     * @return ArrayList de todos los objetos Ramo del sistema (base de datos).
      */
     public ArrayList<Ramo> listRamo() {
         ArrayList<Ramo> r = new ArrayList<>();
@@ -193,8 +200,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos Horario.
      *
-     * @return
+     * @return ArrayList de todos los objetos Horario del sistema (base de
+     * datos).
      */
     public ArrayList<Horario> listHorario() {
         ArrayList<Horario> h = new ArrayList<>();
@@ -218,8 +227,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos PromedioMixto.
      *
-     * @return
+     * @return ArrayList de todos los objetos PromedioMixto del sistema (base de
+     * datos).
      */
     public ArrayList<PromedioMixto> listPromedioMixto() {
         ArrayList<PromedioMixto> promM = new ArrayList<>();
@@ -241,8 +252,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos PromedioSimple.
      *
-     * @return
+     * @return ArrayList de todos los objetos PromedioSimple del sistema (base
+     * de datos).
      */
     public ArrayList<PromedioSimple> listPromedioSimple() {
         ArrayList<PromedioSimple> promS = new ArrayList<>();
@@ -262,8 +275,10 @@ public class ListData {
     }
 
     /**
+     * Método que retorna ArrayList de objetos NotasTeorico.
      *
-     * @return
+     * @return ArrayList de todos los objetos NotasTeorico del sistema (base de
+     * datos).
      */
     public ArrayList<NotasTeorico> listNotasTeorico() {
         ArrayList<NotasTeorico> n = new ArrayList<>();
@@ -283,6 +298,12 @@ public class ListData {
         return n;
     }
 
+    /**
+     * Método que retorna ArrayList de objetos NotasPractico.
+     *
+     * @return ArrayList de todos los objetos NotasPractico del sistema (base de
+     * datos).
+     */
     public ArrayList<NotasPractico> listNotasPractico() {
         ArrayList<NotasPractico> n = new ArrayList<>();
         try {
@@ -301,6 +322,12 @@ public class ListData {
         return n;
     }
 
+    /**
+     * Método que retorna ArrayList de objetos Carrera.
+     *
+     * @return ArrayList de todos los objetos Carrera del sistema (base de
+     * datos).
+     */
     public ArrayList<Carrera> listCarrera() {
         ArrayList<Carrera> c = new ArrayList<>();
         try {
@@ -320,6 +347,12 @@ public class ListData {
         return c;
     }
 
+    /**
+     * Método que retorna ArrayList de objetos Direccion.
+     *
+     * @return ArrayList de todos los objetos Direccion del sistema (base de
+     * datos).
+     */
     public ArrayList<Direccion> listDireccion() {
         ArrayList<Direccion> d = new ArrayList<>();
         try {
@@ -340,6 +373,12 @@ public class ListData {
         return d;
     }
 
+    /**
+     * Método que retorna ArrayList de objetos Domicilio.
+     *
+     * @return ArrayList de todos los objetos Domicilio del sistema (base de
+     * datos).
+     */
     public ArrayList<Domicilio> listDomicilio() {
         ArrayList<Domicilio> d = new ArrayList<>();
         try {
@@ -358,7 +397,13 @@ public class ListData {
         }
         return d;
     }
-
+    
+     /**
+     * Método que retorna ArrayList de objetos Historial.
+     *
+     * @return ArrayList de todos los objetos Historial del sistema (base de
+     * datos).
+     */
     public ArrayList<Historial> listHistorial() {
         ArrayList<Historial> h = new ArrayList<>();
         try {
@@ -376,7 +421,13 @@ public class ListData {
         }
         return h;
     }
-
+    
+    /**
+     * Método que retorna ArrayList de objetos RamoAprobado.
+     *
+     * @return ArrayList de todos los objetos RamosAprobado del sistema (base de
+     * datos).
+     */
     public ArrayList<RamoAprobado> listRamoAprobado() {
         ArrayList<RamoAprobado> ra = new ArrayList<>();
         try {
@@ -394,7 +445,13 @@ public class ListData {
         }
         return ra;
     }
-
+    
+    /**
+     * Método que retorna ArrayList de objetos RamoReprobado.
+     *
+     * @return ArrayList de todos los objetos RamoReprobado del sistema (base de
+     * datos).
+     */
     public ArrayList<RamoReprobado> listRamoReprobado() {
         ArrayList<RamoReprobado> rr = new ArrayList<>();
         try {

@@ -49,6 +49,12 @@ public class Controlador {
     public Controlador() {
     }
 
+    /**
+     * Método de calculo de edad del usuario.
+     *
+     * @param fecha fecha de nacimiento del usuario.
+     * @return edad del usuario.
+     */
     public String edadUsuario(String fecha) {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fechaNac = LocalDate.parse(fecha, fmt);
@@ -59,12 +65,17 @@ public class Controlador {
         return String.valueOf(periodo.getYears());
     }
 
-//    public String generarJsonFechas(ArrayList<Evento> a) {
+    /**
+     * Método que genera archivo json con las fechas de eventos.
+     *
+     * @param a arreglo de eventos.
+     * @return archivo json con informacion de fechas de eventos.
+     */
     public String generarJsonFechas(Evento[] a) {
         Gson g = new Gson();
         String json;
         String jsonTotal = "";
-        //            FileWriter file = new FileWriter("C:\\Users\\Carlos\\Desktop\\EasyNotes\\web\\assets\\js\\fechas.js");
+
         if (a != null) {
 
             for (int i = 0; i < a.length; i++) {
@@ -98,7 +109,15 @@ public class Controlador {
         }
         return jsonTotal;
     }
-
+    
+    /**
+     * Metodo que crea xml con datos de historial seleccionado por usuario
+     * 
+     * @param name nombre del archivo xml
+     * @param r arreglo de los ramos contenidos en dicho historial
+     * @throws ParserConfigurationException
+     * @throws TransformerException 
+     */
     public void crearXMLHistorial(String name, Ramo[] r) throws ParserConfigurationException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -159,7 +178,19 @@ public class Controlador {
         }
 
     }
-
+    
+    /**
+     * Metodo que transforma el XML con los ramos del historial de un usuario a PDF utilizando un archivo xsl 
+     * 
+     * @param xslFile ruta donde se encuentra el xsl
+     * @param xmlFile ruta donde se encuentra el xml
+     * @param outFile ruta donde se guarda el archivo pdf
+     * @throws IOException
+     * @throws FOPException
+     * @throws TransformerException
+     * @throws SAXException
+     * @throws SAXException 
+     */
     public void convertToPDF(String xslFile, String xmlFile, String outFile) throws IOException, FOPException, TransformerException, SAXException, SAXException {
         // the XSL FO file
         File xsltFile = new File(xslFile + "FormatoPDF.xsl");
@@ -168,9 +199,9 @@ public class Controlador {
         // create an instance of fop factory
         System.out.println(new File(".").toURI().toString());
         System.out.println(new File("C:/Users/Carlos/Desktop/EasyNotes/.").toURI());
-        
+
         FopFactory fopFactory = FopFactory.newInstance(new File("File:/C:/Users/Carlos/Desktop/EasyNotes/.").toURI());
-        
+
         // a user agent is needed for transformation
         FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
         // Setup output
@@ -180,7 +211,7 @@ public class Controlador {
         try {
             // Construct fop with desired output format
             Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
-            
+
             // Setup XSLT
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer transformer = factory.newTransformer(new StreamSource(xsltFile));

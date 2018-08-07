@@ -40,7 +40,7 @@
                     <div
                         class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav"></ul>
-                        <p class="navbar-text navbar-right actions"> <a class="navbar-link login" href="Login.jsp" style="color:rgb(255,255,255);">Iniciar sesión</a><a class="btn btn-default action-button" role="button" href="Registrar.html" Style="color:rgb(0,0,0);padding:10px 22px;margin:10px">Registrar</a></p>
+                        <p class="navbar-text navbar-right actions"> <a class="navbar-link login" href="Login.jsp" style="color:rgb(255,255,255);">Iniciar sesión</a><a class="btn btn-default action-button" role="button" href="Registrar.jsp" Style="color:rgb(0,0,0);padding:10px 22px;margin:10px">Registrar</a></p>
                     </div>
                 </div>
             </nav>

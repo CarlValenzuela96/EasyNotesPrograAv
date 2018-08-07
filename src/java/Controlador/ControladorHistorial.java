@@ -24,6 +24,7 @@ import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
+import org.apache.fop.apps.FOPException;
 //import org.apache.fop.apps.FOPException;
 import org.orm.PersistentException;
 
@@ -103,7 +104,7 @@ public class ControladorHistorial extends HttpServlet {
                         response.sendRedirect("Principal.jsp");
                         break;
                     case "1":
-//                        r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
+                        r = g.getRamosUser(hist.getSemestreidSemestre().getIdSemestre());
 //                         {
 //                            try {
 //                                c.crearXMLHistorial("Historial", r);
@@ -116,16 +117,17 @@ public class ControladorHistorial extends HttpServlet {
 //
 //                         {
 //                            try {
-//                                c.TransformtoPDF("C:/Users/Carlos/Desktop/EasyNotes/src/java/Transformacion/FormatoPDF.xsl",
-//                                        "C:/Users/Carlos/Desktop/EasyNotes/src/java/Transformacion/Historial.xml",
-//                                        "C:/Users/Carlos/Desktop/EasyNotes/web/Historial.pdf");
+//                                c.convertToPDF("C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\",
+//                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\",
+//                                        "C:\\Users\\Carlos\\Desktop\\EasyNotes\\src\\java\\Transformacion\\");
 //                            } catch (FOPException ex) {
 //                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
 //                            } catch (TransformerException ex) {
 //                                Logger.getLogger(ControladorHistorial.class.getName()).log(Level.SEVERE, null, ex);
 //                            }
 //                        }
-
+                        Thread hilo = new ProcesoPDF("procesoPDF", r);
+                        hilo.start();
                         response.sendRedirect("Principal.jsp");
                         break;
                     case "2":
